@@ -1,17 +1,18 @@
 ![tp2](https://github.com/fiuba/algo3_proyecto_base_tp2/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2)
 
-# TP2 Algoritmos 3: {nombre} 
+# TP2 Algoritmos 3: **ALGOHOOT**
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 7
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 1** - [integrante1](https://github.com/premzray)
+* **Integrante 2** - [integrante2](https://github.com/milithome)
+* **Integrante 3** - [integrante3](https://github.com/undragonIII)
+* **Integrante 4** - [integrante4](https://github.com/manuelklly)
+* **Integrante 5** - [integrante5](https://github.com/mateocastano15)
 
-Corrector: **{Corrector}**
+Corrector: **Maia Naftali**
 
 ## Aplicación
 
