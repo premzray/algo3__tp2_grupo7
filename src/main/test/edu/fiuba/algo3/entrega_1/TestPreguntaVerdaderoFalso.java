@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.entrega_1;
 
 import org.junit.jupiter.api.Test;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.*;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,18 +18,18 @@ public class TestPreguntaVerdaderoFalso {
         Respuesta r1 = new Respuesta();
         Respuesta r2 = new Respuesta();
 
-        List<Respuestas> rJugador = new List<Respuestas>();
-        List<Respuestas> rCorrectas = new List<Respuestas>();
-        List<Respuestas> rPosibles = new List<Respuestas>();
+        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
 
         rJugador.add(r1);
         rCorrectas.add(r1);
         rPosibles.add(r1);
         rPosibles.add(r2);
 
-        Pregunta p = new VerdaderoFalso(new Clasico(), rCorrectas, rPosibles);
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
 
-        assertEquals(p.puntuar(rJugador), puntajeEsperado);
+        assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
     }
 
@@ -40,18 +40,18 @@ public class TestPreguntaVerdaderoFalso {
         Respuesta r1 = new Respuesta();
         Respuesta r2 = new Respuesta();
 
-        List<Respuestas> rJugador = new List<Respuestas>();
-        List<Respuestas> rCorrectas = new List<Respuestas>();
-        List<Respuestas> rPosibles = new List<Respuestas>();
+        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
 
         rJugador.add(r2);
         rCorrectas.add(r1);
         rPosibles.add(r1);
         rPosibles.add(r2);
 
-        Pregunta p = new VerdaderoFalso(new Clasico(), rCorrectas, rPosibles);
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
 
-        assertEquals(p.puntuar(rJugador), puntajeEsperado);
+        assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
     }
 
@@ -62,18 +62,18 @@ public class TestPreguntaVerdaderoFalso {
         Respuesta r1 = new Respuesta();
         Respuesta r2 = new Respuesta();
 
-        List<Respuestas> rJugador = new List<Respuestas>();
-        List<Respuestas> rCorrectas = new List<Respuestas>();
-        List<Respuestas> rPosibles = new List<Respuestas>();
+        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
 
         rJugador.add(r1);
         rCorrectas.add(r1);
         rPosibles.add(r1);
         rPosibles.add(r2);
 
-        Pregunta p = new VerdaderoFalso(new Penalidad(), rCorrectas, rPosibles);
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
 
-        assertEquals(p.puntuar(rJugador), puntajeEsperado);
+        assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
 
     @Test
@@ -83,17 +83,17 @@ public class TestPreguntaVerdaderoFalso {
         Respuesta r1 = new Respuesta();
         Respuesta r2 = new Respuesta();
 
-        List<Respuestas> rJugador = new List<Respuestas>();
-        List<Respuestas> rCorrectas = new List<Respuestas>();
-        List<Respuestas> rPosibles = new List<Respuestas>();
+        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
+        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
 
         rJugador.add(r2);
         rCorrectas.add(r1);
         rPosibles.add(r1);
         rPosibles.add(r2);
 
-        Pregunta p = new VerdaderoFalso(new Penalidad(), rCorrectas, rPosibles);
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
 
-        assertEquals(p.puntuar(rJugador), puntajeEsperado);
+        assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
 }
