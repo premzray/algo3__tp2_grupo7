@@ -8,6 +8,12 @@ public abstract class Pregunta{
     public ArrayList<Respuesta> respuestaCorrecta;
     public TipoPuntaje tipoPuntaje;
 
-    public abstract int puntuarRespuesta(ArrayList<Respuesta> respuestaJugador);
+    public Pregunta(ArrayList<Respuesta> respuestaCorrecta, ArrayList<Respuesta> respuestasPosibles, TipoPuntaje tipoPuntaje){
+        this.tipoPuntaje = tipoPuntaje;
+        this.respuestaCorrecta = respuestaCorrecta;
+        this.respuestasPosibles = respuestasPosibles;
+    }
 
+
+    public abstract int puntuarRespuesta(ArrayList<Respuesta> respuestaJugador);
 }

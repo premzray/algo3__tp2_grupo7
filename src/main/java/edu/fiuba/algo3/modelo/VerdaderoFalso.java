@@ -1,18 +1,28 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VerdaderoFalso extends Pregunta{
 
+
     public VerdaderoFalso(ArrayList<Respuesta> respuestaCorrecta, ArrayList<Respuesta> respuestasPosibles, TipoPuntaje tipoPuntaje){
-        this.tipoPuntaje = tipoPuntaje;
-        this.respuestaCorrecta = respuestaCorrecta;
-        this.respuestasPosibles = respuestasPosibles;
+        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje);
     }
 
     @Override
     public int puntuarRespuesta(ArrayList<Respuesta> respuestaJugador) {
-        return this.tipoPuntaje.puntuar(this.respuestaCorrecta, respuestaJugador);
+        int incorrectas = 0;
+        int correctas = 0;
+        if(respuestaJugador.size()>1){
+            //exepcion
+        }
+
+        if(respuestaJugador.get(0) == respuestaCorrecta.get(0)){
+            correctas = 1;
+        }
+        else{
+            incorrectas = 1;
+        }
+        return tipoPuntaje.puntuar(correctas,incorrectas);
     }
 }
