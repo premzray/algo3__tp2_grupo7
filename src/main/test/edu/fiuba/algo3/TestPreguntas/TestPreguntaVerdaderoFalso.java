@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.entrega_1;
+package edu.fiuba.algo3.TestPreguntas;
 
 import org.junit.jupiter.api.Test;
-import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Respuestas;
 import edu.fiuba.algo3.modelo.*;
 
 
@@ -15,17 +15,19 @@ public class TestPreguntaVerdaderoFalso {
     public void Test01ClasicoRespondeBien(){
 
         int puntajeEsperado = 1;
-        Respuesta r1 = new Respuesta();
-        Respuesta r2 = new Respuesta();
+        Respuestas rCorrectas = new Respuestas();
+        Respuestas rPosibles = new Respuestas();
+        Respuestas rJugador = new Respuestas();
 
-        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
+        String r1 = "V";
+        String r2 = "F";
 
-        rJugador.add(r1);
         rCorrectas.add(r1);
+
         rPosibles.add(r1);
         rPosibles.add(r2);
+
+        rJugador.add(r1);
 
         Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
 
@@ -37,17 +39,19 @@ public class TestPreguntaVerdaderoFalso {
     public void Test02ClasicoRespondeMal(){
 
         int puntajeEsperado = 0;
-        Respuesta r1 = new Respuesta();
-        Respuesta r2 = new Respuesta();
+        Respuestas rCorrectas = new Respuestas();
+        Respuestas rPosibles = new Respuestas();
+        Respuestas rJugador = new Respuestas();
 
-        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
+        String r1 = "V";
+        String r2 = "F";
 
-        rJugador.add(r2);
         rCorrectas.add(r1);
+
         rPosibles.add(r1);
         rPosibles.add(r2);
+
+        rJugador.add(r2);
 
         Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
 
@@ -59,17 +63,19 @@ public class TestPreguntaVerdaderoFalso {
     public void Test03PenalidadRespondeBien(){
 
         int puntajeEsperado = 1;
-        Respuesta r1 = new Respuesta();
-        Respuesta r2 = new Respuesta();
+        Respuestas rCorrectas = new Respuestas();
+        Respuestas rPosibles = new Respuestas();
+        Respuestas rJugador = new Respuestas();
 
-        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
+        String r1 = "V";
+        String r2 = "F";
 
-        rJugador.add(r1);
         rCorrectas.add(r1);
+
         rPosibles.add(r1);
         rPosibles.add(r2);
+
+        rJugador.add(r1);
 
         Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
 
@@ -80,17 +86,19 @@ public class TestPreguntaVerdaderoFalso {
     public void Test04PenalidadRespondeMal(){
 
         int puntajeEsperado = -1;
-        Respuesta r1 = new Respuesta();
-        Respuesta r2 = new Respuesta();
+        Respuestas rCorrectas = new Respuestas();
+        Respuestas rPosibles = new Respuestas();
+        Respuestas rJugador = new Respuestas();
 
-        ArrayList<Respuesta> rJugador = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rCorrectas = new ArrayList<Respuesta>();
-        ArrayList<Respuesta> rPosibles = new ArrayList<Respuesta>();
+        String r1 = "V";
+        String r2 = "F";
 
-        rJugador.add(r2);
         rCorrectas.add(r1);
+
         rPosibles.add(r1);
         rPosibles.add(r2);
+
+        rJugador.add(r2);
 
         Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
 

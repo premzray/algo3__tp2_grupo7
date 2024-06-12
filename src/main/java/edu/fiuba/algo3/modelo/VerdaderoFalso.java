@@ -5,24 +5,15 @@ import java.util.ArrayList;
 public class VerdaderoFalso extends Pregunta{
 
 
-    public VerdaderoFalso(ArrayList<Respuesta> respuestaCorrecta, ArrayList<Respuesta> respuestasPosibles, TipoPuntaje tipoPuntaje){
+    public VerdaderoFalso(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje){
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje);
     }
 
     @Override
-    public int puntuarRespuesta(ArrayList<Respuesta> respuestaJugador) {
-        int incorrectas = 0;
-        int correctas = 0;
-        if(respuestaJugador.size()>1){
+    public int puntuarRespuesta(Respuestas respuestaJugador) {
+        if(!respuestaJugador.equalSize(respuestaCorrecta)){
             //exepcion
         }
-
-        if(respuestaJugador.get(0) == respuestaCorrecta.get(0)){
-            correctas = 1;
-        }
-        else{
-            incorrectas = 1;
-        }
-        return tipoPuntaje.puntuar(correctas,incorrectas);
+        return tipoPuntaje.puntuar(respuestaJugador.cuantasIguales(respuestaCorrecta), respuestaJugador.cuantasDiferentes(respuestaCorrecta));
     }
 }

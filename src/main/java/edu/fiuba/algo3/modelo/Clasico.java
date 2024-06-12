@@ -6,9 +6,9 @@ public class Clasico implements TipoPuntaje{
 
     @Override
     public int puntuar(int respuestaCorrecta, int respuestaIncorrecta){
-       if(respuestaIncorrecta == 0){
-           return 1;
-       }
+        if(respuestaIncorrecta == 0){
+            return 1;
+        }
         return 0;
     }
 }
