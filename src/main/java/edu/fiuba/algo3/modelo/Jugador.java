@@ -23,7 +23,7 @@ public class Jugador {
 
     public Respuestas responder(Pregunta pregunta){
 
-        //notificar eleccion de respuesta
+        //notificar eleccion de respues
         return (new Respuestas());
     }
 
