@@ -12,4 +12,9 @@ public class Anulador implements PowerUp{
         }
         return puntos;
     }
+
+    @Override
+    public boolean equals(PowerUp powerUpComparado) {
+        return (this.getClass() == powerUpComparado.getClass());
+    }
 }

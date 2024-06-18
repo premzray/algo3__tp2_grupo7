@@ -6,6 +6,7 @@ public class Jugada {
     private final Jugador jugador;
     private PowerUp powerUp;
     private int puntaje;
+    private Pregunta pregunta;
 
     public Jugada(Jugador jugador){
         this.jugador = jugador;
@@ -13,12 +14,29 @@ public class Jugada {
         this.puntaje = 0;
     }
 
-    private void setPowerUp(PowerUp nuevoPowerUp){
-        this.powerUp = nuevoPowerUp;
-    }
+    public void seUsoPowerUp(){
+        this.jugador.usastePowerUp(this.powerUp);
+    } //le comunica al jugador que ya uso ese powerUp para que lo elimine
 
-    private void setPuntaje(int nuevoPuntaje){
-        this.puntaje = nuevoPuntaje;
+    public boolean powerUpValido(PowerUp powerUpAValidar){
+        if (pregunta.powerUpValido(powerUpAValidar) && jugador.tenesPowerUp(powerUpAValidar)){
+            return true;
+        } else{
+            return false;
+        }
+    } //valida que el jugador tenga el powerUp y que la pregunta lo admita
+
+    public void registrarJugada(Respuestas respuestaJugador, PowerUp powerUpJugador/*/es importante que este powerUp se saque de los posibles del jugador y sea el mismo/*/){
+        if(this.powerUpValido(powerUpJugador)) {
+            this.powerUp = powerUpJugador;
+            this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
+        } else{
+            //excepcion
+        }
+    } //metodo usado por el observador para settear lo elegido por el jugador
+
+    public void setPregunta(Pregunta pregunta) {
+        this.pregunta = pregunta;
     }
 
     public PowerUp getPowerUp(){
@@ -30,14 +48,9 @@ public class Jugada {
     }
 
     public void actualizarJugada(Pregunta pregunta){
-
-        Respuestas respuestasJugador = jugador.responder(pregunta); // recibe las respuestas del jugador
-        this.setPuntaje(pregunta.puntuarRespuesta(respuestasJugador)); // actualiza el puntaje base
-
-        PowerUp powerUpJugador = jugador.elegirPowerUp(pregunta); // recibe el powerUp usado
-        this.setPowerUp(powerUpJugador); // actualiza el powerUp usado
-
-        //notificar fin de jugada a observadores
+        setPregunta(pregunta);
+        //notificar que un jugador debe responder una pregunta (esto settea el powerUp usado y la respuesta del jugador
+        // usando registrarJugada)
     }
 
     public void actualizarPuntos(int puntosNuevos){

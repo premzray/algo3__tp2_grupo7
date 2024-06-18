@@ -7,4 +7,9 @@ public class Base implements PowerUp{
     public ArrayList<Integer> usar(ArrayList<Integer> puntos, int indiceUso) {
         return puntos;
     }
+
+    @Override
+    public boolean equals(PowerUp powerUpComparado) {
+        return (this.getClass() == powerUpComparado.getClass());
+    }
 }

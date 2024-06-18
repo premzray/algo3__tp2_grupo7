@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class MultipleChoice extends Pregunta{
 
-    public MultipleChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje){
-        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje);
+    public MultipleChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
+        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
     }
 
     @Override

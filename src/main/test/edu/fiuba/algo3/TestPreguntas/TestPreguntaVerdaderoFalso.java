@@ -29,7 +29,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -53,7 +53,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -77,7 +77,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -100,7 +100,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad());
+        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

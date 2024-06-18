@@ -2,7 +2,13 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class Clasico implements TipoPuntaje{
+public class Clasico extends TipoPuntaje{
+
+    public Clasico(){
+        this.powerUpsValidos.add(new Exclusividad());
+        this.powerUpsValidos.add(new Anulador());
+        this.powerUpsValidos.add(new Base());
+    }
 
     @Override
     public int puntuar(int respuestaCorrecta, int respuestaIncorrecta){
@@ -11,5 +17,6 @@ public class Clasico implements TipoPuntaje{
         }
         return 0;
     }
+
 }
 

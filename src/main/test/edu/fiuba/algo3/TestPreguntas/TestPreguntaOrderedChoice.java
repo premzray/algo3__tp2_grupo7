@@ -40,7 +40,7 @@ public class TestPreguntaOrderedChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new OrderedChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new OrderedChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -78,7 +78,7 @@ public class TestPreguntaOrderedChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new OrderedChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new OrderedChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 

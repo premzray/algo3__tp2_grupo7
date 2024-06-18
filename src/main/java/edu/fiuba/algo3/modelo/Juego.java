@@ -9,7 +9,7 @@ public class Juego {
     int limitePreguntas;
     int limitePuntos;
 
-    public Juego(int cantidadJugadores, int limitePreguntas, int limitePuntos){
+    public Juego(int cantidadJugadores, int limitePreguntas, int limitePuntos, ArrayList<String> nombres){
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
 
@@ -18,10 +18,10 @@ public class Juego {
             //excepcion
         }
         for(int i=0; i<= cantidadJugadores-1; i++){
-            this.jugadores.add(new Jugador());
+            this.jugadores.add(new Jugador(nombres.get(i)));
         } //se encarga de crear los jugadores
 
-        this.turno = new Turno(this.jugadores); //crea una lista de turnos
+        this.turno = new Turno(this.jugadores); //crea el turno que se va actualizando en cada ronda
 
         this.preguntas = new ArrayList<Pregunta>();
         //Generador de preguntas
@@ -50,13 +50,12 @@ public class Juego {
 
         while(!fin(cantPreguntas)){
             turno.jugarTurno(pregunta);
-            //notificar a observador que termino el turno
 
             preguntas.remove(pregunta);
             pregunta = this.preguntaRandom();
             cantPreguntas++;
         }
-        //notificar fin de juego a observadores
+        //notificar fin de juego a observadores (mostrar pantalla de fin de juego)
     }
 
     /*/public ArrayList<Jugador> ordenDeJugadores(){

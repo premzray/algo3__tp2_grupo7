@@ -23,7 +23,7 @@ public class Turno {
         }
 
         return puntos;
-    }
+    } //devuelve la lista de los puntos del turno
 
     private ArrayList<PowerUp> listaPowerUps(){
         ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
@@ -33,7 +33,7 @@ public class Turno {
         }
 
         return powerUps;
-    }
+    } //devuelve la lista de powerUps usados en el turno
 
     public void jugarTurno(Pregunta pregunta) {
 
@@ -44,6 +44,10 @@ public class Turno {
         ArrayList<Integer> puntosActualizados = this.administradorPowerUp.resolverPowerUps(this.listaPuntos(), this.listaPowerUps());
         // se encarga de modificar los puntos base con los powerUps jugados
 
+        for (Jugada jugada: jugadas){
+            jugada.seUsoPowerUp();
+        } //elimina el powerUp de sus jugadores para que no puedan volver a usarlos
+
         int i = 0;
         for (Jugada jugada : jugadas) {
             jugada.actualizarPuntos(puntosActualizados.get(i));
@@ -51,6 +55,6 @@ public class Turno {
             i++;
         } // se encarga de otorgar los puntos finales a cada jugador
 
-        //notificar fin de turno a observadores
+        //notificar fin de turno a observadores (mostrar pantalla de fin de turno)
     }
 }

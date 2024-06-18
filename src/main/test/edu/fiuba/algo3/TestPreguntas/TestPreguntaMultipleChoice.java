@@ -37,7 +37,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -72,7 +72,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -104,7 +104,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -138,7 +138,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -170,7 +170,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -204,7 +204,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -237,7 +237,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -271,7 +271,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -303,7 +303,7 @@ public class TestPreguntaMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial());
+        Pregunta p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

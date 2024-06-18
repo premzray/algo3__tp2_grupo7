@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class GroupChoice extends Pregunta{
 
-    public GroupChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje){
-        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje);
+    public GroupChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
+        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
     }
 
     @Override

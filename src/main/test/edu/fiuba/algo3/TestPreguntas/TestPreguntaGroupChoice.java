@@ -47,7 +47,7 @@ public class TestPreguntaGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -91,9 +91,10 @@ public class TestPreguntaGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico());
+        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
     }
+
 }
