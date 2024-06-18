@@ -11,7 +11,7 @@ public class Penalidad extends TipoPuntaje{
     }
 
     @Override
-    public int puntuar(int respuestaCorrecta,int respuestaIncorrecta){
+    public int puntuar(int respuestaCorrecta,int respuestaIncorrecta, int cantidadDeCorrectasTotales){
       return respuestaCorrecta - respuestaIncorrecta;
     }
 

@@ -9,7 +9,7 @@ public abstract class TipoPuntaje {
         this.powerUpsValidos = new ArrayList<PowerUp>();
     }
 
-    public abstract int puntuar(int respuestasCorrecta, int respuestasIncorrecta);
+    public abstract int puntuar(int respuestasCorrecta, int respuestasIncorrecta, int cantidadDeCorrectasTotales);
 
     public boolean powerUpValido(PowerUp powerUp){
         for(PowerUp powerUpValido: this.powerUpsValidos){

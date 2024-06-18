@@ -14,6 +14,10 @@ public class Jugada {
         this.puntaje = 0;
     }
 
+    private void setPregunta(Pregunta pregunta) {
+        this.pregunta = pregunta;
+    }
+
     public void seUsoPowerUp(){
         this.jugador.usastePowerUp(this.powerUp);
     } //le comunica al jugador que ya uso ese powerUp para que lo elimine
@@ -34,10 +38,6 @@ public class Jugada {
             //excepcion
         }
     } //metodo usado por el observador para settear lo elegido por el jugador
-
-    public void setPregunta(Pregunta pregunta) {
-        this.pregunta = pregunta;
-    }
 
     public PowerUp getPowerUp(){
         return this.powerUp;

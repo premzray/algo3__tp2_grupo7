@@ -14,6 +14,6 @@ public class MultipleChoice extends Pregunta{
             //exepcion
         }
 
-        return tipoPuntaje.puntuar(respuestaJugador.cuantasContiene(respuestaCorrecta), (respuestaJugador.cuantasNoContiene(respuestaCorrecta) + respuestaCorrecta.cuantasNoContiene(respuestaJugador)));
+        return tipoPuntaje.puntuar(respuestaJugador.cuantasContiene(respuestaCorrecta), respuestaJugador.cuantasNoContiene(respuestaCorrecta), respuestaCorrecta.size());
     }
 }

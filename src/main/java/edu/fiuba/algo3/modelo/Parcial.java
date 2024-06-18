@@ -11,7 +11,10 @@ public class Parcial extends TipoPuntaje{
     }
 
     @Override
-    public int puntuar(int respuestaCorrecta,int respuestaIncorrecta){
-        return respuestaCorrecta;
+    public int puntuar(int respuestaCorrecta,int respuestaIncorrecta, int cantidadDeCorrectasTotales){
+        if(respuestaIncorrecta  == 0) {
+            return respuestaCorrecta;
+        }
+        return 0;
     }
 }

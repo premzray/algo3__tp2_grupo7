@@ -11,8 +11,8 @@ public class Clasico extends TipoPuntaje{
     }
 
     @Override
-    public int puntuar(int respuestaCorrecta, int respuestaIncorrecta){
-        if(respuestaIncorrecta == 0){
+    public int puntuar(int respuestaCorrecta, int respuestaIncorrecta, int cantidadDeCorrectasTotales){
+        if(respuestaIncorrecta == 0 && cantidadDeCorrectasTotales == respuestaCorrecta){
             return 1;
         }
         return 0;

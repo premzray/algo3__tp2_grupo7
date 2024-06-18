@@ -146,7 +146,7 @@ public class TestPreguntaMultipleChoice {
     @Test
     public void Test05PenalidadRespondeMalTotal(){
 
-        int puntajeEsperado = -5;
+        int puntajeEsperado = -1;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
@@ -177,7 +177,7 @@ public class TestPreguntaMultipleChoice {
     @Test
     public void Test06PenalidadRespondeMalParcial(){
 
-        int puntajeEsperado = 1;
+        int puntajeEsperado = 2;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
