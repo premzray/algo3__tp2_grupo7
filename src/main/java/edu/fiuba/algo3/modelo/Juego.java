@@ -13,27 +13,35 @@ public class Juego {
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
 
+        this.inicializarJugadores(nombres, cantidadJugadores);
+
+        this.turno = new TurnoTp(this.jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
+
+        this.inicializarPreguntas();
+    }
+
+    private void inicializarPreguntas(){
+        this.preguntas = new ArrayList<Pregunta>();
+        //Generador de preguntas
+    } //parser
+
+    private void inicializarJugadores(ArrayList<String> nombres, int cantidadJugadores){
         this.jugadores = new ArrayList<Jugador>();
         if(cantidadJugadores<=1){
             //excepcion
         }
         for(int i=0; i<= cantidadJugadores-1; i++){
-            this.jugadores.add(new Jugador(nombres.get(i)));
-        } //se encarga de crear los jugadores
-
-        this.turno = new Turno(this.jugadores); //crea el turno que se va actualizando en cada ronda
-
-        this.preguntas = new ArrayList<Pregunta>();
-        //Generador de preguntas
-    }
+            this.jugadores.add(new JugadorTp(nombres.get(i)));
+        }
+    } //inicializa los jugadores
 
     private boolean fin(int cantPreguntas){
         return (!preguntas.isEmpty() || cantPreguntas <= this.limitePreguntas || this.pasarsePuntos());
     } //evalua si el juego puede continuar otro turno
 
     private boolean pasarsePuntos(){
-        for(Jugador jugador: jugadores){
-            if(jugador.getPuntaje() >= limitePuntos){
+        for(Jugador jugador : jugadores){
+            if(jugador.puntajeEsMayor(limitePuntos)){
                 return true;
             }
         }

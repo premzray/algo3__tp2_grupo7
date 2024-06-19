@@ -11,25 +11,17 @@ public class Respuestas {
         this.respuestas = new ArrayList<String>();
     }//usado
 
-    private boolean equals(Respuestas r, int i){ return (this.get(i).equals(r.get(i)));} //usado
+    private boolean equals(Respuestas r, int i){ return (this.get(i).equals(r.get(i)));}
 
-    private boolean equals(Respuestas r){
-        return Objects.equals(this, r);
-    } //usado
+    private boolean contains(String s){ return (this.respuestas.contains(s));}
 
-    private boolean equals(String r, int i) { return Objects.equals(this.get(i), r); }
+    public String get(int i){ return this.respuestas.get(i);}
 
-    public boolean contains(String s){ return (this.respuestas.contains(s));}
+    public void add(String r){ this.respuestas.add(r); } //LO USA LA VISUAL
 
-    //desde aca usa el codigo
+    public int size(){ return this.respuestas.size();}
 
-    public String get(int i){ return this.respuestas.get(i);} //usado
-
-    public void add(String r){ this.respuestas.add(r); } //usado
-
-    public int size(){ return this.respuestas.size();} //usado
-
-    public boolean equalSize(Respuestas r) { return (this.size() == r.size());} //usado
+    public boolean equalSize(Respuestas r) { return (this.size() == r.size());}
 
     public boolean esMayorQue(Respuestas r) { return (this.size() > r.size());}
 

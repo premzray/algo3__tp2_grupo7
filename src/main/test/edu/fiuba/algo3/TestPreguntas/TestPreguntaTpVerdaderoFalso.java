@@ -5,11 +5,9 @@ import edu.fiuba.algo3.modelo.Respuestas;
 import edu.fiuba.algo3.modelo.*;
 
 
-import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestPreguntaVerdaderoFalso {
+public class TestPreguntaTpVerdaderoFalso {
 
     @Test
     public void Test01ClasicoRespondeBien(){
@@ -29,7 +27,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -53,7 +51,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -77,7 +75,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -100,7 +98,7 @@ public class TestPreguntaVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

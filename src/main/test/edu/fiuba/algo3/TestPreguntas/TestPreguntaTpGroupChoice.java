@@ -3,11 +3,9 @@ package edu.fiuba.algo3.TestPreguntas;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestPreguntaGroupChoice {
+public class TestPreguntaTpGroupChoice {
 
     @Test
     public void test01ClasicoRespondeBien(){
@@ -47,7 +45,7 @@ public class TestPreguntaGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        PreguntaTp p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -91,7 +89,7 @@ public class TestPreguntaGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        PreguntaTp p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 

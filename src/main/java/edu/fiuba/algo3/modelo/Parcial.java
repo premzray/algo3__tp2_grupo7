@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class Parcial extends TipoPuntaje{
+public class Parcial extends TipoPuntajeConRestriccion{
 
     public Parcial(){
         this.powerUpsValidos.add(new Exclusividad());

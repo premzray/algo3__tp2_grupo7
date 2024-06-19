@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-
-public class OrderedChoice extends Pregunta{
+public class OrderedChoice extends PreguntaTp {
 
     public OrderedChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);

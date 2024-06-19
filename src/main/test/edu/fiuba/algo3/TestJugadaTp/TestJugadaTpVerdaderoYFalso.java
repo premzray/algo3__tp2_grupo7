@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.TestJugada;
+package edu.fiuba.algo3.TestJugadaTp;
 
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestJugadaVerdaderoYFalso {
+public class TestJugadaTpVerdaderoYFalso {
 
     @Test
     public void test01JugadorNoJuegaPowerUpYRespondeCorrectoVerdaderoYFalsoClasico(){
@@ -22,12 +22,12 @@ public class TestJugadaVerdaderoYFalso {
         rJugador.add(r1);
 
         Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
-        Jugador jugador = new Jugador("nombre de pruebas");
-        Jugada jugada = new Jugada(jugador);
+        Jugador jugador = new JugadorTp("nombre de pruebas");
+        Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, jugador.getPowerUp(base));
+        jugada.registrarJugada(rJugador,base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -47,12 +47,12 @@ public class TestJugadaVerdaderoYFalso {
         rJugador.add(r1);
 
         Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
-        Jugador jugador = new Jugador("nombre de pruebas");
-        Jugada jugada = new Jugada(jugador);
+        Jugador jugador = new JugadorTp("nombre de pruebas");
+        Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, jugador.getPowerUp(base));
+        jugada.registrarJugada(rJugador, base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -72,12 +72,12 @@ public class TestJugadaVerdaderoYFalso {
         rJugador.add(r2);
 
         Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
-        Jugador jugador = new Jugador("nombre de pruebas");
-        Jugada jugada = new Jugada(jugador);
+        Jugador jugador = new JugadorTp("nombre de pruebas");
+        Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, jugador.getPowerUp(base));
+        jugada.registrarJugada(rJugador, base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -97,12 +97,12 @@ public class TestJugadaVerdaderoYFalso {
         rJugador.add(r2);
 
         Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
-        Jugador jugador = new Jugador("nombre de pruebas");
-        Jugada jugada = new Jugada(jugador);
+        Jugador jugador = new JugadorTp("nombre de pruebas");
+        Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, jugador.getPowerUp(base));
+        jugada.registrarJugada(rJugador, base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
 

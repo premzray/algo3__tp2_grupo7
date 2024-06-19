@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-
-public class GroupChoice extends Pregunta{
+public class GroupChoice extends PreguntaTp {
 
     public GroupChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);

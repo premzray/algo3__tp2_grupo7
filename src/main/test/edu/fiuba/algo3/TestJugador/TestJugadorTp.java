@@ -7,13 +7,16 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestJugador {
+public class TestJugadorTp {
 
     @Test
     public void test01JugadorTieneMultiplicarX2(){
         boolean resultadoEsperado = true;
         PowerUp powerUp = new Multiplicador(2);
-        Jugador jugador = new Jugador("nombre para test", powerUp, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp), resultadoEsperado );
     }
@@ -22,7 +25,10 @@ public class TestJugador {
     public void test02JugadorTieneMultiplicarX3(){
         boolean resultadoEsperado = true;
         PowerUp powerUp = new Multiplicador(3);
-        Jugador jugador = new Jugador("nombre para test", powerUp, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp), resultadoEsperado );
     }
@@ -31,7 +37,10 @@ public class TestJugador {
     public void test03JugadorTieneAnulador(){
         boolean resultadoEsperado = true;
         PowerUp powerUp = new Anulador();
-        Jugador jugador = new Jugador("nombre para test", powerUp, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp), resultadoEsperado );
     }
@@ -40,7 +49,10 @@ public class TestJugador {
     public void test04JugadorTieneExclusividad(){
         boolean resultadoEsperado = true;
         PowerUp powerUp = new Exclusividad();
-        Jugador jugador = new Jugador("nombre para test", powerUp, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp), resultadoEsperado );
     }
@@ -50,7 +62,11 @@ public class TestJugador {
         boolean resultadoEsperado = false;
         PowerUp powerUp1 = new Multiplicador(2);
         PowerUp powerUp2 = new Exclusividad();
-        Jugador jugador = new Jugador("nombre para test", powerUp2, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp2);
+
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp1), resultadoEsperado );
     }
@@ -60,7 +76,10 @@ public class TestJugador {
         boolean resultadoEsperado = false;
         PowerUp powerUp1 = new Multiplicador(3);
         PowerUp powerUp2 = new Multiplicador(2);
-        Jugador jugador = new Jugador("nombre para test", powerUp2, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp2);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp1), resultadoEsperado );
     }
@@ -70,7 +89,10 @@ public class TestJugador {
         boolean resultadoEsperado = false;
         PowerUp powerUp1 = new Anulador();
         PowerUp powerUp2 = new Exclusividad();
-        Jugador jugador = new Jugador("nombre para test", powerUp2, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp2);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp1), resultadoEsperado );
     }
@@ -80,7 +102,10 @@ public class TestJugador {
         boolean resultadoEsperado = false;
         PowerUp powerUp1 = new Exclusividad();
         PowerUp powerUp2 = new Multiplicador(3);
-        Jugador jugador = new Jugador("nombre para test", powerUp2, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp2);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp1), resultadoEsperado );
     }
@@ -90,7 +115,10 @@ public class TestJugador {
         boolean resultadoEsperado = true;
         PowerUp powerUp1 = new Base();
         PowerUp powerUp2 = new Exclusividad();
-        Jugador jugador = new Jugador("nombre para test", powerUp2, 0);
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+        powerUps.add(powerUp2);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 0);
 
         assertEquals(jugador.tenesPowerUp(powerUp1), resultadoEsperado );
     }
@@ -105,11 +133,10 @@ public class TestJugador {
         powerUpsEsperados.add(new Exclusividad());
         powerUpsEsperados.add(new Anulador());
 
-        Jugador jugador = new Jugador("nombre para test");
-        PowerUp powerUpComparador = new Multiplicador(2);
-        PowerUp powerUp = jugador.getPowerUp(powerUpComparador);
+        Jugador jugador = new JugadorTp("nombre para test");
+        PowerUp powerUpUsado = new Multiplicador(2);
 
-        jugador.usastePowerUp(powerUp);
+        jugador.usastePowerUp(powerUpUsado);
 
         for(int i=0; i<=powerUpsEsperados.size()-1; i++){
             if(!powerUpsEsperados.get(i).equals(jugador.getPowerUps().get(i))){
@@ -131,11 +158,10 @@ public class TestJugador {
         powerUpsEsperados.add(new Exclusividad());
         powerUpsEsperados.add(new Anulador());
 
-        Jugador jugador = new Jugador("nombre para test");
-        PowerUp powerUpComparador = new Multiplicador(3);
-        PowerUp powerUp = jugador.getPowerUp(powerUpComparador);
+        Jugador jugador = new JugadorTp("nombre para test");
+        PowerUp powerUpUsado = new Multiplicador(3);
 
-        jugador.usastePowerUp(powerUp);
+        jugador.usastePowerUp(powerUpUsado);
 
         for(int i=0; i<=powerUpsEsperados.size()-1; i++){
             if(!powerUpsEsperados.get(i).equals(jugador.getPowerUps().get(i))){
@@ -156,11 +182,10 @@ public class TestJugador {
         powerUpsEsperados.add(new Exclusividad());
         powerUpsEsperados.add(new Anulador());
 
-        Jugador jugador = new Jugador("nombre para test");
-        PowerUp powerUpComparador = new Exclusividad();
-        PowerUp powerUp = jugador.getPowerUp(powerUpComparador);
+        Jugador jugador = new JugadorTp("nombre para test");
+        PowerUp powerUpUsado = new Exclusividad();
 
-        jugador.usastePowerUp(powerUp);
+        jugador.usastePowerUp(powerUpUsado);
 
         for(int i=0; i<=powerUpsEsperados.size()-1; i++){
             if(!powerUpsEsperados.get(i).equals(jugador.getPowerUps().get(i))){
@@ -181,11 +206,11 @@ public class TestJugador {
         powerUpsEsperados.add(new Exclusividad());
         powerUpsEsperados.add(new Exclusividad());
 
-        Jugador jugador = new Jugador("nombre para test");
-        PowerUp powerUpComparador = new Anulador();
-        PowerUp powerUp = jugador.getPowerUp(powerUpComparador);
+        Jugador jugador = new JugadorTp("nombre para test");
+        PowerUp powerUpUsado = new Anulador();
 
-        jugador.usastePowerUp(powerUp);
+        jugador.usastePowerUp(powerUpUsado);
+
 
         for(int i=0; i<=powerUpsEsperados.size()-1; i++){
             if(!powerUpsEsperados.get(i).equals(jugador.getPowerUps().get(i))){
@@ -199,8 +224,11 @@ public class TestJugador {
     @Test
     public void test14JugadorActualizaSusPuntos(){
         int resultadoEsperado = 7;
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
         PowerUp powerUp = new Exclusividad();
-        Jugador jugador = new Jugador("nombre para test", powerUp, 5);
+        powerUps.add(powerUp);
+
+        Jugador jugador = new JugadorTp("nombre para test", powerUps, 5);
 
         jugador.actualizarPuntaje(2);
 

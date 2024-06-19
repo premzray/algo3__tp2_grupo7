@@ -26,7 +26,7 @@ public class Multiplicador implements PowerUp{
 
     @Override
     public boolean equals(PowerUp powerUpComparado) {
-        if(powerUpComparado.getClass() == this.getClass()){
+        if(Objects.equals(powerUpComparado, this)){
             return (this.getIndiceMult() == ((Multiplicador) powerUpComparado).getIndiceMult());
         }
         return false;

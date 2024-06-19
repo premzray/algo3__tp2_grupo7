@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-
-public class VerdaderoFalso extends Pregunta{
-
+public class VerdaderoFalso extends PreguntaTp {
 
     public VerdaderoFalso(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Anulador implements PowerUp{
     @Override
@@ -15,6 +16,6 @@ public class Anulador implements PowerUp{
 
     @Override
     public boolean equals(PowerUp powerUpComparado) {
-        return (this.getClass() == powerUpComparado.getClass());
+        return (Objects.equals(powerUpComparado, this));
     }
 }

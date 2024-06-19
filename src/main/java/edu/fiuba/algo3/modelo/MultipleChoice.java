@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-
-public class MultipleChoice extends Pregunta{
+public class MultipleChoice extends PreguntaTp {
 
     public MultipleChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
