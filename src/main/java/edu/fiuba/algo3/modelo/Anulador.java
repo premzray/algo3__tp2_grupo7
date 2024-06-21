@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Anulador extends PowerUpTp{
 
-    public Anulador(String nombre) {
-        super(nombre);
+    public Anulador() {
+        this.nombre = "ANULADOR";
     }
 
     @Override
@@ -17,10 +17,5 @@ public class Anulador extends PowerUpTp{
             }
         }
         return puntos;
-    }
-
-    @Override
-    public boolean equals(PowerUp powerUpComparado) {
-        return (Objects.equals(powerUpComparado, this));
     }
 }

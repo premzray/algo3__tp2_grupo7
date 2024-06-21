@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Exclusividad extends PowerUpTp{
 
-    public Exclusividad(String nombre) {
-        super(nombre);
+    public Exclusividad() {
+        this.nombre = "EXCLUSIVIDAD";
     }
 
     private boolean cumpleExclusividad(ArrayList<Integer> puntos){
@@ -30,10 +30,5 @@ public class Exclusividad extends PowerUpTp{
         }
 
         return puntos;
-    }
-
-    @Override
-    public boolean equals(PowerUp powerUpComparado) {
-        return (Objects.equals(powerUpComparado, this));
     }
 }

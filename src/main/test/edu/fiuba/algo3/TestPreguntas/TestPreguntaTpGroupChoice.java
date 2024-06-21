@@ -8,11 +8,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestPreguntaTpGroupChoice {
 
     @Test
-    public void test01ClasicoRespondeBien(){
+    public void test01ClasicoRespondeBien() {
         int puntajeEsperado = 1;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "GROUP CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -45,7 +52,7 @@ public class TestPreguntaTpGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        PreguntaTp p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -57,6 +64,13 @@ public class TestPreguntaTpGroupChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "GROUP CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -89,7 +103,7 @@ public class TestPreguntaTpGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        PreguntaTp p = new GroupChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 

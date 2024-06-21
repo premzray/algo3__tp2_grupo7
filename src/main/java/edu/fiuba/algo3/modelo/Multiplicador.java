@@ -6,9 +6,9 @@ import java.util.Objects;
 public class Multiplicador extends PowerUpTp{
     int indiceMult;
 
-    public Multiplicador(String nombre, int indiceMult){
-        super(nombre);
-        this.indiceMult = 1;
+    public Multiplicador(int indiceMult){
+        this.nombre = "MULTIPLICADOR";
+        this.indiceMult = indiceMult;
     }
 
     public int getIndiceMult() {
@@ -23,7 +23,7 @@ public class Multiplicador extends PowerUpTp{
 
     @Override
     public boolean equals(PowerUp powerUpComparado) {
-        if(Objects.equals(powerUpComparado.getNombre(), this.getNombre())){
+        if(this.getNombre().equals(powerUpComparado.getNombre())){
             return (this.getIndiceMult() == ((Multiplicador) powerUpComparado).getIndiceMult());
         }
         return false;

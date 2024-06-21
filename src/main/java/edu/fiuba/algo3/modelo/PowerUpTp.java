@@ -5,10 +5,6 @@ import java.util.Objects;
 public abstract class PowerUpTp implements PowerUp{
         String nombre;
 
-        public  PowerUpTp(String nombre){
-            this.nombre = nombre;
-        }
-
         @Override
         public String getNombre() {
             return nombre;
@@ -16,7 +12,8 @@ public abstract class PowerUpTp implements PowerUp{
 
         @Override
         public boolean equals(PowerUp powerUpComparado){
-            return (Objects.equals(this.getNombre(), powerUpComparado.getNombre()));
+            return (this.getNombre().equals(powerUpComparado.getNombre()));
         }
-    }
+
 }
+

@@ -18,11 +18,11 @@ public class JugadorTp implements Jugador{
         this.puntaje = 0;
         this.powerUps = new ArrayList<PowerUp>();
 
-        this.powerUps.add(new Multiplicador("MULTIPLICADORX2",2));
-        this.powerUps.add(new Multiplicador("MULTIPLICADORX3", 3));
-        this.powerUps.add(new Exclusividad("EXCLUSIVIDAD"));
-        this.powerUps.add(new Exclusividad("EXCLUSIVIDAD"));
-        this.powerUps.add(new Anulador("ANULADOR"));
+        this.powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 2));
+        this.powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 3));
+        this.powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
+        this.powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
+        this.powerUps.add(PowerUp.deTipo("ANULADOR"));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class JugadorTp implements Jugador{
         boolean Borro = true;
         int i=0;
 
-        while(!Borro){
+        while(Borro){
             if(powerUps.get(i).equals(powerUpUsado)){
                 powerUps.remove(powerUps.get(i));
                 Borro = false;

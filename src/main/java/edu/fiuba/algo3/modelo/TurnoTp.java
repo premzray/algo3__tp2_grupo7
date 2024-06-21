@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class TurnoTp implements Turno{
+public class TurnoTp extends Observable implements Turno{
     ArrayList<Jugada> jugadas;
 
     public TurnoTp(ArrayList<Jugador> jugadores){
@@ -70,6 +71,6 @@ public class TurnoTp implements Turno{
         this.actualizarJugadas(pregunta);
         this.efectuarJugadas();
 
-        //notificar fin de turno a observadores (mostrar pantalla de fin de turno)
+        notifyObservers();
     }
 }

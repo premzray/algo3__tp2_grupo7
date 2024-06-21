@@ -14,6 +14,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -35,7 +42,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -48,6 +55,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -70,7 +84,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -82,6 +96,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -102,7 +123,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -115,6 +136,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -136,7 +164,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -148,6 +176,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -168,7 +203,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -179,6 +214,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -202,7 +244,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -214,6 +256,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -235,7 +284,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -247,6 +296,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -269,7 +325,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -281,6 +337,13 @@ public class TestPreguntaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -301,7 +364,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public interface Jugada {
+public interface Jugada  {
     public void actualizarJugada(Pregunta pregunta);
 
     public void actualizarPuntos(int puntosNuevos);

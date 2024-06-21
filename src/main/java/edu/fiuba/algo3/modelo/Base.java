@@ -5,17 +5,12 @@ import java.util.Objects;
 
 public class Base extends PowerUpTp{
 
-    public Base(String nombre) {
-        super(nombre);
+    public Base() {
+        this.nombre = "BASE";
     }
 
     @Override
     public ArrayList<Integer> usar(ArrayList<Integer> puntos, int indiceUso) {
         return puntos;
-    }
-
-    @Override
-    public boolean equals(PowerUp powerUpComparado) {
-        return (Objects.equals(powerUpComparado, this));
     }
 }
