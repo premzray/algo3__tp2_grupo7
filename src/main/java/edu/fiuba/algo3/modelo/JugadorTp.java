@@ -18,11 +18,11 @@ public class JugadorTp implements Jugador{
         this.puntaje = 0;
         this.powerUps = new ArrayList<PowerUp>();
 
-        this.powerUps.add(new Multiplicador(2));
-        this.powerUps.add(new Multiplicador(3));
-        this.powerUps.add(new Exclusividad());
-        this.powerUps.add(new Exclusividad());
-        this.powerUps.add(new Anulador());
+        this.powerUps.add(new Multiplicador("MULTIPLICADORX2",2));
+        this.powerUps.add(new Multiplicador("MULTIPLICADORX3", 3));
+        this.powerUps.add(new Exclusividad("EXCLUSIVIDAD"));
+        this.powerUps.add(new Exclusividad("EXCLUSIVIDAD"));
+        this.powerUps.add(new Anulador("ANULADOR"));
     }
 
     @Override

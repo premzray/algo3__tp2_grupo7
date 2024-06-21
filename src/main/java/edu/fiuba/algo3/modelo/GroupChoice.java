@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 public class GroupChoice extends PreguntaTp {
 
-    public GroupChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica){
-        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+    public GroupChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, String id, String textoPregunta) {
+        super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
     }
 
     @Override

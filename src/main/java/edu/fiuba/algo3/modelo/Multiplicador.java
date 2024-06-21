@@ -3,15 +3,12 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Multiplicador implements PowerUp{
+public class Multiplicador extends PowerUpTp{
     int indiceMult;
 
-    public Multiplicador(){
+    public Multiplicador(String nombre, int indiceMult){
+        super(nombre);
         this.indiceMult = 1;
-    }
-
-    public Multiplicador(int indice){
-        this.indiceMult = indice;
     }
 
     public int getIndiceMult() {
@@ -26,7 +23,7 @@ public class Multiplicador implements PowerUp{
 
     @Override
     public boolean equals(PowerUp powerUpComparado) {
-        if(Objects.equals(powerUpComparado, this)){
+        if(Objects.equals(powerUpComparado.getNombre(), this.getNombre())){
             return (this.getIndiceMult() == ((Multiplicador) powerUpComparado).getIndiceMult());
         }
         return false;

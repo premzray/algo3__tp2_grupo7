@@ -6,4 +6,6 @@ public interface PowerUp {
     public ArrayList<Integer> usar(ArrayList<Integer> puntos, int indiceUso);
 
     public boolean equals(PowerUp powerUpComparado);
+
+    public String getNombre();
 }

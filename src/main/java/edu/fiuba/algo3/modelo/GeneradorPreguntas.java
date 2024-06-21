@@ -24,10 +24,9 @@ public class GeneradorPreguntas {
     public static Pregunta crearPregunta(Map<String, Object> datosPregunta) {
         String tipo = (String) datosPregunta.get("Tipo");
         String tematica = (String) datosPregunta.get("Tema");
-        String enunciado = (String) datosPregunta.get("Pregunta");
-        // esto de debe guardar en algun lado
+        String textoPregunta = (String) datosPregunta.get("Pregunta");
+        String id = (String) datosPregunta.get("ID");
         String textoRespuesta = (String) datosPregunta.get("Texto respuesta");
-        // lo mimsmo!!!!
 
         Respuestas respuestaCorrecta = new Respuestas();
         respuestaCorrecta.add((String) datosPregunta.get("Respuesta"));
@@ -43,27 +42,26 @@ public class GeneradorPreguntas {
         TipoPuntaje tipoPuntaje;
         switch (tipo) {
             case "Verdadero Falso":
-            case "Verdadero Falso Simple":
                 tipoPuntaje = new Clasico();
-                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Verdadero Falso Penalidad":
                 tipoPuntaje = new Penalidad();
-                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Multiple Choice Simple":
                 tipoPuntaje = new Clasico();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Multiple Choice Puntaje Parcial":
                 tipoPuntaje = new Parcial();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Multiple Choice Penalidad":
                 tipoPuntaje = new Penalidad();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Ordered Choice":
                 tipoPuntaje = new Clasico();
-                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             case "Group Choice":
                 tipoPuntaje = new Clasico();
-                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica);
+                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
             default:
                 throw new IllegalArgumentException("Tipo de pregunta desconocido: " + tipo);
                 //  ESTA EXCEPCION???? CLAVAMOS ALGUN SUPUESTO?
@@ -86,11 +84,11 @@ public class GeneradorPreguntas {
         return preguntasList;
     }
 
-    public static void main(String[] args) {
+ /*/   public static void main(String[] args) {
         String archivo = "preguntas.json";
         List<Pregunta> preguntas = generarPreguntas(archivo);
         for (Pregunta pregunta : preguntas) {
             System.out.println(pregunta);
         }
-    }
+    }/*/
 }

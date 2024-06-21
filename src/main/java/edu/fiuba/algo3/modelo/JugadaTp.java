@@ -8,7 +8,7 @@ public class JugadaTp implements Jugada{
 
     public JugadaTp(Jugador jugador){
         this.jugador = jugador;
-        this.powerUp = new Base();
+        this.powerUp = new Base("BASE");
         this.puntaje = 0;
     }
 
