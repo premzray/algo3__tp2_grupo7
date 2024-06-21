@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -33,7 +34,20 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
         responder_b.setOnAction(e -> stage.close());
 
         VBox vbox = new VBox(20);
-        vbox.getChildren().addAll(titulo_l,opcion1, opcion2, opcion3, opcion4,opcion5, responder_b);
+        VBox vboxC = new VBox(20);
+        HBox HboxU = new HBox(20);
+        HBox HboxD = new HBox(20);
+
+        HboxU.getChildren().addAll(opcion1, opcion2);
+        HboxD.getChildren().addAll(opcion3, opcion4, opcion5);
+        vboxC.getChildren().addAll(HboxU, HboxD);
+
+        // Alinear los VBoxes y HBoxes en el centro
+        HboxU.setAlignment(Pos.CENTER);
+        HboxD.setAlignment(Pos.CENTER);
+        vboxC.setAlignment(Pos.CENTER);
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().addAll(titulo_l,vboxC,responder_b);
 
         Scene escena = new Scene(vbox, 500, 300);
         vbox.setAlignment(Pos.CENTER);
