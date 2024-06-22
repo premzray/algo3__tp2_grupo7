@@ -16,6 +16,14 @@ public class TestPreguntaTpVerdaderoFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
+
 
         String r1 = "V";
         String r2 = "F";
@@ -27,7 +35,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r1);
 
-        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -40,6 +48,14 @@ public class TestPreguntaTpVerdaderoFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
+
 
         String r1 = "V";
         String r2 = "F";
@@ -51,7 +67,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r2);
 
-        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -64,6 +80,14 @@ public class TestPreguntaTpVerdaderoFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
+
 
         String r1 = "V";
         String r2 = "F";
@@ -75,7 +99,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r1);
 
-        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -87,6 +111,13 @@ public class TestPreguntaTpVerdaderoFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "V";
         String r2 = "F";
@@ -98,7 +129,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r2);
 
-        PreguntaTp p = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

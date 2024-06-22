@@ -2,6 +2,22 @@ package edu.fiuba.algo3.modelo;
 
 public interface Pregunta {
 
+    public static Pregunta deTipo(String nombre, Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, String id, String textoPregunta){
+        switch (nombre){
+            case "VERDADERO FALSO":
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+            case "GROUP CHOICE":
+                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+            case "MULTIPLE CHOICE":
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+            case "ORDERED CHOICE":
+                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+            default:
+                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                //excepcion
+        }
+    }
+
     public Respuestas getRespuestasPosibles();
 
     public boolean powerUpValido(PowerUp powerUp);

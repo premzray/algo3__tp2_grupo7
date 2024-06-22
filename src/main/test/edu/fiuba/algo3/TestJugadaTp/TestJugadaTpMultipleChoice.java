@@ -13,6 +13,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -30,7 +37,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -47,6 +54,14 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
+
 
         String r1 = "1";
         String r2 = "2";
@@ -64,7 +79,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -81,6 +96,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -100,7 +122,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -117,6 +139,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -135,7 +164,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -152,6 +181,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -168,7 +204,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -185,6 +221,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -202,7 +245,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -219,6 +262,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -237,7 +287,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -255,6 +305,13 @@ public class TestJugadaTpMultipleChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "MULTIPLE CHOICE";
+        String nombrePuntaje = "PARCIAL";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -273,7 +330,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = new MultipleChoice(rCorrectas, rPosibles, new Parcial(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();

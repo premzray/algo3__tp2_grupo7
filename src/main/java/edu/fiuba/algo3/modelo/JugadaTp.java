@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class JugadaTp implements Jugada{
+import java.util.Observable;
+
+public class JugadaTp extends Observable implements Jugada{
     private final Jugador jugador;
     private PowerUp powerUp;
     private int puntaje;
@@ -48,8 +50,7 @@ public class JugadaTp implements Jugada{
     @Override
     public void actualizarJugada(Pregunta pregunta){
         setPregunta(pregunta);
-        //notificar que un jugador debe responder una pregunta (esto settea el powerUp usado y la respuesta del jugador
-        // usando registrarJugada)
+        notifyObservers();
     }
 
     @Override

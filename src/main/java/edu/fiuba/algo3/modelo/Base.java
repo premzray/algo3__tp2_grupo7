@@ -3,14 +3,14 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Base implements PowerUp{
-    @Override
-    public ArrayList<Integer> usar(ArrayList<Integer> puntos, int indiceUso) {
-        return puntos;
+public class Base extends PowerUpTp{
+
+    public Base() {
+        this.nombre = "BASE";
     }
 
     @Override
-    public boolean equals(PowerUp powerUpComparado) {
-        return (Objects.equals(powerUpComparado, this));
+    public ArrayList<Integer> usar(ArrayList<Integer> puntos, int indiceUso) {
+        return puntos;
     }
 }

@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Juego {
+public class Juego extends Observable {
     Turno turno;
     ArrayList<Jugador> jugadores;
     ArrayList<Pregunta> preguntas;
@@ -63,7 +64,7 @@ public class Juego {
             pregunta = this.preguntaRandom();
             cantPreguntas++;
         }
-        //notificar fin de juego a observadores (mostrar pantalla de fin de juego)
+        notifyObservers();
     }
 
     /*/public ArrayList<Jugador> ordenDeJugadores(){

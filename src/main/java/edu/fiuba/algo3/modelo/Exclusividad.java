@@ -3,7 +3,11 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Exclusividad implements PowerUp{
+public class Exclusividad extends PowerUpTp{
+
+    public Exclusividad() {
+        this.nombre = "EXCLUSIVIDAD";
+    }
 
     private boolean cumpleExclusividad(ArrayList<Integer> puntos){
         int cantAcertadas = 0;
@@ -26,10 +30,5 @@ public class Exclusividad implements PowerUp{
         }
 
         return puntos;
-    }
-
-    @Override
-    public boolean equals(PowerUp powerUpComparado) {
-        return (Objects.equals(powerUpComparado, this));
     }
 }

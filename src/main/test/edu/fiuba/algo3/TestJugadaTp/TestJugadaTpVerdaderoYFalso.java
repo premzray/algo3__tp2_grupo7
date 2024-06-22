@@ -13,6 +13,13 @@ public class TestJugadaTpVerdaderoYFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "V";
         String r2 = "F";
@@ -21,7 +28,7 @@ public class TestJugadaTpVerdaderoYFalso {
         rPosibles.add(r2);
         rJugador.add(r1);
 
-        Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -38,6 +45,13 @@ public class TestJugadaTpVerdaderoYFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "V";
         String r2 = "F";
@@ -46,7 +60,7 @@ public class TestJugadaTpVerdaderoYFalso {
         rPosibles.add(r2);
         rJugador.add(r1);
 
-        Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -63,6 +77,13 @@ public class TestJugadaTpVerdaderoYFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "V";
         String r2 = "F";
@@ -71,7 +92,7 @@ public class TestJugadaTpVerdaderoYFalso {
         rPosibles.add(r2);
         rJugador.add(r2);
 
-        Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -88,6 +109,13 @@ public class TestJugadaTpVerdaderoYFalso {
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
         Respuestas rJugador = new Respuestas();
+        String nombre = "VERDADERO FALSO";
+        String nombrePuntaje = "PENALIDAD";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "V";
         String r2 = "F";
@@ -96,7 +124,7 @@ public class TestJugadaTpVerdaderoYFalso {
         rPosibles.add(r2);
         rJugador.add(r2);
 
-        Pregunta pregunta = new VerdaderoFalso(rCorrectas, rPosibles, new Penalidad(), "Tematica de prueba");
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();

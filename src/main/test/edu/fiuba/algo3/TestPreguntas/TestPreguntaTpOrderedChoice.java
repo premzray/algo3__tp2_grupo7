@@ -13,6 +13,13 @@ public class TestPreguntaTpOrderedChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "ORDERED CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -38,7 +45,7 @@ public class TestPreguntaTpOrderedChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new OrderedChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -51,6 +58,13 @@ public class TestPreguntaTpOrderedChoice {
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
         Respuestas rPosibles = new Respuestas();
+        String nombre = "ORDERED CHOICE";
+        String nombrePuntaje = "CLASICO";
+        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
+        String tematica = "TEMATICA DE PRUEBAS";
+        String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
+        String id = "ID PRUEBAS";
+        String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
         String r2 = "2";
@@ -76,7 +90,7 @@ public class TestPreguntaTpOrderedChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        PreguntaTp p = new OrderedChoice(rCorrectas, rPosibles, new Clasico(), "Tematica de prueba");
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
