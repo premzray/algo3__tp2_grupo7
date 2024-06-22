@@ -43,7 +43,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -85,7 +86,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -128,7 +130,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -170,7 +173,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -210,7 +214,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -251,7 +256,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
     }
@@ -293,7 +299,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
 
@@ -336,7 +343,8 @@ public class TestJugadaTpMultipleChoice {
         PowerUp base = new Base();
 
         jugada.actualizarJugada(pregunta);
-        jugada.registrarJugada(rJugador, base);
+        jugada.registrarRespuesta(rJugador);
+        jugada.registrarPowerUp(base);
 
         assertEquals(jugada.getPuntaje(), puntajeEsperado);
 

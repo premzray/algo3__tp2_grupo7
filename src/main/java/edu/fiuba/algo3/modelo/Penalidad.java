@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Penalidad extends TipoPuntajeConRestriccion{
 
     public Penalidad(){
-        this.powerUpsValidos.add(new Multiplicador(2));
-        this.powerUpsValidos.add(new Multiplicador(3));
-        this.powerUpsValidos.add(new Anulador());
-        this.powerUpsValidos.add(new Base());
+        this.powerUpsValidos.add(PowerUp.deTipo("MULTIPLICADOR", 2));
+        this.powerUpsValidos.add(PowerUp.deTipo("MULTIPLICADOR", 3));
+        this.powerUpsValidos.add(PowerUp.deTipo("ANULADOR"));
+        this.powerUpsValidos.add(PowerUp.deTipo("BASE"));
     }
 
     @Override

@@ -15,5 +15,10 @@ public abstract class PowerUpTp implements PowerUp{
             return (this.getNombre().equals(powerUpComparado.getNombre()));
         }
 
+        @Override
+        public boolean esBase(){
+            return (nombre.equals("BASE"));
+        }
+
 }
 

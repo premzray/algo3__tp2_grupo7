@@ -13,5 +13,7 @@ public interface Jugada  {
 
     public void seUsoPowerUp();
 
-    public void registrarJugada(Respuestas respuestaJugador, PowerUp powerUpJugador);
+    public void registrarRespuesta(Respuestas respuestaJugador);
+
+    public void registrarPowerUp(PowerUp powerUp);
 }

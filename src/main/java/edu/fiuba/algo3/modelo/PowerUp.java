@@ -29,6 +29,8 @@ public interface PowerUp {
         }
     }
 
+    public boolean esBase();
+
     public boolean equals(PowerUp powerUpComparado);
 
     public String getNombre();
