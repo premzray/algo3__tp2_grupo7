@@ -5,14 +5,14 @@ import java.util.Observable;
 public abstract class PreguntaTp extends Observable implements Pregunta {
 
     public final String textoPregunta;
-    public final String id;
+    public final int id;
     public final String textoRespuesta;
     public final Respuestas respuestasPosibles;
     public final Respuestas respuestaCorrecta;
     public final TipoPuntaje tipoPuntaje;
     public final String tematica;
 
-    public PreguntaTp(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, String id, String textoPregunta){
+    public PreguntaTp(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta){
         this.tipoPuntaje = tipoPuntaje;
         this.respuestaCorrecta = respuestaCorrecta;
         this.respuestasPosibles = respuestasPosibles;

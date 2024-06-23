@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public interface Pregunta {
 
-    public static Pregunta deTipo(String nombre, Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, String id, String textoPregunta){
+    public static Pregunta deTipo(String nombre, Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta){
         switch (nombre){
             case "VERDADERO FALSO":
                 return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);

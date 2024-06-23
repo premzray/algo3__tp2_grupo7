@@ -25,43 +25,50 @@ public class GeneradorPreguntas {
         String tipo = (String) datosPregunta.get("Tipo");
         String tematica = (String) datosPregunta.get("Tema");
         String textoPregunta = (String) datosPregunta.get("Pregunta");
-        String id = (String) datosPregunta.get("ID");
+        double id = (double) datosPregunta.get("ID");
         String textoRespuesta = (String) datosPregunta.get("Texto respuesta");
 
         Respuestas respuestaCorrecta = new Respuestas();
         respuestaCorrecta.add((String) datosPregunta.get("Respuesta"));
 
         Respuestas respuestasPosibles = new Respuestas();
-        for (int i = 1; i <= 5; i++) {
-            String opcion = (String) datosPregunta.get("Opcion " + i);
-            if (opcion != null) {
-                respuestasPosibles.add(opcion);
-            }
+        double i = 1;
+        String opcion = (String) datosPregunta.get("Opcion " + i);
+        while(opcion != null){
+            respuestasPosibles.add(opcion);
+            i++;
+            opcion = (String) datosPregunta.get("Opcion " + i);
         }
 
         TipoPuntaje tipoPuntaje;
         switch (tipo) {
             case "Verdadero Falso":
                 tipoPuntaje = new Clasico();
-                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
+            case "Verdadero Falso Simple":
+                tipoPuntaje = new Clasico();
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Verdadero Falso Penalidad":
                 tipoPuntaje = new Penalidad();
-                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new VerdaderoFalso(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Multiple Choice Simple":
                 tipoPuntaje = new Clasico();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Multiple Choice Puntaje Parcial":
                 tipoPuntaje = new Parcial();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Multiple Choice Penalidad":
                 tipoPuntaje = new Penalidad();
-                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new MultipleChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Ordered Choice":
                 tipoPuntaje = new Clasico();
-                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
+            case "Ordered choice":
+                tipoPuntaje = new Clasico();
+                return new OrderedChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             case "Group Choice":
                 tipoPuntaje = new Clasico();
-                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+                return new GroupChoice(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, (int) id, textoPregunta);
             default:
                 throw new IllegalArgumentException("Tipo de pregunta desconocido: " + tipo);
                 //  ESTA EXCEPCION???? CLAVAMOS ALGUN SUPUESTO?
@@ -84,11 +91,11 @@ public class GeneradorPreguntas {
         return preguntasList;
     }
 
- /*/   public static void main(String[] args) {
-        String archivo = "preguntas.json";
+    public static void main(String[] args) {
+        String archivo = "/home/ramita/Escritorio/algo3/algo3__tp2_grupo7/src/main/java/edu/fiuba/algo3/modelo/preguntas.json";
         List<Pregunta> preguntas = generarPreguntas(archivo);
         for (Pregunta pregunta : preguntas) {
             System.out.println(pregunta);
         }
-    }/*/
+    }
 }
