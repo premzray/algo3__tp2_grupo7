@@ -92,7 +92,7 @@ public class GeneradorPreguntas {
     }
 
     public static void main(String[] args) {
-        String archivo = "/home/ramita/Escritorio/algo3/algo3__tp2_grupo7/src/main/java/edu/fiuba/algo3/modelo/preguntas.json";
+        String archivo = "src/main/java/edu/fiuba/algo3/modelo/preguntas.json";
         List<Pregunta> preguntas = generarPreguntas(archivo);
         for (Pregunta pregunta : preguntas) {
             System.out.println(pregunta);

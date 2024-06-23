@@ -12,8 +12,8 @@ public abstract class PreguntaTp extends Observable implements Pregunta {
     public final TipoPuntaje tipoPuntaje;
     public final String tematica;
 
-    public PreguntaTp(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, TipoPuntaje tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta){
-        this.tipoPuntaje = tipoPuntaje;
+    public PreguntaTp(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, String tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta){
+        this.tipoPuntaje = TipoPuntaje.conTipo(tipoPuntaje);
         this.respuestaCorrecta = respuestaCorrecta;
         this.respuestasPosibles = respuestasPosibles;
         this.tematica = tematica;

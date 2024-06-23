@@ -19,7 +19,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -60,7 +60,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -101,7 +101,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -141,7 +141,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -181,7 +181,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -219,7 +219,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -261,7 +261,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -301,7 +301,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";
@@ -342,7 +342,7 @@ public class TestPreguntaTpMultipleChoice {
         TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
-        String id = "ID PRUEBAS";
+        int id = 1;
         String textoPregunta = "TEXTO PREGUNTA PRUEBAS";
 
         String r1 = "1";

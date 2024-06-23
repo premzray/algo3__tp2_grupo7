@@ -25,7 +25,7 @@ public abstract class ControladorPregunta extends Observable implements Observer
     public void update(Observable o, Object arg){
         VistaPregunta vistaPregunta = crearVentanaPregunta();
         //vistaPregunta.start;
-        notifyAll();
+        notifyObservers();
 
     }
 }
