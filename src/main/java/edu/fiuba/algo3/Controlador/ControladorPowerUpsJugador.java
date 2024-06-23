@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.VistaPowerUp;
+import edu.fiuba.algo3.VistaPowerUp; //ESTOY TENIENDO PROBLEMAS PARA LOS PAQUETES, ACA TOQUÉ, ERA edu.fiuba.algo3.Vista.VistaPowerUp
 import edu.fiuba.algo3.Vista.VistaPregunta;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.PowerUp;
