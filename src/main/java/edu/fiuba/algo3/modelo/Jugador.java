@@ -15,4 +15,6 @@ public interface Jugador {
     public boolean tenesPowerUp(PowerUp powerUpAValidar);
 
     public void actualizarPuntaje(int puntajeNuevo);
+
+    public void mostrarPowerUps();
 }

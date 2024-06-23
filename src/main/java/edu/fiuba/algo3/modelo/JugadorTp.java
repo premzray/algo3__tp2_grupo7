@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class JugadorTp implements Jugador{
+public class JugadorTp extends Observable implements Jugador {
     private final String nombre;
     private int puntaje;
     private final ArrayList<PowerUp> powerUps;
@@ -56,11 +57,9 @@ public class JugadorTp implements Jugador{
 
     @Override
     public boolean tenesPowerUp(PowerUp powerUpAValidar){
-        PowerUp base = new Base();
-        if (powerUpAValidar.equals(base)){
+        if (powerUpAValidar.esBase()){
             return true;
         }
-
         for(PowerUp powerUp: this.powerUps){
             if(powerUpAValidar.equals(powerUp)){
                 return true;
@@ -68,6 +67,11 @@ public class JugadorTp implements Jugador{
         }
         return false;
     } //evalua si tiene el powerUp que se va a usar
+
+    @Override
+    public void mostrarPowerUps(){
+        notifyObservers();
+    }
 
     @Override
     public void actualizarPuntaje(int puntajeNuevo){

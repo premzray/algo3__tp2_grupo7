@@ -10,7 +10,7 @@ public class JugadaTp extends Observable implements Jugada{
 
     public JugadaTp(Jugador jugador){
         this.jugador = jugador;
-        this.powerUp = new Base();
+        this.powerUp = PowerUp.deTipo("BASE");
         this.puntaje = 0;
     }
 
@@ -28,14 +28,18 @@ public class JugadaTp extends Observable implements Jugada{
     } //le comunica al jugador que ya uso ese powerUp para que lo elimine
 
     @Override
-    public void registrarJugada(Respuestas respuestaJugador, PowerUp powerUpJugador){
+    public void registrarRespuesta(Respuestas respuestaJugador){
+        this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
+    } //metodo usado por el observador para settear lo elegido por el jugador
+
+    @Override
+    public void registrarPowerUp(PowerUp powerUpJugador){
         if(this.powerUpValido(powerUpJugador)) {
             this.powerUp = powerUpJugador;
-            this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
-        } else{
+        } else {
             //excepcion
         }
-    } //metodo usado por el observador para settear lo elegido por el jugador
+    }
 
     @Override
     public PowerUp getPowerUp(){
@@ -50,6 +54,8 @@ public class JugadaTp extends Observable implements Jugada{
     @Override
     public void actualizarJugada(Pregunta pregunta){
         setPregunta(pregunta);
+        pregunta.mostrarPregunta();
+        jugador.mostrarPowerUps();
         notifyObservers();
     }
 

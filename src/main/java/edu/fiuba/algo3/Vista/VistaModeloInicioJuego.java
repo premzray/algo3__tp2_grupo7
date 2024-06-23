@@ -28,8 +28,12 @@ public class VistaModeloInicioJuego extends Application {
         Label subt = new Label();
 
         titulo_l.setText("ALGOKAHOOK");
+        titulo_l.setStyle("-fx-font-family: 'Comic Sans MS';" +
+                "-fx-font-size: 36px;" +
+                "-fx-text-fill: #FF69B4;");
+
         subt.setText("Selecciona un modo de juego:");
-        titulo_l.setPrefSize(100, 100);
+        titulo_l.setPrefSize(300, 100);
         titulo_l.setAlignment(Pos.CENTER);
 
         cerrar_b.setOnAction(e -> stage.close());

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Parcial extends TipoPuntajeConRestriccion{
 
     public Parcial(){
-        this.powerUpsValidos.add(new Exclusividad());
-        this.powerUpsValidos.add(new Anulador());
-        this.powerUpsValidos.add(new Base());
+        this.powerUpsValidos.add(PowerUp.deTipo("EXCLUSIVIDAD"));
+        this.powerUpsValidos.add(PowerUp.deTipo("ANULADOR"));
+        this.powerUpsValidos.add(PowerUp.deTipo("BASE"));
     }
 
     @Override
