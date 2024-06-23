@@ -8,9 +8,9 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Integrante 1** - [Ramiro Silberay](https://github.com/premzray)
 * **Integrante 2** - [Milagros Thome](https://github.com/milithome)
-* **Integrante 3** - [integrante3](https://github.com/undragonIII)
-* **Integrante 4** - [integrante4](https://github.com/manuelklly)
-* **Integrante 5** - [integrante5](https://github.com/mateocastano15)
+* **Integrante 3** - [Juan Manuel Gonzalez Segura](https://github.com/undragonIII)
+* **Integrante 4** - [Manuel Kelly](https://github.com/manuelklly)
+* **Integrante 5** - [Mateo Castaño](https://github.com/mateocastano15)
 
 Corrector: **Maia Naftali**
 
