@@ -15,7 +15,6 @@ public class TestPreguntaTpGroupChoice {
         Respuestas rPosibles = new Respuestas();
         String nombre = "GROUP CHOICE";
         String nombrePuntaje = "CLASICO";
-        TipoPuntaje tipoPuntaje = TipoPuntaje.conTipo(nombrePuntaje);
         String tematica = "TEMATICA DE PRUEBAS";
         String textoRespuesta = "TEXTO RESPUESTA PRUEBAS";
         int id = 1;
@@ -52,7 +51,7 @@ public class TestPreguntaTpGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -103,7 +102,7 @@ public class TestPreguntaTpGroupChoice {
         rPosibles.add(r5);
         rPosibles.add(r6);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 

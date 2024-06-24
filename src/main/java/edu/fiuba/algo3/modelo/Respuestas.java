@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Respuestas {
 
-    private final ArrayList<String> respuestas;
+    private ArrayList<String> respuestas;
 
     public Respuestas(){
         this.respuestas = new ArrayList<String>();
@@ -18,6 +18,10 @@ public class Respuestas {
     public String get(int i){ return this.respuestas.get(i);}
 
     public void add(String r){ this.respuestas.add(r); } //LO USA LA VISUAL
+
+    public void add(ArrayList<String> r){
+        this.respuestas = r;
+    }
 
     public int size(){ return this.respuestas.size();}
 

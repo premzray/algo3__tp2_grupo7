@@ -42,7 +42,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -84,7 +84,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -123,7 +123,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -164,7 +164,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -203,7 +203,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -244,7 +244,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -284,7 +284,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -325,7 +325,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -364,7 +364,7 @@ public class TestPreguntaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

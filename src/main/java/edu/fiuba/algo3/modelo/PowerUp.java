@@ -29,6 +29,18 @@ public interface PowerUp {
         }
     }
 
+    public static ArrayList<PowerUp> inicializarPowerUpsDefault(){
+        ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
+
+        powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 2));
+        powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 3));
+        powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
+        powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
+        powerUps.add(PowerUp.deTipo("ANULADOR"));
+
+        return powerUps;
+    }
+
     public boolean esBase();
 
     public boolean equals(PowerUp powerUpComparado);

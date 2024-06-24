@@ -37,7 +37,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -80,7 +80,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -124,7 +124,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -167,7 +167,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -208,7 +208,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -250,7 +250,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -293,7 +293,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();
@@ -337,7 +337,7 @@ public class TestJugadaTpMultipleChoice {
         rPosibles.add(r4);
         rPosibles.add(r5);
 
-        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta pregunta = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
         Jugador jugador = new JugadorTp("nombre de pruebas");
         Jugada jugada = new JugadaTp(jugador);
         PowerUp base = new Base();

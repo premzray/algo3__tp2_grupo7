@@ -1,38 +1,38 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 public class Juego extends Observable {
     Turno turno;
     ArrayList<Jugador> jugadores;
-    ArrayList<Pregunta> preguntas;
+    List<Pregunta> preguntas;
     int limitePreguntas;
     int limitePuntos;
 
-    public Juego(int cantidadJugadores, int limitePreguntas, int limitePuntos, ArrayList<String> nombres){
+    public Juego(int limitePreguntas, int limitePuntos, ArrayList<String> nombres){
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
 
-        this.inicializarJugadores(nombres, cantidadJugadores);
+        this.inicializarJugadores(nombres);
 
-        this.turno = new TurnoTp(this.jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
+        this.turno = Turno.conJugadores(jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
 
         this.inicializarPreguntas();
     }
 
     private void inicializarPreguntas(){
-        this.preguntas = new ArrayList<Pregunta>();
-        //Generador de preguntas
-    } //parser
+        this.preguntas = GeneradorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
+    }
 
-    private void inicializarJugadores(ArrayList<String> nombres, int cantidadJugadores){
+    private void inicializarJugadores(ArrayList<String> nombres){
         this.jugadores = new ArrayList<Jugador>();
-        if(cantidadJugadores<=1){
+        if(nombres.size()<=1){
             //excepcion
         }
-        for(int i=0; i<= cantidadJugadores-1; i++){
-            this.jugadores.add(new JugadorTp(nombres.get(i)));
+        for(int i=0; i< nombres.size(); i++){
+            this.jugadores.add(Jugador.conNombre(nombres.get(i)));
         }
     } //inicializa los jugadores
 

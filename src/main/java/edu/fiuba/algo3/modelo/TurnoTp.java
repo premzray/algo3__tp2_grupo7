@@ -14,7 +14,7 @@ public class TurnoTp extends Observable implements Turno{
         this.jugadas = new ArrayList<Jugada>();
 
         for(Jugador jugador : jugadores){
-            this.jugadas.add(new JugadaTp(jugador));
+            this.jugadas.add(Jugada.deJugador(jugador));
         }
     }
 

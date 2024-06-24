@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public interface Jugador {
 
+    public static Jugador conNombre(String nombre){
+        return new JugadorTp(nombre);
+    }
+
     public boolean puntajeEsMayor(int otroPuntaje);
 
     public ArrayList<PowerUp> getPowerUps();

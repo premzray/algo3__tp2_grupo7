@@ -35,7 +35,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -67,7 +67,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
 
@@ -99,7 +99,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r1);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
@@ -129,7 +129,7 @@ public class TestPreguntaTpVerdaderoFalso {
 
         rJugador.add(r2);
 
-        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        Pregunta p = Pregunta.deTipo(nombre, rCorrectas, rPosibles, nombrePuntaje, tematica, textoRespuesta, id, textoPregunta);
 
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }

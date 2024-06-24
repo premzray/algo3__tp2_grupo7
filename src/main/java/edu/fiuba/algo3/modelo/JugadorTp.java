@@ -17,13 +17,7 @@ public class JugadorTp extends Observable implements Jugador {
     public JugadorTp(String nombre){
         this.nombre=nombre;
         this.puntaje = 0;
-        this.powerUps = new ArrayList<PowerUp>();
-
-        this.powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 2));
-        this.powerUps.add(PowerUp.deTipo("MULTIPLICADOR", 3));
-        this.powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
-        this.powerUps.add(PowerUp.deTipo("EXCLUSIVIDAD"));
-        this.powerUps.add(PowerUp.deTipo("ANULADOR"));
+        this.powerUps = PowerUp.inicializarPowerUpsDefault();
     }
 
     @Override
