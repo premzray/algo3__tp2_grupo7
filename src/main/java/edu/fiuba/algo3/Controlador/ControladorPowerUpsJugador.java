@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.VistaPowerUp; //ESTOY TENIENDO PROBLEMAS PARA LOS PAQUETES, ACA TOQUÉ, ERA edu.fiuba.algo3.Vista.VistaPowerUp
+import edu.fiuba.algo3.Vista.VistaPowerUp;
 import edu.fiuba.algo3.Vista.VistaPregunta;
 import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.ObservableConcreto;
+import edu.fiuba.algo3.modelo.Observer;
 import edu.fiuba.algo3.modelo.PowerUp;
 
-import java.util.Observable;
-import java.util.Observer;
 
-public abstract class ControladorPowerUpsJugador extends Observable implements Observer {
+public abstract class ControladorPowerUpsJugador extends ObservableConcreto implements Observer {
     private PowerUp powerUp;
     private Jugador jugador;
 
@@ -25,9 +25,9 @@ public abstract class ControladorPowerUpsJugador extends Observable implements O
     abstract public VistaPowerUp crearVentanaPowerUp();
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Object o) {
         VistaPowerUp vistaPowerUp = crearVentanaPowerUp();
         //vistaPowerUp.start;
-        notifyAll();
+        notifyObservers(this);
     }
 }

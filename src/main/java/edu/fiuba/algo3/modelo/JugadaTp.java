@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Observable;
-
-public class JugadaTp extends Observable implements Jugada{
+public class JugadaTp extends ObservableConcreto implements Jugada{
     private final Jugador jugador;
     private PowerUp powerUp;
     private int puntaje;
@@ -56,7 +54,7 @@ public class JugadaTp extends Observable implements Jugada{
         setPregunta(pregunta);
         pregunta.mostrarPregunta();
         jugador.mostrarPowerUps();
-        notifyObservers();
+        notifyObservers(this);
     }
 
     @Override

@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Observable;
 
-public class JugadorTp extends Observable implements Jugador {
+public class JugadorTp extends ObservableConcreto implements Jugador {
     private final String nombre;
     private int puntaje;
     private final ArrayList<PowerUp> powerUps;
@@ -64,7 +63,7 @@ public class JugadorTp extends Observable implements Jugador {
 
     @Override
     public void mostrarPowerUps(){
-        notifyObservers();
+        notifyObservers(this);
     }
 
     @Override

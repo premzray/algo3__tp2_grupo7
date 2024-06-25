@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Objects;
-
 public abstract class PowerUpTp implements PowerUp{
         String nombre;
 

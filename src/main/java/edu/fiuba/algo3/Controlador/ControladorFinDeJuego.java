@@ -1,13 +1,9 @@
 package edu.fiuba.algo3.Controlador;
 
-import edu.fiuba.algo3.Vista.VistaFinDeJuego;
-import edu.fiuba.algo3.Vista.VistaFinDeTurno;
-import edu.fiuba.algo3.modelo.Juego;
-import edu.fiuba.algo3.modelo.Jugada;
-import edu.fiuba.algo3.modelo.Turno;
+import edu.fiuba.algo3.Vista.*;
 
-import java.util.Observable;
-import java.util.Observer;
+import edu.fiuba.algo3.modelo.Juego;
+import edu.fiuba.algo3.modelo.Observer;
 
 public class ControladorFinDeJuego implements Observer {
 
@@ -22,7 +18,7 @@ public class ControladorFinDeJuego implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Object o) {
         VistaFinDeJuego vistaFinDeJuego = crearVentanaFinDeJuego();
         //vistaFinDeJuego.start();
     }

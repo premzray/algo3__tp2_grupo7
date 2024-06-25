@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Observable;
-
-public abstract class PreguntaTp extends Observable implements Pregunta {
+public abstract class PreguntaTp extends ObservableConcreto implements Pregunta {
 
     public final String textoPregunta;
     public final int id;
@@ -24,7 +22,7 @@ public abstract class PreguntaTp extends Observable implements Pregunta {
 
     @Override
     public void mostrarPregunta(){
-        notifyObservers();
+        notifyObservers(this);
     }
 
     @Override

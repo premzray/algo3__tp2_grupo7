@@ -1,6 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.ObservableConcreto;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,14 +11,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class VistaSettingJugadores extends Application {
+public class VistaSettingJugadores extends ObservableConcreto {
 
-    private List<String> jugadores = new ArrayList<>();
+    private ArrayList<String> jugadores = new ArrayList<>();
     private ListView<String> listViewJugadores = new ListView<>();
 
-    @Override
+    public ArrayList<String> getJugadores() {
+        return jugadores;
+    }
+
     public void start(Stage stage) {
         VBox root = new VBox(10);
 
@@ -42,6 +44,7 @@ public class VistaSettingJugadores extends Application {
         btnComenzar.setOnAction(event -> {
             if (!jugadores.isEmpty()) {
                 comenzarJuego(jugadores);
+                stage.close();
             }
         });
 
@@ -53,9 +56,9 @@ public class VistaSettingJugadores extends Application {
         stage.show();
     }
 
-    private void comenzarJuego(List<String> jugadores) {
+    private void comenzarJuego(ArrayList<String> jugadores) {
         System.out.println("Jugadores ingresados: " + jugadores);
-        // CAMBIO A ESCENA PREGUNTA
+        notifyObservers(this);
     }
 
 }

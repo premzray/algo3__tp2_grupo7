@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -10,9 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class VistaPowerUp extends Application {
+public class VistaPowerUp {
 
-    @Override
     public void start(Stage stage) {
         // Crear botones
         Button btnX2 = new Button("X2");

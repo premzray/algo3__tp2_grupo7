@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaPregunta;
-import edu.fiuba.algo3.modelo.Pregunta;
-import edu.fiuba.algo3.modelo.Respuestas;
+import edu.fiuba.algo3.modelo.*;
 
-import java.util.Observable;
-import java.util.Observer;
 
-public abstract class ControladorPregunta extends Observable implements Observer {
+public abstract class ControladorPregunta extends ObservableConcreto implements Observer {
     Pregunta pregunta;
     Respuestas respuesta;
 
@@ -22,10 +19,10 @@ public abstract class ControladorPregunta extends Observable implements Observer
     abstract public VistaPregunta crearVentanaPregunta();
 
     @Override
-    public void update(Observable o, Object arg){
+    public void update(Object o){
         VistaPregunta vistaPregunta = crearVentanaPregunta();
         //vistaPregunta.start;
-        notifyObservers();
+        notifyObservers(this);
 
     }
 }

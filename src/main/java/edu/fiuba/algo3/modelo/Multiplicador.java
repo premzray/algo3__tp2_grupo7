@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Multiplicador extends PowerUpTp{
     int indiceMult;

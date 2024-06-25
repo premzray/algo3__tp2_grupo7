@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.modelo.Jugada;
+import edu.fiuba.algo3.modelo.Observer;
 
-import java.util.Observable;
-import java.util.Observer;
 
 public class ControladorJugadaPowerUp implements Observer {
     private ControladorPregunta controladorPregunta;
@@ -14,7 +13,7 @@ public class ControladorJugadaPowerUp implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Object o) {
         jugada.registrarRespuesta(controladorPregunta.getRespuesta());
     }
 }

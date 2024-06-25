@@ -2,24 +2,33 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
-public class Juego extends Observable {
+public class Juego extends ObservableConcreto {
     Turno turno;
     ArrayList<Jugador> jugadores;
     List<Pregunta> preguntas;
     int limitePreguntas;
     int limitePuntos;
 
-    public Juego(int limitePreguntas, int limitePuntos, ArrayList<String> nombres){
-        this.limitePreguntas = limitePreguntas;
-        this.limitePuntos = limitePuntos;
-
+    public void inicializarJuego(ArrayList<String> nombres){
         this.inicializarJugadores(nombres);
 
         this.turno = Turno.conJugadores(jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
 
         this.inicializarPreguntas();
+    }
+
+    private void configurarLimites(int limitePreguntas, int limitePuntos){
+        this.limitePreguntas = limitePreguntas;
+        this.limitePuntos = limitePuntos;
+    }
+
+    public void configurarLimitesIntensivos(){
+        this.configurarLimites(25, 40);
+    }
+
+    public void configurarLimitesRapidos(){
+        this.configurarLimites(10, 20);
     }
 
     private void inicializarPreguntas(){
@@ -53,6 +62,14 @@ public class Juego extends Observable {
         return preguntas.get((int)(Math.random()*(preguntas.size())));
     } //de la lista de preguntas, elige una random
 
+    public void settearJuego(){
+        notifyObservers(this);
+    }
+
+    public void settearJugadores(){
+        notifyObservers(this);
+    }
+
     public void iniciar(){
         int cantPreguntas = 0;
         Pregunta pregunta = this.preguntaRandom();
@@ -64,7 +81,7 @@ public class Juego extends Observable {
             pregunta = this.preguntaRandom();
             cantPreguntas++;
         }
-        notifyObservers();
+        notifyObservers(this);
     }
 
     /*/public ArrayList<Jugador> ordenDeJugadores(){

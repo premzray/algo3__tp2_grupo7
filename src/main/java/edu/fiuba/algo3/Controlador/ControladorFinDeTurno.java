@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaFinDeTurno;
+import edu.fiuba.algo3.modelo.Observer;
 import edu.fiuba.algo3.modelo.Turno;
 
-import java.util.Observable;
-import java.util.Observer;
 
 public class ControladorFinDeTurno implements Observer {
     private Turno turno;
@@ -18,7 +17,7 @@ public class ControladorFinDeTurno implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Object o) {
         VistaFinDeTurno vistaFinDeTurno = crearVentanaFinDeTurno();
         //vistaFinDeTurno.start();
     }
