@@ -1,21 +1,23 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.modelo.juego.Jugador;
-import edu.fiuba.algo3.modelo.juego.JugadorTp;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
-import edu.fiuba.algo3.modelo.powerup.PowerUpTp;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FinDeRonda extends Application {
 
     private List<Jugador> players;
+
+    public FinDeRonda() {
+        //constructor
+    }
 
     public FinDeRonda(List<Jugador> players) {
         this.players = players;
@@ -23,6 +25,15 @@ public class FinDeRonda extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        //inicializo los jugadores para probar la vista
+        if (players == null) {
+            players = List.of(
+                    Jugador.conNombre("nombre1"),
+                    Jugador.conNombre("nombre2"),
+                    Jugador.conNombre("nombre3")
+            );
+        }
+
         primaryStage.setTitle("Resultados de la Ronda");
 
         GridPane gridPane = new GridPane();
@@ -30,7 +41,7 @@ public class FinDeRonda extends Application {
         gridPane.setVgap(10);
         gridPane.setHgap(10);
 
-        // titulos
+        // Titulos
         gridPane.add(new Label("Jugador"), 0, 0);
         gridPane.add(new Label("Puntos"), 1, 0);
         gridPane.add(new Label("Power-Ups"), 2, 0);
@@ -39,7 +50,7 @@ public class FinDeRonda extends Application {
         for (Jugador player : players) {
             Label nameLabel = new Label(player.getName());
             Label pointsLabel = new Label(String.valueOf(player.getPuntaje()));
-            //aca estoy convirtiendo la lista de powerups de cada jugador en un string
+            //aca convierto los powerups de cada jugador en un string
             StringBuilder powerUpsStringBuilder = new StringBuilder();
             for (PowerUp powerUp : player.getPowerUps()) {
                 if (powerUpsStringBuilder.length() > 0) {
@@ -48,7 +59,6 @@ public class FinDeRonda extends Application {
                 powerUpsStringBuilder.append(powerUp.getNombre());
             }
             Label powerUpsLabel = new Label(powerUpsStringBuilder.toString());
-
 
             gridPane.add(nameLabel, 0, row);
             gridPane.add(pointsLabel, 1, row);
@@ -60,12 +70,8 @@ public class FinDeRonda extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-//probando
+
     public static void main(String[] args) {
-        List<Jugador> players = List.of(
-                Jugador.conNombre("nombre1"),Jugador.conNombre("nombre2"),Jugador.conNombre("nombre3")
-        );
-        FinDeRonda view = new FinDeRonda(players);
-        view.start(new Stage());
+        Application.launch(FinDeRonda.class, args);
     }
 }

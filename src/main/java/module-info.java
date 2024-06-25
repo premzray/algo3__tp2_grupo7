@@ -10,4 +10,6 @@ module edu.fiuba.algo3 {requires javafx.controls;
     opens edu.fiuba.algo3.modelo.powerup;
 
     exports edu.fiuba.algo3;
+    exports edu.fiuba.algo3.Vista;
+    opens edu.fiuba.algo3.Vista to javafx.graphics;
 }
