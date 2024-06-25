@@ -1,4 +1,4 @@
-/*package edu.fiuba.algo3;
+package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.juego.Juego;
 import javafx.application.Application;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Ventana_Pregunta_Respuestas_MultChoice extends Application implements Observer {
+public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
     private List<String> respuestas = new ArrayList<>(); //LISTA DE RESPUESTAS CON LA QUE VAMOS A TRABAJAR
     private Juego modelo;
     public void Ventana_Pregunta_Respuesta_MultChoice(Juego modelo){this.modelo=modelo;}
@@ -23,7 +23,7 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application implemen
         Label titulo_l = new Label("¿Cuál de estos colores no es un color primario?"); //CAMBIAR TEXTO CONSTANTE POR PREGUNTA
 
 
-        List<String> opciones = List.of("Azul", "Rojo", "Amarillo", "Naranja", "Marrón","12312"); //LISTA DE RESPUESTAS AUX PARA PROBAR
+        List<String> opciones = List.of("Azul", "Rojo", "Amarillo", "Naranja", "Marrón"); //LISTA DE RESPUESTAS AUX PARA PROBAR
         List<Button> botones = new ArrayList<>();
 
         // Crear botones para cada respuesta
@@ -78,13 +78,9 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application implemen
     private void mostrarRespuestas() {
         respuestas.forEach(System.out::println);
     }
-
-
-    @Override
-    public void update(Observable observable, Object o) {
-            launch(o);
-
-    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }
-*/
+
+
