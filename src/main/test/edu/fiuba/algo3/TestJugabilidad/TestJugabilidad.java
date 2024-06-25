@@ -2,6 +2,7 @@ package edu.fiuba.algo3.TestJugabilidad;
 
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
 import edu.fiuba.algo3.modelo.juego.*;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import org.junit.Test;
@@ -27,15 +28,9 @@ public class TestJugabilidad {
     @Mock private Pregunta pregunta2;
     @Mock private Pregunta pregunta3;
     @Mock private Pregunta pregunta4;
-    @Mock private Pregunta pregunta5;
-    @Mock private Pregunta pregunta6;
-    @Mock private Pregunta pregunta7;
     @Mock private Jugada jugadaJ1;
     @Mock private Jugada jugadaJ2;
     @Mock private Jugada jugadaJ3;
-    @Mock private Jugada jugadaJ4;
-    @Mock private Respuestas respuesta1;
-    @Mock private Respuestas respuesta2;
     private ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
@@ -46,9 +41,6 @@ public class TestJugabilidad {
        preguntas.add(pregunta2);
        preguntas.add(pregunta3);
        preguntas.add(pregunta4);
-       preguntas.add(pregunta5);
-       preguntas.add(pregunta7);
-       preguntas.add(pregunta6);
        jugadores.add(jugador1Mock);
        jugadores.add(jugador2Mock);
 
@@ -79,7 +71,7 @@ public class TestJugabilidad {
     }
 
     @Test
-    public void test02JuegoRapidoDura7TurnosYGanaJugador3(){
+    public void test02OrdenDeJugadoresFuncionaParaMasDedosJugadores(){
         Juego juego = new Juego();
         jugadores.add(jugador3Mock);
         jugadores.add(jugador4Mock);
@@ -107,4 +99,5 @@ public class TestJugabilidad {
 
         assertEquals(juego.ordenDeJugadores(),ordenDeVictoria );
     }
+
 }

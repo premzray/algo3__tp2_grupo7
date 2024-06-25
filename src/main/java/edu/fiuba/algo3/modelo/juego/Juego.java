@@ -12,7 +12,7 @@ public class Juego extends ObservableConcreto {
     List<Pregunta> preguntas = new ArrayList<Pregunta>();
     int limitePreguntas;
     int limitePuntos;
-    GeneradorPreguntas generadorPreguntas;
+    GeneradorPreguntas generadorPreguntas = GeneradorPreguntas.crear();
 
     public void setTurno(Turno turno){
         this.turno = turno;
@@ -53,7 +53,6 @@ public class Juego extends ObservableConcreto {
     }
 
     public void setTurnoConvencional(ArrayList<String> nombres){
-        setGeneradorPreguntas(GeneradorPreguntas.crear());
         this.inicializarJugadores(nombres);
         setTurno(Turno.conJugadores(jugadores));
     }

@@ -23,9 +23,7 @@ public class TestTurno {
     private Jugada jugada2;
     @Mock
     private Pregunta pregunta;
-    @Mock
     private PowerUp powerUp1;
-    @Mock
     private PowerUp powerUp2;
 
     @Before
@@ -35,6 +33,8 @@ public class TestTurno {
 
     @Test
     public void test01TurnoDondeNoSeJugoNingunPowerUpYAmbosSumanPuntos() {
+        powerUp1 = PowerUp.deTipo("BASE");
+        powerUp2 = PowerUp.deTipo("BASE");
         Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
         turno.agregarJugada(jugada1);
         turno.agregarJugada(jugada2);
@@ -52,8 +52,6 @@ public class TestTurno {
         when(jugada2.getPuntaje()).thenReturn(puntosPrevios.get(1));
         when(jugada1.getPowerUp()).thenReturn(powerUp1);
         when(jugada2.getPowerUp()).thenReturn(powerUp2);
-        when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
-        when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
         turno.jugarTurno(pregunta);
 
@@ -64,6 +62,8 @@ public class TestTurno {
 
     @Test
     public void test02TurnoDondeSeJuegaUnPowerUpYUnoSumaPuntos() {
+        powerUp1 = PowerUp.deTipo("EXCLUSIVIDAD");
+        powerUp2 = PowerUp.deTipo("BASE");
         Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
         turno.agregarJugada(jugada1);
         turno.agregarJugada(jugada2);
@@ -81,8 +81,6 @@ public class TestTurno {
         when(jugada2.getPuntaje()).thenReturn(puntosPrevios.get(1));
         when(jugada1.getPowerUp()).thenReturn(powerUp1);
         when(jugada2.getPowerUp()).thenReturn(powerUp2);
-        when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
-        when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
         turno.jugarTurno(pregunta);
 
@@ -93,6 +91,8 @@ public class TestTurno {
     @Test
     public void test03TurnoDondeSeJueganDosPowerUpsUnJugadorSumaYOtroResta() {
         Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
+        powerUp1 = PowerUp.deTipo("MULTIPLICADOR", 2);
+        powerUp2 = PowerUp.deTipo("MULTIPLICADOR", 3);
         turno.agregarJugada(jugada1);
         turno.agregarJugada(jugada2);
         ArrayList<Integer> puntosPrevios = new ArrayList<Integer>();
@@ -103,14 +103,12 @@ public class TestTurno {
         puntosActualizados.add(4);
         puntosActualizados.add(-1);
         puntosActualizados2.add(4);
-        puntosActualizados2.add(-2);
+        puntosActualizados2.add(-3);
 
         when(jugada1.getPuntaje()).thenReturn(puntosPrevios.get(0));
         when(jugada2.getPuntaje()).thenReturn(puntosPrevios.get(1));
         when(jugada1.getPowerUp()).thenReturn(powerUp1);
         when(jugada2.getPowerUp()).thenReturn(powerUp2);
-        when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
-        when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
         turno.jugarTurno(pregunta);
 
