@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.*;
 
-public class GeneradorPreguntasTp {
+public class GeneradorPreguntasTp implements GeneradorPreguntas {
 
     public static List<Map<String, Object>> leerJson(String archivo) throws IOException {
         Gson gson = new Gson();
@@ -21,8 +21,8 @@ public class GeneradorPreguntasTp {
         return preguntas;
     }
 
-    public List<Pregunta> generarPreguntas(String archivo) {
-        List<Pregunta> preguntasList = new ArrayList<>();
+    public ArrayList<Pregunta> generarPreguntas(String archivo) {
+        ArrayList<Pregunta> preguntasList = new ArrayList<>();
         try {
             List<Map<String, Object>> preguntasDatos = leerJson(archivo);
             for (Map<String, Object> datosPregunta : preguntasDatos) {

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.Utilidades;
 
 public interface Observable {
     void addObserver(Observer observer);

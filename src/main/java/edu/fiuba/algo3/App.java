@@ -1,6 +1,6 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.Utilidades.InicializadorJuego;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

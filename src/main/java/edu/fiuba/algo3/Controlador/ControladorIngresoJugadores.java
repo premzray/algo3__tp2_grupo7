@@ -2,7 +2,7 @@ package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaSettingJugadores;
 import edu.fiuba.algo3.modelo.juego.Juego;
-import edu.fiuba.algo3.modelo.Observer;
+import edu.fiuba.algo3.Utilidades.Observer;
 
 public class ControladorIngresoJugadores implements Observer {
     private Juego juego;
@@ -16,7 +16,8 @@ public class ControladorIngresoJugadores implements Observer {
 
     @Override
     public void update(Object o) {
-        juego.inicializarJuego(vistaSettingJugadores.getJugadores());
+        juego.inicializarPreguntas();
+        juego.setTurnoConvencional(vistaSettingJugadores.getJugadores());
         juego.iniciar();
     }
 }

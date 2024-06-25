@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.Utilidades;
 
-import edu.fiuba.algo3.Controlador.ControladorVistaInicioDeJuego;
+import edu.fiuba.algo3.Controlador.*;
 import edu.fiuba.algo3.modelo.juego.Juego;
 
 public class InicializadorJuego {

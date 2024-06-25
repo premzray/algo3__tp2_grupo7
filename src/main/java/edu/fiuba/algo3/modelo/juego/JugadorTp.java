@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.modelo.ObservableConcreto;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 
 import java.util.ArrayList;
 

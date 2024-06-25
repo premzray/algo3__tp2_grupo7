@@ -1,23 +1,26 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.modelo.ObservableConcreto;
+import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.ArrayList;
 
 public class TurnoTp extends ObservableConcreto implements Turno{
-    ArrayList<Jugada> jugadas;
+    ArrayList<Jugada> jugadas = new ArrayList<Jugada>();;
 
     public TurnoTp(ArrayList<Jugador> jugadores){
         this.inicializarJugadas(jugadores);
     }
 
-    private void inicializarJugadas(ArrayList<Jugador> jugadores){
-        this.jugadas = new ArrayList<Jugada>();
+    @Override
+    public void agregarJugada(Jugada jugada){
+        this.jugadas.add(jugada);
+    }
 
+    private void inicializarJugadas(ArrayList<Jugador> jugadores){
         for(Jugador jugador : jugadores){
-            this.jugadas.add(Jugada.deJugador(jugador));
+            this.agregarJugada(Jugada.deJugador(jugador));
         }
     }
 
@@ -50,18 +53,20 @@ public class TurnoTp extends ObservableConcreto implements Turno{
     private ArrayList<Integer> efectuarPowerUps(){
         int i=0;
         ArrayList<Integer> puntosActualizados = this.listaPuntos();
+        ArrayList<PowerUp> powerUps = listaPowerUps();
 
-        for (PowerUp powerUp: this.listaPowerUps()){
-            powerUp.usar(puntosActualizados, i);
+        for (PowerUp powerUp: powerUps){
+            puntosActualizados = powerUp.usar(puntosActualizados, i);
             i++;
         }
         return puntosActualizados;
     }// efectua los power ups y devuelve una lista de los puntos actualizados
 
     private void efectuarJugadas(){
+        ArrayList<Integer> puntos = efectuarPowerUps();
         int i = 0;
         for (Jugada jugada : jugadas){
-            jugada.actualizarPuntos(this.efectuarPowerUps().get(i));
+            jugada.actualizarPuntos(puntos.get(i));
             jugada.seUsoPowerUp();
             jugada.otorgarPuntos();
             i++;

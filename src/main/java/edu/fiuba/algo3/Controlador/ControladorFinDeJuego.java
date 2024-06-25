@@ -3,7 +3,7 @@ package edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.Vista.*;
 
 import edu.fiuba.algo3.modelo.juego.Juego;
-import edu.fiuba.algo3.modelo.Observer;
+import edu.fiuba.algo3.Utilidades.Observer;
 
 public class ControladorFinDeJuego implements Observer {
 

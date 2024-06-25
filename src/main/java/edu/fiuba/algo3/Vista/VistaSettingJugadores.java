@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.modelo.ObservableConcreto;
+
+import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

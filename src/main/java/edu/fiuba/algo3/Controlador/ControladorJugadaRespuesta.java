@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.modelo.juego.Jugada;
-import edu.fiuba.algo3.modelo.Observer;
+import edu.fiuba.algo3.Utilidades.Observer;
 
 
 public class ControladorJugadaRespuesta implements Observer {

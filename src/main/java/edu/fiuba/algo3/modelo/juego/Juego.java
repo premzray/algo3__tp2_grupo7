@@ -1,33 +1,44 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.modelo.ObservableConcreto;
+import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
-import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntasTp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Juego extends ObservableConcreto {
     Turno turno;
-    ArrayList<Jugador> jugadores;
-    List<Pregunta> preguntas;
+    ArrayList<Jugador> jugadores = new ArrayList<Jugador>();;
+    List<Pregunta> preguntas = new ArrayList<Pregunta>();
     int limitePreguntas;
     int limitePuntos;
     GeneradorPreguntas generadorPreguntas;
 
-    public void inicializarJuego(ArrayList<String> nombres,GeneradorPreguntas generadorPreguntas){
-        this.inicializarJugadores(nombres);
-        this.generadorPreguntas  = generadorPreguntas;
-        this.turno = Turno.conJugadores(jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
+    public void setTurno(Turno turno){
+        this.turno = turno;
+    }
 
-        this.inicializarPreguntas();
+    public void setGeneradorPreguntas(GeneradorPreguntas generadorPreguntas) {
+        this.generadorPreguntas = generadorPreguntas;
+    }
+
+    public void agregarJugador(Jugador jugador){
+        this.jugadores.add(jugador);
     }
 
     private void configurarLimites(int limitePreguntas, int limitePuntos){
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
     }
+
+    private void inicializarJugadores(ArrayList<String> nombres){
+        if(nombres.size()<=1){
+            //excepcion
+        }
+        for(int i=0; i< nombres.size(); i++){
+            this.agregarJugador(Jugador.conNombre(nombres.get(i)));
+        }
+    } //inicializa los jugadores
 
     public void configurarLimitesIntensivos(){
         this.configurarLimites(25, 40);
@@ -37,22 +48,18 @@ public class Juego extends ObservableConcreto {
         this.configurarLimites(10, 20);
     }
 
-    private void inicializarPreguntas(){
+    public void inicializarPreguntas(){
         this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
     }
 
-    private void inicializarJugadores(ArrayList<String> nombres){
-        this.jugadores = new ArrayList<Jugador>();
-        if(nombres.size()<=1){
-            //excepcion
-        }
-        for(int i=0; i< nombres.size(); i++){
-            this.jugadores.add(Jugador.conNombre(nombres.get(i)));
-        }
-    } //inicializa los jugadores
+    public void setTurnoConvencional(ArrayList<String> nombres){
+        setGeneradorPreguntas(GeneradorPreguntas.crear());
+        this.inicializarJugadores(nombres);
+        setTurno(Turno.conJugadores(jugadores));
+    }
 
     private boolean fin(int cantPreguntas){
-        return (!preguntas.isEmpty() || cantPreguntas <= this.limitePreguntas || this.pasarsePuntos());
+        return (!preguntas.isEmpty() && cantPreguntas <= this.limitePreguntas && !this.pasarsePuntos());
     } //evalua si el juego puede continuar otro turno
 
     private boolean pasarsePuntos(){
@@ -64,10 +71,6 @@ public class Juego extends ObservableConcreto {
         return false;
     }//evalua si alguien se paso del limite de puntos
 
-    private Pregunta preguntaRandom(){
-        return preguntas.get((int)(Math.random()*(preguntas.size())));
-    } //de la lista de preguntas, elige una random
-
     public void settearJuego(){
         notifyObservers(this);
     }
@@ -78,19 +81,21 @@ public class Juego extends ObservableConcreto {
 
     public void iniciar(){
         int cantPreguntas = 0;
-        Pregunta pregunta = this.preguntaRandom();
+        Pregunta pregunta;
 
-        while(!fin(cantPreguntas)){
+        while(fin(cantPreguntas)){
+            pregunta = this.preguntas.get(0);
             turno.jugarTurno(pregunta);
+            cantPreguntas++;
 
             preguntas.remove(pregunta);
-            pregunta = this.preguntaRandom();
-            cantPreguntas++;
         }
         notifyObservers(this);
     }
 
-    /*/public ArrayList<Jugador> ordenDeJugadores(){
-        //insertar un algoritmo que ordene los jugadores de mayor a menor puntos y devuelva esa lista
-    }/*/
+    public ArrayList<Jugador> ordenDeJugadores(){
+        ArrayList<Jugador> jugadoresOrdenados = jugadores;
+        jugadoresOrdenados.sort(new ComparatorJugador());
+        return jugadoresOrdenados;
+    }
 }

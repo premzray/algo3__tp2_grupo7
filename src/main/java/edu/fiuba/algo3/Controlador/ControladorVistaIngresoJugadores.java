@@ -2,7 +2,7 @@ package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaSettingJugadores;
 import edu.fiuba.algo3.modelo.juego.Juego;
-import edu.fiuba.algo3.modelo.Observer;
+import edu.fiuba.algo3.Utilidades.Observer;
 import javafx.stage.Stage;
 
 public class ControladorVistaIngresoJugadores implements Observer {
