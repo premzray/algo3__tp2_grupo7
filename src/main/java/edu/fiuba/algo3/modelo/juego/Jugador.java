@@ -16,6 +16,8 @@ public interface Jugador {
 
     public int getPuntaje();
 
+    public String getName();
+
     public void usastePowerUp(PowerUp powerUpUsado);
 
     public boolean tenesPowerUp(PowerUp powerUpAValidar);

@@ -30,7 +30,6 @@ public class VistaSettingJugadores extends ObservableConcreto {
         Button btnIngresar = new Button("Ingresar");
         Button btnComenzar = new Button("Comenzar");
         btnComenzar.setAlignment(Pos.CENTER);
-        // funcionalidad de ingresar, no entendi como enlazar con controller
         btnIngresar.setOnAction(event -> {
             String nombreJugador = textField.getText().trim();
             if (!nombreJugador.isEmpty()) {

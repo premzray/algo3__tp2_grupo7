@@ -38,6 +38,11 @@ public class JugadorTp extends ObservableConcreto implements Jugador {
     } //LO USA JUEGO
 
     @Override
+    public String getName(){
+        return this.nombre;
+    }
+
+    @Override
     public void usastePowerUp(PowerUp powerUpUsado){
         boolean Borro = true;
         int i=0;
