@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.juego;
+
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.ArrayList;
 

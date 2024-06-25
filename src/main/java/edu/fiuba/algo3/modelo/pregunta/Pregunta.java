@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.pregunta;
+
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
 
 public interface Pregunta {
 

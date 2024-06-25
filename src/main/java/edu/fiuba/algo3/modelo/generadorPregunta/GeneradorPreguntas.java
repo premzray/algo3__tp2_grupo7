@@ -1,7 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.generadorPregunta;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import edu.fiuba.algo3.modelo.pregunta.Respuestas;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.io.FileReader;
 import java.io.IOException;

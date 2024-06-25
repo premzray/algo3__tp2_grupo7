@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.TestPowerUps;
 
-import edu.fiuba.algo3.modelo.Exclusividad;
-import edu.fiuba.algo3.modelo.PowerUp;
+import edu.fiuba.algo3.modelo.powerup.Exclusividad;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

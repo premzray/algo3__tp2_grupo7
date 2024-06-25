@@ -1,7 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.pregunta.puntaje;
 
 
-public class Penalidad extends TipoPuntajeConRestriccion{
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+
+public class Penalidad extends TipoPuntajeConRestriccion {
 
     public Penalidad(){
         this.powerUpsValidos.add(PowerUp.deTipo("MULTIPLICADOR", 2));

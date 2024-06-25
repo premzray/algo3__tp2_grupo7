@@ -1,6 +1,11 @@
 package edu.fiuba.algo3.TestTipoPuntaje;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.powerup.Anulador;
+import edu.fiuba.algo3.modelo.powerup.Exclusividad;
+import edu.fiuba.algo3.modelo.powerup.Multiplicador;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.modelo.pregunta.puntaje.Parcial;
+import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

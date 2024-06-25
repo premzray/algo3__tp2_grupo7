@@ -1,4 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.pregunta;
+
+import edu.fiuba.algo3.modelo.ObservableConcreto;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 
 public abstract class PreguntaTp extends ObservableConcreto implements Pregunta {
 

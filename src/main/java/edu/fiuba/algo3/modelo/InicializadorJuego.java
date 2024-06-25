@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.Controlador.ControladorVistaInicioDeJuego;
+import edu.fiuba.algo3.modelo.juego.Juego;
 
 public class InicializadorJuego {
     Juego juego;

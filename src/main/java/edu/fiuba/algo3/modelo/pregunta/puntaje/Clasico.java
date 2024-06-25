@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.pregunta.puntaje;
 
-public class Clasico extends TipoPuntajeConRestriccion{
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+
+public class Clasico extends TipoPuntajeConRestriccion {
 
     public Clasico(){
         this.powerUpsValidos.add(PowerUp.deTipo("EXCLUSIVIDAD"));

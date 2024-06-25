@@ -2,6 +2,8 @@ package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaPregunta;
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 
 
 public abstract class ControladorPregunta extends ObservableConcreto implements Observer {

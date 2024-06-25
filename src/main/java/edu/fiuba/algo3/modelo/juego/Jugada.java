@@ -1,4 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.juego;
+
+import edu.fiuba.algo3.modelo.pregunta.Respuestas;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 public interface Jugada  {
     public static Jugada deJugador(Jugador jugador){
