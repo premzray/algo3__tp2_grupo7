@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.ObservableConcreto;
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
+import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntasTp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.ArrayList;
@@ -13,10 +14,11 @@ public class Juego extends ObservableConcreto {
     List<Pregunta> preguntas;
     int limitePreguntas;
     int limitePuntos;
+    GeneradorPreguntas generadorPreguntas;
 
-    public void inicializarJuego(ArrayList<String> nombres){
+    public void inicializarJuego(ArrayList<String> nombres,GeneradorPreguntas generadorPreguntas){
         this.inicializarJugadores(nombres);
-
+        this.generadorPreguntas  = generadorPreguntas;
         this.turno = Turno.conJugadores(jugadores); //justificar que crea el TurnoTp y no un turno pasado por parametro pq en este caso es lo unico que nos importa
 
         this.inicializarPreguntas();
@@ -36,7 +38,7 @@ public class Juego extends ObservableConcreto {
     }
 
     private void inicializarPreguntas(){
-        this.preguntas = GeneradorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
+        this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
     }
 
     private void inicializarJugadores(ArrayList<String> nombres){
