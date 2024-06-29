@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Vista;
 
 
 import edu.fiuba.algo3.Utilidades.ObservableConcreto;
+import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class VistaInicioDeJuego extends ObservableConcreto {
+public class VistaInicioDeJuego extends ObservableConcreto{
 
     public void start(Stage stage){
         stage.setTitle("ALGOKAHOOT");
