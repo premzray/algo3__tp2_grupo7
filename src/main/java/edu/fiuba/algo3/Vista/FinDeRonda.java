@@ -66,7 +66,7 @@ public class FinDeRonda extends Application {
             row++;
         }
 
-        Scene scene = new Scene(gridPane, 400, 300);
+        Scene scene = new Scene(gridPane, 700, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
