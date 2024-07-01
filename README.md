@@ -6,7 +6,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo 7
 
-* **Integrante 1** - [Ramiro Silberay](https://github.com/premzray)
+* **Integrante 1** - [Ramiro Prem Silberay](https://github.com/premzray)
 * **Integrante 2** - [Milagros Thome](https://github.com/milithome)
 * **Integrante 3** - [Juan Manuel Gonzalez Segura](https://github.com/undragonIII)
 * **Integrante 4** - [Manuel Kelly](https://github.com/manuelklly)
