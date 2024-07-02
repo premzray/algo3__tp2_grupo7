@@ -12,19 +12,16 @@ import java.util.*;
 
 public class GeneradorPreguntasTp implements GeneradorPreguntas {
 
-    public static List<Map<String, Object>> leerJson(String archivo) throws IOException {
-        Gson gson = new Gson();
-        FileReader reader = new FileReader(archivo);
-        Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType(); // hay alguna forma de no utilizar un gettype aca?
-        List<Map<String, Object>> preguntas = gson.fromJson(reader, listType);
-        reader.close();
-        return preguntas;
+    private Lector lector;
+
+    public GeneradorPreguntasTp(Lector lector){
+        this.lector = lector;
     }
 
     public ArrayList<Pregunta> generarPreguntas(String archivo) {
         ArrayList<Pregunta> preguntasList = new ArrayList<>();
         try {
-            List<Map<String, Object>> preguntasDatos = leerJson(archivo);
+            List<Map<String, Object>> preguntasDatos = lector.leer(archivo);
             for (Map<String, Object> datosPregunta : preguntasDatos) {
                 Pregunta pregunta = crearPregunta(datosPregunta);
                 preguntasList.add(pregunta);
