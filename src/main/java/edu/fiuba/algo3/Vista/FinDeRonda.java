@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
 import edu.fiuba.algo3.modelo.juego.Jugador;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import javafx.application.Application;
@@ -9,9 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class FinDeRonda extends Application {
+public class FinDeRonda {
 
     private List<Jugador> players;
 
@@ -23,8 +26,7 @@ public class FinDeRonda extends Application {
         this.players = players;
     }
 
-    @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage, ControladorTurnos controladorTurnos, ArrayList<Jugada> jugadas) {
         //inicializo los jugadores para probar la vista
         if (players == null) {
             players = List.of(
@@ -69,9 +71,5 @@ public class FinDeRonda extends Application {
         Scene scene = new Scene(gridPane, 700, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        Application.launch(FinDeRonda.class, args);
     }
 }

@@ -24,4 +24,8 @@ public interface Jugada  {
     public void registrarRespuesta(Respuestas respuestaJugador);
 
     public void registrarPowerUp(PowerUp powerUp);
+
+    public void seJugo();
+
+    public boolean yaSeJugo();
 }

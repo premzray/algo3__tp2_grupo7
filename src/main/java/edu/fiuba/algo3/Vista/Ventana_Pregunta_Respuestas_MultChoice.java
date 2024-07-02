@@ -1,6 +1,10 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.modelo.juego.Juego;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,14 +16,12 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
-public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
+public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp {
     private List<String> respuestas = new ArrayList<>(); //LISTA DE RESPUESTAS CON LA QUE VAMOS A TRABAJAR
-    private Juego modelo;
-    public void Ventana_Pregunta_Respuesta_MultChoice(Juego modelo){this.modelo=modelo;}
-    public void start(Stage stage) {
+
+    @Override
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label("¿Cuál de estos colores no es un color primario?"); //CAMBIAR TEXTO CONSTANTE POR PREGUNTA
 
 
@@ -77,9 +79,6 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
 
     private void mostrarRespuestas() {
         respuestas.forEach(System.out::println);
-    }
-    public static void main(String[] args) {
-        launch(args);
     }
 }
 

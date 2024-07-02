@@ -4,6 +4,7 @@ public class VerdaderoFalso extends PreguntaTp {
 
     public VerdaderoFalso(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, String tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta) {
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        this.tipoPregunta = "VERDADERO FALSO";
     }
 
     @Override

@@ -1,28 +1,42 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.ArrayList;
 
-public class TurnoTp extends ObservableConcreto implements Turno{
-    ArrayList<Jugada> jugadas = new ArrayList<Jugada>();;
+public class TurnoTp implements Turno{
+    public ArrayList<Jugada> jugadas = new ArrayList<Jugada>();
 
     public TurnoTp(ArrayList<Jugador> jugadores){
         this.inicializarJugadas(jugadores);
     }
 
-    @Override
-    public void agregarJugada(Jugada jugada){
-        this.jugadas.add(jugada);
-    }
-
     private void inicializarJugadas(ArrayList<Jugador> jugadores){
         for(Jugador jugador : jugadores){
-            this.agregarJugada(Jugada.deJugador(jugador));
+            jugadas.add(Jugada.deJugador(jugador));
         }
-    }
+    } //inicializa las jugadas
+
+    @Override
+    public Jugada getSiguienteJugada(){
+        for (Jugada jugada : jugadas()) {
+            if (!jugada.yaSeJugo()) {
+                return jugada;
+            }
+        }
+        return jugadas.get(0);//excepcion
+    } //devuelve la proxima jugada que se pueda jugar
+
+    @Override
+    public boolean hayProximaJugada(){
+        for (Jugada jugada : jugadas) {
+            if (!jugada.yaSeJugo()) {
+                return true;
+            }
+        }
+        return false;
+    } //devuelve si hay proxima jugada que se pueda jugar
 
     private ArrayList<Integer> listaPuntos(){
         ArrayList<Integer> puntos = new ArrayList<Integer>();
@@ -43,12 +57,6 @@ public class TurnoTp extends ObservableConcreto implements Turno{
 
         return powerUps;
     } //devuelve la lista de powerUps usados en el turno
-
-    private void actualizarJugadas(Pregunta pregunta){
-        for (Jugada jugada : jugadas) {
-            jugada.actualizarJugada(pregunta);
-        }
-    }// se encarga de otorgar powerUp y puntos base segun respuesta de jugador
 
     private ArrayList<Integer> efectuarPowerUps(){
         int i=0;
@@ -74,11 +82,19 @@ public class TurnoTp extends ObservableConcreto implements Turno{
     }//elimina el powerUp de sus jugadores para que no puedan volver a usarlos y se encarga de otorgar los puntos finales a cada jugador
 
     @Override
-    public void jugarTurno(Pregunta pregunta) {
-
-        this.actualizarJugadas(pregunta);
+    public void jugarTurno() {
         this.efectuarJugadas();
+    } //efectua las jugadas de los jugadores
 
-        notifyObservers(this);
-    }
+    @Override
+    public void actualizarTurno(Pregunta pregunta){
+        for (Jugada jugada : jugadas) {
+            jugada.actualizarJugada(pregunta);
+        }
+    } //actualiza las jugadas para un nuevo turno
+
+    @Override
+    public ArrayList<Jugada> jugadas(){
+        return this.jugadas;
+    } //devuelve las jugadas
 }

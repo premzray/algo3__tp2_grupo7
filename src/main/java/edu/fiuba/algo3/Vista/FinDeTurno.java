@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class FinDeTurno extends Application {
+public class FinDeTurno {
 
     private Jugador jugador;
     private boolean respuestaCorrecta;
@@ -24,7 +24,6 @@ public class FinDeTurno extends Application {
         this.respuestaCorrecta = respuestaCorrecta;
     }
 
-    @Override
     public void start(Stage primaryStage) {
         // Inicializo el jugador para probar la vista
         if (jugador == null) {
@@ -55,9 +54,5 @@ public class FinDeTurno extends Application {
         Scene scene = new Scene(vbox, 400, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        Application.launch(FinDeTurno.class, args);
     }
 }

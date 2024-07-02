@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,10 +11,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class VistaPowerUp extends Application {
+public class VistaPowerUp {
 
-    @Override
-    public void start(Stage stage) {
+    public PowerUp powerUp;
+
+    public PowerUp getPowerUp(){
+        return this.powerUp;
+    }
+
+    public void start(Stage stage, Jugada jugada) {
 
         Button btnX2 = new Button("X2");
         Button btnX3 = new Button("X3");
@@ -57,9 +63,5 @@ public class VistaPowerUp extends Application {
         stage.setTitle("Vista Power-Up");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

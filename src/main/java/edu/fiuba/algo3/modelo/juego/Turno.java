@@ -10,7 +10,13 @@ public interface Turno {
         return new TurnoTp(jugadores);
     }
 
-    public void agregarJugada(Jugada jugada);
+    public void actualizarTurno(Pregunta pregunta);
 
-    public void jugarTurno(Pregunta pregunta);
+    public void jugarTurno();
+
+    public ArrayList<Jugada> jugadas();
+
+    public boolean hayProximaJugada();
+
+    public Jugada getSiguienteJugada();
 }

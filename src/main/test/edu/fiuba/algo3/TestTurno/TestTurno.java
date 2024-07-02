@@ -35,9 +35,9 @@ public class TestTurno {
 
     @Test
     public void test01TurnoDondeNoSeJugoNingunPowerUpYAmbosSumanPuntos() {
-        Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
-        turno.agregarJugada(jugada1);
-        turno.agregarJugada(jugada2);
+        TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
+        turno.jugadas.add(jugada1);
+        turno.jugadas.add(jugada2);
         ArrayList<Integer> puntosPrevios = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados2 = new ArrayList<Integer>();
@@ -55,7 +55,7 @@ public class TestTurno {
         when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
         when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
-        turno.jugarTurno(pregunta);
+        turno.jugarTurno();
 
         verify(jugada1).actualizarPuntos(puntosActualizados2.get(0));
         verify(jugada2).actualizarPuntos(puntosActualizados2.get(1));
@@ -64,9 +64,9 @@ public class TestTurno {
 
     @Test
     public void test02TurnoDondeSeJuegaUnPowerUpYUnoSumaPuntos() {
-        Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
-        turno.agregarJugada(jugada1);
-        turno.agregarJugada(jugada2);
+        TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
+        turno.jugadas.add(jugada1);
+        turno.jugadas.add(jugada2);
         ArrayList<Integer> puntosPrevios = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados2 = new ArrayList<Integer>();
@@ -84,7 +84,7 @@ public class TestTurno {
         when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
         when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
-        turno.jugarTurno(pregunta);
+        turno.jugarTurno();
 
         verify(jugada1).actualizarPuntos(puntosActualizados2.get(0));
         verify(jugada2).actualizarPuntos(puntosActualizados2.get(1));
@@ -92,9 +92,9 @@ public class TestTurno {
 
     @Test
     public void test03TurnoDondeSeJueganDosPowerUpsUnJugadorSumaYOtroResta() {
-        Turno turno = Turno.conJugadores(new ArrayList<Jugador>());
-        turno.agregarJugada(jugada1);
-        turno.agregarJugada(jugada2);
+        TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
+        turno.jugadas.add(jugada1);
+        turno.jugadas.add(jugada2);
         ArrayList<Integer> puntosPrevios = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados = new ArrayList<Integer>();
         ArrayList<Integer> puntosActualizados2 = new ArrayList<Integer>();
@@ -112,7 +112,7 @@ public class TestTurno {
         when(powerUp1.usar(puntosPrevios, 0)).thenReturn(puntosActualizados);
         when(powerUp2.usar(puntosActualizados, 1)).thenReturn(puntosActualizados2);
 
-        turno.jugarTurno(pregunta);
+        turno.jugarTurno();
 
         verify(jugada1).actualizarPuntos(puntosActualizados2.get(0));
         verify(jugada2).actualizarPuntos(puntosActualizados2.get(1));

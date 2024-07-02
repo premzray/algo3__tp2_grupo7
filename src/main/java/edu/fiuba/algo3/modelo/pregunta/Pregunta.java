@@ -20,9 +20,9 @@ public interface Pregunta {
         }
     }
 
-    public Respuestas getRespuestasPosibles();
+    public String tipo();
 
-    public void mostrarPregunta();
+    public Respuestas getRespuestasPosibles();
 
     public boolean powerUpValido(PowerUp powerUp);
 

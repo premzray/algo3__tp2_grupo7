@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 
 import java.util.ArrayList;
 
-public class JugadorTp extends ObservableConcreto implements Jugador {
+public class JugadorTp implements Jugador {
     private final String nombre;
     private int puntaje;
     private final ArrayList<PowerUp> powerUps;
@@ -68,11 +67,6 @@ public class JugadorTp extends ObservableConcreto implements Jugador {
         }
         return false;
     } //evalua si tiene el powerUp que se va a usar
-
-    @Override
-    public void mostrarPowerUps(){
-        notifyObservers(this);
-    }
 
     @Override
     public void actualizarPuntaje(int puntajeNuevo){

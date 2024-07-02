@@ -1,5 +1,10 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,13 +17,14 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ventana_Pregunta_Respuestas_TrueFalse extends Application {
+public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp {
     private List<String> respuestas = new ArrayList<>();
+    private Respuestas respuestasJugador;
     private CheckBox opcionCorrecta;
     private CheckBox opcionIncorrecta;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label("San Martin creó la bandera argentina");
         opcionCorrecta = new CheckBox("Verdadero");
         opcionIncorrecta = new CheckBox("Falso");
@@ -51,9 +57,5 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends Application {
             respuestas.remove(selected.getText());
         }
         mostrarRespuestas();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

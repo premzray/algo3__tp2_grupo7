@@ -61,11 +61,11 @@ public class TestJugabilidad {
         ordenDeVictoria.add(jugador1Mock);
         ordenDeVictoria.add(jugador2Mock);
 
-        juego.configurarLimitesRapidos();
-        juego.setTurno(turnoMock);
-        juego.setGeneradorPreguntas(generadorPreguntasMock);
-        juego.agregarJugador(jugador1Mock);
-        juego.agregarJugador(jugador2Mock);
+        juego.setModo("RAPIDO");
+        juego.turno = (turnoMock);
+        juego.generadorPreguntas = (generadorPreguntasMock);
+        juego.jugadores.add(jugador1Mock);
+        juego.jugadores.add(jugador2Mock);
         when(generadorPreguntasMock.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json")).thenReturn(preguntas);
         juego.inicializarPreguntas();
 
@@ -73,7 +73,9 @@ public class TestJugabilidad {
         when(jugador2Mock.getPuntaje()).thenReturn(14);
         when(jugador1Mock.puntajeEsMayor(20)).thenReturn(false, false, false, true);
         when(jugador2Mock.puntajeEsMayor(20)).thenReturn(false);
-        juego.iniciar();
+
+        juego.prepararTurno();
+        juego.finDeTurno();
 
         assertEquals(juego.ordenDeJugadores(),ordenDeVictoria );
     }
@@ -89,13 +91,13 @@ public class TestJugabilidad {
         ordenDeVictoria.add(jugador2Mock);
         ordenDeVictoria.add(jugador1Mock);
 
-        juego.configurarLimitesRapidos();
-        juego.setTurno(turnoMock);
-        juego.setGeneradorPreguntas(generadorPreguntasMock);
-        juego.agregarJugador(jugador1Mock);
-        juego.agregarJugador(jugador2Mock);
-        juego.agregarJugador(jugador3Mock);
-        juego.agregarJugador(jugador4Mock);
+        juego.setModo("RAPIDO");
+        juego.turno = (turnoMock);
+        juego.generadorPreguntas = (generadorPreguntasMock);
+        juego.jugadores.add(jugador1Mock);
+        juego.jugadores.add(jugador2Mock);
+        juego.jugadores.add(jugador3Mock);
+        juego.jugadores.add(jugador4Mock);
         when(generadorPreguntasMock.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json")).thenReturn(preguntas);
         juego.inicializarPreguntas();
 
@@ -103,7 +105,9 @@ public class TestJugabilidad {
         when(jugador2Mock.getPuntaje()).thenReturn(6);
         when(jugador3Mock.getPuntaje()).thenReturn(16);
         when(jugador4Mock.getPuntaje()).thenReturn(11);
-        juego.iniciar();
+
+        juego.prepararTurno();
+        juego.finDeTurno();
 
         assertEquals(juego.ordenDeJugadores(),ordenDeVictoria );
     }

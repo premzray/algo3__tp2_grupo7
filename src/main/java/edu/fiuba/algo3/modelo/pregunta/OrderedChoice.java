@@ -5,6 +5,7 @@ public class OrderedChoice extends PreguntaTp {
 
     public OrderedChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, String tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta) {
         super(respuestaCorrecta, respuestasPosibles, tipoPuntaje, tematica, textoRespuesta, id, textoPregunta);
+        this.tipoPregunta = "ORDERED CHOICE";
     }
 
     @Override
