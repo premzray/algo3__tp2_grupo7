@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.Vista;
 
 
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
+import edu.fiuba.algo3.Controlador.BotonIniciarJugadores;
+import edu.fiuba.algo3.Controlador.InicializadorControlador;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class VistaSettingJugadores extends ObservableConcreto {
+public class VistaSettingJugadores {
 
     private ArrayList<String> jugadores = new ArrayList<>();
     private ListView<String> listViewJugadores = new ListView<>();
@@ -22,7 +23,7 @@ public class VistaSettingJugadores extends ObservableConcreto {
         return jugadores;
     }
 
-    public void start(Stage stage) {
+    public void start(Stage stage, InicializadorControlador inicializadorControlador) {
         VBox root = new VBox(10);
 
         Label label = new Label("Ingrese el nombre del jugador:");
@@ -40,13 +41,8 @@ public class VistaSettingJugadores extends ObservableConcreto {
             //else señal de que no ha sido ingresado el jugador.
         });
 
-        // lo mismo para comenzar
-        btnComenzar.setOnAction(event -> {
-            if (!jugadores.isEmpty()) {
-                comenzarJuego(jugadores);
-                stage.close();
-            }
-        });
+        BotonIniciarJugadores botonIniciarJugadores = new BotonIniciarJugadores(btnComenzar ,inicializadorControlador, this);
+        btnComenzar.setOnAction(botonIniciarJugadores);
 
         root.getChildren().addAll(label, textField, btnIngresar, listViewJugadores, btnComenzar);
 
@@ -54,11 +50,6 @@ public class VistaSettingJugadores extends ObservableConcreto {
         stage.setTitle("Configuración de Jugadores");
         stage.setScene(scene);
         stage.show();
-    }
-
-    private void comenzarJuego(ArrayList<String> jugadores) {
-        System.out.println("Jugadores ingresados: " + jugadores);
-        notifyObservers(this);
     }
 
 }

@@ -1,4 +1,8 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -9,13 +13,14 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Ventana_Pregunta_Respuestas_Group extends Application {
+
+public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
     //ejemplos, enlazar luego con el modelo
     private static final String QUESTION = "¿Cuál es tu color favorito?";
     private static final String[] ANSWERS = {"Rojo", "Azul", "Verde", "Amarillo", "Negro","Matias Candia"};
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage, Jugada jugada, ControladorTurnos controladorTurnos) {
         primaryStage.setTitle("Selección de Grupo");
 
         GridPane gridPane = new GridPane();
@@ -64,7 +69,4 @@ public class Ventana_Pregunta_Respuestas_Group extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

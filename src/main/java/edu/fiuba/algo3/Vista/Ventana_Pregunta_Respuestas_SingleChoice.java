@@ -1,5 +1,9 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,11 +18,11 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ventana_Pregunta_Respuestas_SingleChoice extends Application {
+public class Ventana_Pregunta_Respuestas_SingleChoice extends VistaPreguntaTp {
     private String respuestaSeleccionada = null; // Variable para almacenar la respuesta seleccionada
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label("¿Cuál de estos colores no es un color primario?");
 
         List<String> opciones = List.of("Azul", "Rojo", "Amarillo", "Naranja", "Marrón");
@@ -75,7 +79,4 @@ public class Ventana_Pregunta_Respuestas_SingleChoice extends Application {
         System.out.println(respuestaSeleccionada);
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

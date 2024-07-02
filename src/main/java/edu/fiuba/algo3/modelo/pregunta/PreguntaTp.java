@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.pregunta;
 
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 
-public abstract class PreguntaTp extends ObservableConcreto implements Pregunta {
+public abstract class PreguntaTp implements Pregunta {
 
     public final String textoPregunta;
+    public String tipoPregunta;
     public final int id;
     public final String textoRespuesta;
     public final Respuestas respuestasPosibles;
@@ -25,8 +25,8 @@ public abstract class PreguntaTp extends ObservableConcreto implements Pregunta 
     }
 
     @Override
-    public void mostrarPregunta(){
-        notifyObservers(this);
+    public String tipo(){
+        return tipoPregunta;
     }
 
     @Override
