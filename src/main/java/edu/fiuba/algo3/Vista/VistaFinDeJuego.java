@@ -34,7 +34,7 @@ public class VistaFinDeJuego extends Application {
         // Inicializo los jugadores para probar la vista
         if (players == null) {
             players = List.of(
-                    "Jugador 1",
+                    "Jugador 11111111",
                     "Jugador 2",
                     "Jugador 3"
             );
