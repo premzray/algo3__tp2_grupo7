@@ -1,65 +1,38 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.*;
 
-public class Juego extends ObservableConcreto {
-    Turno turno;
-    ArrayList<Jugador> jugadores = new ArrayList<Jugador>();;
+public class Juego{
+    int cantidadTurnos;
+    public ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+    public Turno turno;
     List<Pregunta> preguntas = new ArrayList<Pregunta>();
     int limitePreguntas;
     int limitePuntos;
-    GeneradorPreguntas generadorPreguntas = GeneradorPreguntas.crear();
-
-    public void setTurno(Turno turno){
-        this.turno = turno;
-    }
-
-    public void setGeneradorPreguntas(GeneradorPreguntas generadorPreguntas) {
-        this.generadorPreguntas = generadorPreguntas;
-    }
-
-    public void agregarJugador(Jugador jugador){
-        this.jugadores.add(jugador);
-    }
+    public GeneradorPreguntas generadorPreguntas;
 
     private void configurarLimites(int limitePreguntas, int limitePuntos){
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
-    }
+    } //PRIVADO configura los limites del juego
 
     private void inicializarJugadores(ArrayList<String> nombres){
         if(nombres.size()<=1){
             //excepcion
         }
-        for(int i=0; i< nombres.size(); i++){
-            this.agregarJugador(Jugador.conNombre(nombres.get(i)));
+        Jugador jugadorNuevo;
+        for(String nombre: nombres){
+            jugadorNuevo = Jugador.conNombre(nombre);
+            jugadores.add(jugadorNuevo);
         }
-    } //inicializa los jugadores
+    } //PRIVADO inicializa los jugadores
 
-    public void configurarLimitesIntensivos(){
-        this.configurarLimites(25, 40);
-    }
-
-    public void configurarLimitesRapidos(){
-        this.configurarLimites(10, 20);
-    }
-
-    public void inicializarPreguntas(){
-        this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
-    }
-
-    public void setTurnoConvencional(ArrayList<String> nombres){
-        this.inicializarJugadores(nombres);
-        setTurno(Turno.conJugadores(jugadores));
-    }
-
-    private boolean fin(int cantPreguntas){
-        return (!preguntas.isEmpty() && cantPreguntas <= this.limitePreguntas && !this.pasarsePuntos());
-    } //evalua si el juego puede continuar otro turno
+    private void setGeneradorPreguntas(GeneradorPreguntas generadorPreguntas) {
+        this.generadorPreguntas = generadorPreguntas;
+    } //PRIVADO configura el generadordepreg
 
     private boolean pasarsePuntos(){
         for(Jugador jugador : jugadores){
@@ -68,33 +41,59 @@ public class Juego extends ObservableConcreto {
             }
         }
         return false;
-    }//evalua si alguien se paso del limite de puntos
+    }//PRIVADO evalua si alguien se paso del limite de puntos
 
-    public void settearJuego(){
-        notifyObservers(this);
-    }
-
-    public void settearJugadores(){
-        notifyObservers(this);
-    }
-
-    public void iniciar(){
-        int cantPreguntas = 0;
-        Pregunta pregunta;
-
-        while(fin(cantPreguntas)){
-            pregunta = this.preguntas.get(0);
-            turno.jugarTurno(pregunta);
-            cantPreguntas++;
-
-            preguntas.remove(pregunta);
+    public void setModo(String modo){
+        if(Objects.equals(modo, "RAPIDO")){
+            this.configurarLimites(10, 15);
+        } else{
+            this.configurarLimites(25, 40);
         }
-        notifyObservers(this);
-    }
+    } //Settea el modo de juego segun String
+
+    public void inicializarPreguntas(){
+        this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/preguntas.json");
+    } //inicializa las preguntas con el generador
+
+    public boolean fin(){
+        return (!preguntas.isEmpty() && cantidadTurnos <= this.limitePreguntas && !this.pasarsePuntos());
+    } //evalua si el juego puede continuar otro turno
+
+    public Pregunta preguntaActual(){
+        return (preguntas.get(0));
+    }//devuelve la pregunta actual
 
     public ArrayList<Jugador> ordenDeJugadores(){
         ArrayList<Jugador> jugadoresOrdenados = jugadores;
         jugadoresOrdenados.sort(new ComparatorJugador());
         return jugadoresOrdenados;
+    } //devuelve los jugadores en orden de puntos de mayor a menor
+
+    public boolean hayProximaJugada(){
+        return turno.hayProximaJugada();
+    } //evalua si hay proxima jugada dentro de un turno (si existe alguna jugada que no se haya hecho)
+
+    public Jugada getSiguienteJugada() {
+        return turno.getSiguienteJugada();
+    } //obtiene la siguiente jugada que no se haya hecho
+
+    public void setTurnoConvencional(ArrayList<String> nombres){
+        setGeneradorPreguntas(GeneradorPreguntas.crear());
+        this.inicializarJugadores(nombres);
+        this.turno = Turno.conJugadores(jugadores);
+    } //settea lo convencional y crea las jugadas
+
+    public void prepararTurno(){
+        Pregunta pregunta = preguntas.get(0);
+        turno.actualizarTurno(pregunta);
+    } //actualiza la pregunta y las jugadas
+
+    public ArrayList<Jugada> jugadas() {
+        return turno.jugadas();
+    } //devuelve la lista de jugadas
+
+    public void finDeTurno(){
+        turno.jugarTurno();
+        this.preguntas.remove(0);
     }
 }

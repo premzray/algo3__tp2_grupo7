@@ -21,7 +21,7 @@ public class ControladorTurnos {
     public void jugarTurno(){
         if(!juego.fin()){
             VistaFinDeJuego vistaFinDeJuego = new VistaFinDeJuego();
-            vistaFinDeJuego.start(stage, juego);
+            vistaFinDeJuego.start(stage, juego.ordenDeJugadores());
         } else{
             juego.prepararTurno();
             responder(juego.getSiguienteJugada());

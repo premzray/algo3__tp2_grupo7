@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.Vista;
 
-
 import edu.fiuba.algo3.Controlador.BotonIniciarJugadores;
 import edu.fiuba.algo3.Controlador.InicializadorControlador;
 import javafx.geometry.Pos;
@@ -23,7 +22,7 @@ public class VistaSettingJugadores {
         return jugadores;
     }
 
-    public void start(Stage stage, InicializadorControlador inicializadorControlador) {
+    public void start(Stage stage, InicializadorControlador controlador) {
         VBox root = new VBox(10);
 
         Label label = new Label("Ingrese el nombre del jugador:");
@@ -41,7 +40,7 @@ public class VistaSettingJugadores {
             //else señal de que no ha sido ingresado el jugador.
         });
 
-        BotonIniciarJugadores botonIniciarJugadores = new BotonIniciarJugadores(btnComenzar ,inicializadorControlador, this);
+        BotonIniciarJugadores botonIniciarJugadores = new BotonIniciarJugadores(btnComenzar, controlador, this);
         btnComenzar.setOnAction(botonIniciarJugadores);
 
         root.getChildren().addAll(label, textField, btnIngresar, listViewJugadores, btnComenzar);
@@ -51,6 +50,5 @@ public class VistaSettingJugadores {
         stage.setScene(scene);
         stage.show();
     }
-
 }
 
