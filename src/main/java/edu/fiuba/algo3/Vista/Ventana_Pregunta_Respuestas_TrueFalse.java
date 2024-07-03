@@ -1,61 +1,167 @@
-package edu.fiuba.algo3.Vista;
+package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Jugada;
-import edu.fiuba.algo3.modelo.juego.Jugador;
-import edu.fiuba.algo3.modelo.pregunta.Pregunta;
-import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp {
+public class Ventana_Pregunta_Respuestas_TrueFalse extends Application {
     private List<String> respuestas = new ArrayList<>();
-    private Respuestas respuestasJugador;
-    private CheckBox opcionCorrecta;
-    private CheckBox opcionIncorrecta;
+    private Button opcionVerdadera;
+    private Button opcionFalsa;
 
     @Override
-    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
+    public void start(Stage stage) {
         Label titulo_l = new Label("San Martin creó la bandera argentina");
-        opcionCorrecta = new CheckBox("Verdadero");
-        opcionIncorrecta = new CheckBox("Falso");
+
+        // Cargar fuente desde archivo .ttf
+        Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
+
+        // Título con efecto neón rosa
+        titulo_l.setStyle("-fx-text-fill: black;-fx-font-weight: bold;");
+        if (neonFont != null) {
+            titulo_l.setFont(neonFont);
+        } else {
+            titulo_l.setFont(new Font("Arial", 32)); // Fallback font
+        }
+
+        opcionVerdadera = new Button("Verdadero");
+        opcionFalsa = new Button("Falso");
         Button responder_b = new Button("Responder");
 
-        opcionCorrecta.setOnAction(e -> manejarCheckedBox(opcionCorrecta, opcionIncorrecta));
-        opcionIncorrecta.setOnAction(e -> manejarCheckedBox(opcionIncorrecta, opcionCorrecta));
+        opcionVerdadera.setOnAction(e -> manejarBoton(0));
+        opcionFalsa.setOnAction(e -> manejarBoton(1));
         responder_b.setOnAction(e -> stage.close());
 
-        VBox vbox = new VBox(20);
-        vbox.getChildren().addAll(titulo_l, opcionCorrecta, opcionIncorrecta, responder_b);
+        // Estilo para los botones "Verdadero" y "Falso"
+        String largeButtonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
+                "-fx-font-size: 20px;" +
+                "-fx-letter-spacing: 2px;" +
+                "-fx-text-decoration: none;" +
+                "-fx-text-transform: uppercase;" +
+                "-fx-text-fill: black;-fx-font-weight: bold;" +
+                "-fx-cursor: pointer;" +
+                "-fx-border-width: 3px;" +
+                "-fx-border-color: black;" +
+                "-fx-padding: 0.25em 0.5em;" +
+                "-fx-effect: dropshadow(gaussian, black, 1, 0, 1, 1);" +
+                "-fx-position: relative;" +
+                "-fx-user-select: none;" +
+                "-webkit-user-select: none;" +
+                "-fx-touch-action: manipulation;" +
+                "-fx-opacity: 0.9;" + "-fx-background-color: #358f89;" +
+                "-fx-pref-width: 200px;" +
+                "-fx-pref-height: 100px;";
 
-        Scene escena = new Scene(vbox, 300, 150);
+        opcionVerdadera.setStyle(largeButtonStyle);
+        opcionFalsa.setStyle(largeButtonStyle);
+
+        // Estilo para el botón "Responder"
+        String smallButtonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
+                "-fx-font-size: 16px;" +
+                "-fx-letter-spacing: 2px;" +
+                "-fx-text-decoration: none;" +
+                "-fx-text-transform: uppercase;" +
+                "-fx-text-fill: black;-fx-font-weight: bold;" +
+                "-fx-cursor: pointer;" +
+                "-fx-border-width: 3px;" +
+                "-fx-border-color: black;" +
+                "-fx-padding: 0.25em 0.5em;" +
+                "-fx-effect: dropshadow(gaussian, black, 1, 0, 1, 1);" +
+                "-fx-position: relative;" +
+                "-fx-user-select: none;" +
+                "-webkit-user-select: none;" +
+                "-fx-touch-action: manipulation;" +
+                "-fx-opacity: 0.9;" + "-fx-background-color: #358f89;";
+
+        responder_b.setStyle(smallButtonStyle);
+
+        HBox hboxBotones = new HBox(20);
+        hboxBotones.getChildren().addAll(opcionVerdadera, opcionFalsa);
+        hboxBotones.setAlignment(Pos.CENTER);
+
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(titulo_l, hboxBotones, responder_b);
+
+        // Fondo de color
+        Pane root = new Pane();
+        root.setBackground(new Background(new BackgroundFill(Color.web("#42a8a1"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        // Añadir formas aleatorias al fondo después de que la escena esté visible
+        root.widthProperty().addListener((obs, oldVal, newVal) -> relocateShapes(root));
+        root.heightProperty().addListener((obs, oldVal, newVal) -> relocateShapes(root));
+
+        root.getChildren().add(vbox);
+
+        Scene escena = new Scene(root, 800, 400);
         vbox.setAlignment(Pos.CENTER);
         stage.setScene(escena);
-        stage.setTitle("Respuestas");
+        stage.setTitle("Respuesta Jugador");
         stage.show();
+
+        // Añadir formas aleatorias al fondo
+        addRandomShapes(root, 30);
+
+        // Asegurar que el VBox esté centrado al mostrarse la escena por primera vez
+        stage.widthProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutX((root.getWidth() - vbox.getWidth()) / 2));
+        stage.heightProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutY((root.getHeight() - vbox.getHeight()) / 2));
+    }
+
+    private void manejarBoton(int index) {
+        respuestas.clear();
+        respuestas.add(String.valueOf(index + 1)); // Convertir índice a cadena (empezando desde 1)
+        mostrarRespuestas();
     }
 
     private void mostrarRespuestas() {
         respuestas.forEach(System.out::println);
     }
 
-    private void manejarCheckedBox(CheckBox selected, CheckBox other) {
-        if (selected.isSelected()) {
-            respuestas.clear();
-            respuestas.add(selected.getText());
-            other.setSelected(false);
-        } else {
-            respuestas.remove(selected.getText());
+    private void addRandomShapes(Pane pane, int numberOfShapes) {
+        Random random = new Random();
+        Color shapeColor = Color.web("#1a8a82");
+
+        for (int i = 0; i < numberOfShapes; i++) {
+            Circle circle = new Circle(random.nextInt(40) + 10);
+            circle.setFill(shapeColor);
+            pane.getChildren().add(0, circle); // Añadir los círculos al fondo
         }
-        mostrarRespuestas();
+
+        // Reubicar las formas una vez añadidas
+        relocateShapes(pane);
+    }
+
+    private void relocateShapes(Pane pane) {
+        Random random = new Random();
+        double width = pane.getWidth();
+        double height = pane.getHeight();
+
+        pane.getChildren().stream()
+                .filter(node -> node instanceof Circle)
+                .forEach(node -> {
+                    Circle circle = (Circle) node;
+                    circle.setLayoutX(random.nextDouble() * width);
+                    circle.setLayoutY(random.nextDouble() * height);
+                });
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
