@@ -7,7 +7,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class FinDeTurno extends Application {
@@ -38,21 +43,38 @@ public class FinDeTurno extends Application {
         vbox.setPadding(new Insets(20));
         vbox.setSpacing(20);
         vbox.setAlignment(Pos.CENTER);
-        //aca puedo tambien mostrar los puntos ganados o perdidos por respuesta
+        vbox.setBackground(new Background(new BackgroundFill(Color.web("#42a8a1"), CornerRadii.EMPTY, Insets.EMPTY)));
+
         Label resultadoLabel = new Label(respuestaCorrecta ? "Respuesta Correcta" : "Respuesta Incorrecta");
-        resultadoLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        resultadoLabel.setStyle("-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: black;");
 
         Button siguienteButton = new Button("Siguiente Turno");
-        siguienteButton.setStyle("-fx-font-size: 18px;");
+        String buttonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
+                "-fx-font-size: 20px;" +
+                "-fx-letter-spacing: 2px;" +
+                "-fx-text-decoration: none;" +
+                "-fx-text-transform: uppercase;" +
+                "-fx-text-fill: black;-fx-font-weight: bold;"+
+                "-fx-cursor: pointer;" +
+                "-fx-border-width: 3px;" +
+                "-fx-border-color: black;" +
+                "-fx-padding: 0.25em 0.5em;" +
+                "-fx-effect: dropshadow(gaussian, black, 1, 0, 1, 1);" +
+                "-fx-position: relative;" +
+                "-fx-user-select: none;" +
+                "-webkit-user-select: none;" +
+                "-fx-touch-action: manipulation;" +
+                "-fx-opacity: 0.9;"+"-fx-background-color: #358f89;";
+        siguienteButton.setStyle(buttonStyle);
         siguienteButton.setOnAction(event -> {
-            // cambio de stage a la siguiente pregunta del siguiente jugador
+            // Cambio de stage a la siguiente pregunta del siguiente jugador
             System.out.println("Avanzando al siguiente turno...");
             primaryStage.close();
         });
 
         vbox.getChildren().addAll(resultadoLabel, siguienteButton);
 
-        Scene scene = new Scene(vbox, 400, 200);
+        Scene scene = new Scene(vbox, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
