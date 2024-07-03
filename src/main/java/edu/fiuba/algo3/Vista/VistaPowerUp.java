@@ -22,9 +22,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class VistaPowerUp extends Application {
+public class VistaPowerUp {
 
-    @Override
     public void start(Stage stage) {
         List<String> powerUpDisponibles = Arrays.asList("X2", "X3", "ANULADOR", "EXCLUSIVIDAD", "No usar PowerUp");
 
@@ -134,9 +133,5 @@ public class VistaPowerUp extends Application {
                     circle.setLayoutX(random.nextDouble() * width);
                     circle.setLayoutY(random.nextDouble() * height);
                 });
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

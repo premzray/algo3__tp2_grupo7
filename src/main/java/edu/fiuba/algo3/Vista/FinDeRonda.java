@@ -2,7 +2,6 @@ package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.modelo.juego.Jugador;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,9 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class FinDeRonda extends Application {
+public class FinDeRonda{
 
     private List<Jugador> players; //RECIBO LISTA DE JUGADORES
 
@@ -37,7 +34,6 @@ public class FinDeRonda extends Application {
         this.players = players;
     }
 
-    @Override
     public void start(Stage primaryStage) {
         //inicializo los jugadores para probar la vista
         if (players == null) {
@@ -180,9 +176,5 @@ public class FinDeRonda extends Application {
                     circle.setLayoutX(random.nextDouble() * width);
                     circle.setLayoutY(random.nextDouble() * height);
                 });
-    }
-
-    public static void main(String[] args) {
-        Application.launch(FinDeRonda.class, args);
     }
 }

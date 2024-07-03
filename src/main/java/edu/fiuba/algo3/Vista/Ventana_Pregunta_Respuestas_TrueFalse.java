@@ -1,6 +1,7 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
-import javafx.application.Application;
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,21 +14,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class Ventana_Pregunta_Respuestas_TrueFalse extends Application {
+public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
     private List<String> respuestas = new ArrayList<>();
     private Button opcionVerdadera;
     private Button opcionFalsa;
 
-    @Override
-    public void start(Stage stage) {
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label("San Martin creó la bandera argentina");
 
         // Cargar fuente desde archivo .ttf
@@ -126,42 +124,5 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends Application {
     private void manejarBoton(int index) {
         respuestas.clear();
         respuestas.add(String.valueOf(index + 1)); // Convertir índice a cadena (empezando desde 1)
-        mostrarRespuestas();
-    }
-
-    private void mostrarRespuestas() {
-        respuestas.forEach(System.out::println);
-    }
-
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle); // Añadir los círculos al fondo
-        }
-
-        // Reubicar las formas una vez añadidas
-        relocateShapes(pane);
-    }
-
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

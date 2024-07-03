@@ -1,7 +1,8 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.modelo.juego.Juego;
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.juego.Jugada;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Ventana_Pregunta_Respuestas_Group extends Application {
+public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
     private Juego modelo;
     private List<Integer> respuestasA = new ArrayList<>();
     private List<Integer> respuestasB = new ArrayList<>();
@@ -36,8 +36,7 @@ public class Ventana_Pregunta_Respuestas_Group extends Application {
         this.modelo = modelo;
     }
 
-    @Override
-    public void start(Stage stage) {
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label(QUESTION);
 //esto no esta funcionndo
         // Cargar fuente desde archivo .ttf
@@ -159,37 +158,5 @@ public class Ventana_Pregunta_Respuestas_Group extends Application {
 
         System.out.println("GRUPO A: " + respuestasA);
         System.out.println("GRUPO B: " + respuestasB);
-    }
-
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle); // Añadir los círculos al fondo
-        }
-
-        // Reubicar las formas una vez añadidas
-        relocateShapes(pane);
-    }
-
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

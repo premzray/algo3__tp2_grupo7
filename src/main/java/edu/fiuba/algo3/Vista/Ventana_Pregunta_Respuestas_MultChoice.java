@@ -1,13 +1,13 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.modelo.juego.Juego;
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.juego.Jugada;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
+public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
     private List<String> respuestas = new ArrayList<>(); // LISTA DE RESPUESTAS CON LA QUE VAMOS A TRABAJAR
     private Juego modelo;
     private List<String> opciones; // LISTA DE OPCIONES PARA USAR EN manejarBoton
@@ -32,7 +32,7 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
         this.modelo = modelo;
     }
 
-    public void start(Stage stage) {
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
         Label titulo_l = new Label("¿Cuál de estos colores no es un color primario?"); // CAMBIAR TEXTO CONSTANTE POR PREGUNTA
 
         // Cargar fuente desde archivo .ttf
@@ -150,42 +150,5 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends Application {
         } else {
             respuestas.add(respuesta);
         }
-        mostrarRespuestas();
-    }
-
-    private void mostrarRespuestas() {
-        respuestas.forEach(System.out::println);
-    }
-
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle); // Añadir los círculos al fondo
-        }
-
-        // Reubicar las formas una vez añadidas
-        relocateShapes(pane);
-    }
-
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.Vista;
 
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.juego.Juego;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,30 +16,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class VistaFinDeJuego extends Application {
+public class VistaFinDeJuego{
 
-    private List<String> players;
+    public void start(Stage stage, ArrayList<Jugador> jugadores) {
 
-    public VistaFinDeJuego() {
-        // Constructor
-    }
-
-    public VistaFinDeJuego(List<String> players) {
-        this.players = players;
-    }
-
-    @Override
-    public void start(Stage stage) {
-        // Inicializo los jugadores para probar la vista
-        if (players == null) {
-            players = List.of(
-                    "Jugador 11111111",
-                    "Jugador 2",
-                    "Jugador 3"
-            );
+        ArrayList<String> players = new ArrayList<String>();
+        for(Jugador jugador: jugadores){
+            players.add(jugador.getName());
         }
 
         stage.setTitle("Fin del Juego");
@@ -112,9 +100,5 @@ public class VistaFinDeJuego extends Application {
                     circle.setLayoutX(random.nextDouble() * width);
                     circle.setLayoutY(random.nextDouble() * height);
                 });
-    }
-
-    public static void main(String[] args) {
-        Application.launch(VistaFinDeJuego.class, args);
     }
 }

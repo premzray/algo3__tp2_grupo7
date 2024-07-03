@@ -14,9 +14,7 @@ public interface VistaPregunta {
             case "GROUP CHOICE":
                 return new Ventana_Pregunta_Respuestas_Group();
             case "MULTIPLE CHOICE":
-                return new Ventana_Pregunta_Respuestas_MultChoice();
             case "ORDERED CHOICE":
-                //return new ordered;
                 return new Ventana_Pregunta_Respuestas_MultChoice();
             default:
                 return new Ventana_Pregunta_Respuestas_MultChoice();

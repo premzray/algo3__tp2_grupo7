@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.Utilidades.ObservableConcreto;
+import edu.fiuba.algo3.Controlador.BotonModo;
+import edu.fiuba.algo3.Controlador.InicializadorControlador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -20,17 +21,17 @@ import javafx.scene.shape.Circle;
 
 import java.util.Random;
 
-public class VistaInicioDeJuego extends ObservableConcreto {
+public class VistaInicioDeJuego {
 
-    public void start(Stage stage) {
+    public void start(Stage stage, InicializadorControlador controlador) {
         stage.setTitle("ALGOKAHOOT");
 
         // Tamaño mínimo de la escena
         double minSceneWidth = 1000;
         double minSceneHeight = 600;
 
-        Button PartidaRapida = new Button("Partida Rapida");
-        Button PartidaIntensiva = new Button("Partida Intensiva");
+        Button PartidaRapida = new Button("RAPIDA");
+        Button PartidaIntensiva = new Button("INTENSIVA");
         PartidaIntensiva.setPrefSize(250, 100);
         PartidaRapida.setPrefSize(250, 100);
         Button cerrar_b = new Button("Cerrar Juego");
@@ -65,15 +66,11 @@ public class VistaInicioDeJuego extends ObservableConcreto {
 
         cerrar_b.setOnAction(e -> stage.close());
 
-        PartidaIntensiva.setOnAction(e -> {
-            notifyObservers("INTENSIVA");
-            stage.close();
-        });
+        BotonModo botonModoIntensivo = new BotonModo(PartidaIntensiva, controlador);
+        BotonModo botonModoRapido = new BotonModo(PartidaRapida, controlador);
 
-        PartidaRapida.setOnAction(e -> {
-            notifyObservers("RAPIDA");
-            stage.close();
-        });
+        PartidaIntensiva.setOnAction(botonModoIntensivo);
+        PartidaRapida.setOnAction(botonModoRapido);
 
         // Estilo para los botones según .button-54 con el nuevo color de relleno
         String buttonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
