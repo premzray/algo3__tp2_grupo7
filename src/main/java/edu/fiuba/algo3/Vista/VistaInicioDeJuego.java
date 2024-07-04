@@ -36,9 +36,6 @@ public class VistaInicioDeJuego extends Shapes{
     public void start(Stage stage, InicializadorControlador controlador) {
         stage.setTitle("ALGOKAHOOT");
 
-        // Tamaño mínimo de la escena
-        double minSceneWidth = 1000;
-        double minSceneHeight = 600;
 
         Button PartidaRapida = new Button("RAPIDA");
         Button PartidaIntensiva = new Button("INTENSIVA");
@@ -151,11 +148,11 @@ public class VistaInicioDeJuego extends Shapes{
             vbox.setLayoutY((root.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(root, minSceneWidth, minSceneHeight);
+        Scene scene = new Scene(root, 1350, 700);
 
         // Establecer tamaño mínimo del Stage
-        stage.setMinWidth(minSceneWidth);
-        stage.setMinHeight(minSceneHeight);
+        stage.setMinWidth(1350);
+        stage.setMinHeight(700);
 
         stage.setScene(scene);
         stage.show();

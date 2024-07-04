@@ -113,9 +113,9 @@ public class VistaPowerUp extends Shapes {
             vbox.setLayoutY((root.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(root, 600, 600);
-        stage.setMinWidth(600);
-        stage.setMinHeight(600);
+        Scene scene = new Scene(root, 1350, 700);
+        stage.setMinWidth(1350);
+        stage.setMinHeight(700);
         stage.setTitle("Vista Power-Up");
         stage.setScene(scene);
         stage.show();

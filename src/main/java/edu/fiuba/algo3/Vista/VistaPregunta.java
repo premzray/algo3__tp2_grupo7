@@ -26,4 +26,6 @@ public interface VistaPregunta {
     public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos);
 
     public Respuestas respuestasJugador();
+
+    public void mostrarMensajeError(String mensaje);
 }

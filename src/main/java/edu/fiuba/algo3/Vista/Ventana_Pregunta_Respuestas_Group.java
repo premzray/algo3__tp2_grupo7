@@ -141,6 +141,7 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
     }
 
     private void settearRespuestas(ToggleGroup[] groups) {
+        boolean faltanRespuestas= false;
         for (int i = 0; i < groups.length; i++) {
             ToggleGroup group = groups[i];
             RadioButton selectedButton = (RadioButton) group.getSelectedToggle();
@@ -153,8 +154,11 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
                     respuestasB.add(String.valueOf(i + 1));
                 }
             }
+            else faltanRespuestas=true;
         }
-
+        if (faltanRespuestas){
+            mostrarMensajeError("Faltan opciones por agrupar");
+        }
         this.respuestasJugador.add("A");
         this.respuestasJugador.add(respuestasA);
         this.respuestasJugador.add("B");

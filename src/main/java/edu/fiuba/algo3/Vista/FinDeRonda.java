@@ -119,9 +119,9 @@ public class FinDeRonda extends Shapes{
             vbox.setLayoutY((root.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(root, 800, 600);
-        primaryStage.setMinWidth(800);
-        primaryStage.setMinHeight(600);
+        Scene scene = new Scene(root, 1350, 700);
+        primaryStage.setMinWidth(1350);
+        primaryStage.setMinHeight(700);
         primaryStage.setScene(scene);
         primaryStage.show();
 

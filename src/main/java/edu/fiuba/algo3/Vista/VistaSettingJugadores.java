@@ -102,9 +102,9 @@ public class VistaSettingJugadores {
             container.setLayoutY((mainRoot.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(mainRoot, 600, 600);
-        stage.setMinWidth(400);
-        stage.setMinHeight(400);
+        Scene scene = new Scene(mainRoot, 1350, 700);
+        stage.setMinWidth(1350);
+        stage.setMinHeight(700);
         stage.setTitle("Configuración de Jugadores");
         stage.setScene(scene);
         stage.show();

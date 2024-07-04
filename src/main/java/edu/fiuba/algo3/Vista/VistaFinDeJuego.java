@@ -63,7 +63,9 @@ public class VistaFinDeJuego{
             vbox.setLayoutY((root.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(root, 800, 1000);
+        Scene scene = new Scene(root, 1350, 700);
+        stage.setMinWidth(1350);
+        stage.setMinHeight(700);
         stage.setScene(scene);
         stage.show();
 
