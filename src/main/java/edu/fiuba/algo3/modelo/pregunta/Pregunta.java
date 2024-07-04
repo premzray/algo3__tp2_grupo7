@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta;
 
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 
 public interface Pregunta {
 
@@ -20,13 +21,15 @@ public interface Pregunta {
         }
     }
 
+    String tematica();
+
     public String tipo();
 
     public Respuestas getRespuestasPosibles();
 
     public boolean powerUpValido(PowerUp powerUp);
 
-    public abstract int puntuarRespuesta(Respuestas respuestaJugador);
+    public abstract int puntuarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException;
 
     public String getEnunciado();
 }

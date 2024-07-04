@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta;
 
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 
 public abstract class PreguntaTp implements Pregunta {
@@ -30,6 +31,11 @@ public abstract class PreguntaTp implements Pregunta {
     }
 
     @Override
+    public String tematica(){
+        return tematica;
+    }
+
+    @Override
 
     public String getEnunciado(){
         return this.textoPregunta;
@@ -46,5 +52,5 @@ public abstract class PreguntaTp implements Pregunta {
     } //le pregunta a su tipoDePuntaje si se puede usar x powerUp
 
     @Override
-    public abstract int puntuarRespuesta(Respuestas respuestaJugador);
+    public abstract int puntuarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException;
 }
