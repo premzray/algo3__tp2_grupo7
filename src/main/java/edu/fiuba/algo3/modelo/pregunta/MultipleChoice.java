@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta;
 
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
+
 public class MultipleChoice extends PreguntaTp {
 
     public MultipleChoice(Respuestas respuestaCorrecta, Respuestas respuestasPosibles, String tipoPuntaje, String tematica, String textoRespuesta, int id, String textoPregunta) {
@@ -8,9 +10,9 @@ public class MultipleChoice extends PreguntaTp {
     }
 
     @Override
-    public int puntuarRespuesta(Respuestas respuestaJugador) {
+    public int puntuarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException {
         if(respuestaJugador.esMayorQue(respuestasPosibles)){
-            //exepcion
+           throw new RespuestaInvalidaException();
         }
 
         return tipoPuntaje.puntuar(respuestaJugador.cuantasContiene(respuestaCorrecta), respuestaJugador.cuantasNoContiene(respuestaCorrecta), respuestaCorrecta.size());

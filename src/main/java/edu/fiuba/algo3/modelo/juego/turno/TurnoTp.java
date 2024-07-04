@@ -1,5 +1,8 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.turno;
 
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
@@ -82,7 +85,10 @@ public class TurnoTp implements Turno{
     }//elimina el powerUp de sus jugadores para que no puedan volver a usarlos y se encarga de otorgar los puntos finales a cada jugador
 
     @Override
-    public void jugarTurno() {
+    public void jugarTurno() throws FaltanRespuestasDeJugadoresException {
+        if(hayProximaJugada()){
+            throw new FaltanRespuestasDeJugadoresException();
+        }
         this.efectuarJugadas();
     } //efectua las jugadas de los jugadores
 

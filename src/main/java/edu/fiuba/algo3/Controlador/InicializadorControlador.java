@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.Vista.VistaInicioDeJuego;
 import edu.fiuba.algo3.Vista.VistaSettingJugadores;
 import edu.fiuba.algo3.modelo.juego.Juego;
+import edu.fiuba.algo3.modelo.juego.exceptions.NoHayJugadoresException;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class InicializadorControlador {
         vistaSettingJugadores.start(stage, this);
     }
 
-    public void setJugadores(ArrayList<String> nombres){
+    public void setJugadores(ArrayList<String> nombres) throws NoHayJugadoresException {
         juego.setTurnoConvencional(nombres);
     }
 

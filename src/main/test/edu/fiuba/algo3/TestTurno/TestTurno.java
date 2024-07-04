@@ -2,8 +2,7 @@ package edu.fiuba.algo3.TestTurno;
 
 import edu.fiuba.algo3.modelo.juego.Jugada;
 import edu.fiuba.algo3.modelo.juego.Jugador;
-import edu.fiuba.algo3.modelo.juego.Turno;
-import edu.fiuba.algo3.modelo.juego.TurnoTp;
+import edu.fiuba.algo3.modelo.juego.turno.TurnoTp;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import org.junit.Before;

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaSettingJugadores;
+import edu.fiuba.algo3.modelo.juego.exceptions.NoHayJugadoresException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -19,7 +20,11 @@ public class BotonIniciarJugadores implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        inicializadorControlador.setJugadores(vista.getJugadores());
+        try {
+            inicializadorControlador.setJugadores(vista.getJugadores());
+        } catch (NoHayJugadoresException e) {
+            //Hay que hacer algo cuando se quiere iniciar los jugadores vacios
+        }
         inicializadorControlador.jugar();
     }
 }
