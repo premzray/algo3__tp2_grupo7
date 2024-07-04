@@ -30,6 +30,12 @@ public abstract class PreguntaTp implements Pregunta {
     }
 
     @Override
+
+    public String getEnunciado(){
+        return this.textoPregunta;
+    }
+
+    @Override
     public Respuestas getRespuestasPosibles() {
         return respuestasPosibles;
     }

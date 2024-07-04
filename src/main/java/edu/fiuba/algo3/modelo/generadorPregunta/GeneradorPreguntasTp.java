@@ -1,13 +1,9 @@
 package edu.fiuba.algo3.modelo.generadorPregunta;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.*;
 
 public class GeneradorPreguntasTp implements GeneradorPreguntas {
@@ -86,14 +82,6 @@ public class GeneradorPreguntasTp implements GeneradorPreguntas {
                 return Pregunta.deTipo("GROUP CHOICE" ,respuestaCorrecta, respuestasPosibles, "CLASICO", tematica, textoRespuesta, (int) id, textoPregunta);
             default:
                 throw new IllegalArgumentException("Tipo de pregunta desconocido: " + tipo);
-        }
-    }
-
-    public void main(String[] args) {
-        String archivo = "src/main/java/edu/fiuba/algo3/modelo/preguntas.json";
-        List<Pregunta> preguntas = this.generarPreguntas(archivo);
-        for (Pregunta pregunta : preguntas) {
-            System.out.println(pregunta);
         }
     }
 }

@@ -19,7 +19,7 @@ public class Respuestas {
     public void add(String r){ this.respuestas.add(r); } //LO USA LA VISUAL
 
     public void add(ArrayList<String> r){
-        this.respuestas = r;
+        this.respuestas.addAll(r);
     }
 
     public int size(){ return this.respuestas.size();}
@@ -74,5 +74,17 @@ public class Respuestas {
         }
 
         return cont;
+    }
+
+    public void vaciar(){
+        this.respuestas.clear();
+    }
+
+    public boolean contiene(String respuesta) {
+        return (this.respuestas.contains(respuesta));
+    }
+
+    public void delete(String respuesta) {
+        this.respuestas.remove(respuesta);
     }
 }

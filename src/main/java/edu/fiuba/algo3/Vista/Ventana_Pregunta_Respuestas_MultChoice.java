@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,25 +16,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
-    private List<String> respuestas = new ArrayList<>(); // LISTA DE RESPUESTAS CON LA QUE VAMOS A TRABAJAR
-    private Juego modelo;
-    private List<String> opciones; // LISTA DE OPCIONES PARA USAR EN manejarBoton
-
-    public void Ventana_Pregunta_Respuesta_MultChoice(Juego modelo) {
-        this.modelo = modelo;
-    }
 
     public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
-        Label titulo_l = new Label("¿Cuál de estos colores no es un color primario?"); // CAMBIAR TEXTO CONSTANTE POR PREGUNTA
+        Label titulo_l = new Label(jugada.getPregunta().getEnunciado());
 
         // Cargar fuente desde archivo .ttf
         Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
@@ -46,7 +38,7 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
             titulo_l.setFont(new Font("Arial", 32)); // Fallback font
         }
 
-        opciones = List.of("Azul", "Rojo", "Amarillo", "Naranja", "Marr000000000000000000ón"); // LISTA DE RESPUESTAS AUX PARA PROBAR
+        Respuestas opciones = jugada.getPregunta().getRespuestasPosibles();
         List<Button> botones = new ArrayList<>();
 
         // Crear botones para cada respuesta
@@ -58,8 +50,9 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
             botones.add(boton);
         }
 
-        Button responder_b = new Button("Responder");
-        responder_b.setOnAction(e -> stage.close());
+        Button responder_b = new Button("RESPONDER");
+        BotonResponder botonResponder = new BotonResponder(responder_b, this, jugada, controladorTurnos);
+        responder_b.setOnAction(botonResponder);
 
         VBox vbox = new VBox(20);
         VBox vboxC = new VBox(20);
@@ -145,10 +138,10 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
     private void manejarBoton(int index) {
         String respuesta = String.valueOf(index + 1); // Convertir índice a cadena (empezando desde 1)
 
-        if (respuestas.contains(respuesta)) {
-            respuestas.remove(respuesta);
+        if (respuestasJugador.contiene(respuesta)) {
+            respuestasJugador.delete(respuesta);
         } else {
-            respuestas.add(respuesta);
+            respuestasJugador.add(respuesta);
         }
     }
 }

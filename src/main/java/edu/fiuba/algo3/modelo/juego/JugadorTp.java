@@ -45,13 +45,14 @@ public class JugadorTp implements Jugador {
     public void usastePowerUp(PowerUp powerUpUsado){
         boolean Borro = true;
         int i=0;
-
-        while(Borro){
-            if(powerUps.get(i).equals(powerUpUsado)){
-                powerUps.remove(powerUps.get(i));
-                Borro = false;
+        if(!powerUpUsado.esBase()){
+            while (Borro) {
+                if (powerUps.get(i).equals(powerUpUsado)) {
+                    powerUps.remove(powerUps.get(i));
+                    Borro = false;
+                }
+                i++;
             }
-            i++;
         }
     } //elimina un powerUp por usarlo
 

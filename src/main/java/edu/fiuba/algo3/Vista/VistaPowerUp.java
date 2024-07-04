@@ -1,7 +1,13 @@
 package edu.fiuba.algo3.Vista;
 
-import javafx.application.Application;
-import javafx.beans.binding.Bindings;
+import edu.fiuba.algo3.Controlador.BotonPowerUp;
+import edu.fiuba.algo3.Controlador.BotonResponder;
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.Controlador.EventHandlerCompuesto;
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.powerup.PowerUp;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,23 +17,32 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class VistaPowerUp {
+public class VistaPowerUp extends Shapes {
 
-    public void start(Stage stage) {
-        List<String> powerUpDisponibles = Arrays.asList("X2", "X3", "ANULADOR", "EXCLUSIVIDAD", "No usar PowerUp");
+    private PowerUp powerUp;
 
-        Label titulo = new Label("[  Selecciona un PowerUp  ]");
+    public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
+        ArrayList<PowerUp> powerUpsJugador = jugada.getJugador().getPowerUps();
+        ArrayList<String> powerUpDisponibles = new ArrayList<String>();
+
+        for (PowerUp powerUp: powerUpsJugador){
+            powerUpDisponibles.add(powerUp.getNombre());
+        }
+        powerUpDisponibles.add("NO USAR POWER UP");
+
+
+        Label titulo = new Label("[  SELECCIONA UN POWER UP  ]");
         titulo.setStyle("-fx-text-fill: black;-fx-font-size: 24px; -fx-font-weight: bold;");
         titulo.setAlignment(Pos.CENTER);
         titulo.setMaxWidth(Double.MAX_VALUE);
@@ -58,6 +73,12 @@ public class VistaPowerUp {
         int col = 0;
         for (int i = 0; i < powerUpDisponibles.size(); i++) {
             Button button = new Button(powerUpDisponibles.get(i));
+            BotonPowerUp botonPowerUp = new BotonPowerUp(button, this, jugada, controladorTurnos);
+            EventHandler<ActionEvent> settearPowerUp = e -> settearPowerUp(powerUpDisponibles.indexOf(button.getText()), powerUpsJugador);
+            EventHandlerCompuesto eventHandlerCompuesto = new EventHandlerCompuesto(settearPowerUp, botonPowerUp);
+
+            button.setOnAction(eventHandlerCompuesto);
+
             button.setStyle(buttonStyle);
             button.setPrefWidth(250);
             button.setPrefHeight(100);
@@ -108,30 +129,15 @@ public class VistaPowerUp {
         stage.heightProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutY((root.getHeight() - vbox.getHeight()) / 2));
     }
 
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle);
+    private void settearPowerUp(int i, ArrayList<PowerUp> powerUps) {
+        if(i>powerUps.size()){
+            this.powerUp = PowerUp.deTipo("BASE");
+        } else {
+            this.powerUp = powerUps.get(i);
         }
-
-        relocateShapes(pane);
     }
 
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
+    public PowerUp getPowerUp() {
+        return this.powerUp;
     }
 }

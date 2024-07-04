@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.modelo.juego.Jugada;
 import javafx.geometry.Insets;
@@ -17,16 +18,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
-    private List<String> respuestas = new ArrayList<>();
     private Button opcionVerdadera;
     private Button opcionFalsa;
 
     public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
-        Label titulo_l = new Label("San Martin creó la bandera argentina");
+        Label titulo_l = new Label(jugada.getPregunta().getEnunciado());
 
         // Cargar fuente desde archivo .ttf
         Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
@@ -39,13 +36,15 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
             titulo_l.setFont(new Font("Arial", 32)); // Fallback font
         }
 
-        opcionVerdadera = new Button("Verdadero");
-        opcionFalsa = new Button("Falso");
-        Button responder_b = new Button("Responder");
+        opcionVerdadera = new Button("VERDADERO");
+        opcionFalsa = new Button("FALSO");
+        Button responder_b = new Button("RESPONDER");
+
+        BotonResponder botonResponder = new BotonResponder(responder_b, this, jugada, controladorTurnos);
 
         opcionVerdadera.setOnAction(e -> manejarBoton(0));
         opcionFalsa.setOnAction(e -> manejarBoton(1));
-        responder_b.setOnAction(e -> stage.close());
+        responder_b.setOnAction(botonResponder);
 
         // Estilo para los botones "Verdadero" y "Falso"
         String largeButtonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
@@ -122,7 +121,7 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
     }
 
     private void manejarBoton(int index) {
-        respuestas.clear();
-        respuestas.add(String.valueOf(index + 1)); // Convertir índice a cadena (empezando desde 1)
+        respuestasJugador.vaciar();
+        respuestasJugador.add(String.valueOf(index + 1)); // Convertir índice a cadena (empezando desde 1)
     }
 }

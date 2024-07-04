@@ -28,4 +28,8 @@ public interface Jugada  {
     public void seJugo();
 
     public boolean yaSeJugo();
+
+    public Pregunta getPregunta();
+
+    public Jugador getJugador();
 }

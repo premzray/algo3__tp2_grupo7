@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Juego;
+import edu.fiuba.algo3.Controlador.EventHandlerCompuesto;
 import edu.fiuba.algo3.modelo.juego.Jugada;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,28 +20,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
 
 public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
-    private Juego modelo;
-    private List<Integer> respuestasA = new ArrayList<>();
-    private List<Integer> respuestasB = new ArrayList<>();
-    private static final String QUESTION = "¿Cuál es tu color favorito?";
-    private static final String[] ANSWERS = {"Rojo", "Azul", "Verde", "Amarillo", "Negro", "Matias Candia"};
-
-    public void Ventana_Pregunta_Respuestas_Group(Juego modelo) {
-        this.modelo = modelo;
-    }
+    private ArrayList<String> respuestasA = new ArrayList<>();
+    private ArrayList<String> respuestasB = new ArrayList<>();
 
     public void start(Stage stage, Jugada jugada, ControladorTurnos controladorTurnos) {
-        Label titulo_l = new Label(QUESTION);
-//esto no esta funcionndo
+        Label titulo_l = new Label(jugada.getPregunta().getEnunciado());
+
+        //esto no esta funcionndo
         // Cargar fuente desde archivo .ttf
         Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
 
@@ -50,11 +44,11 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
             titulo_l.setFont(new Font("Arial", 32)); // Fallback font
         }
 
-        List<HBox> hboxes = new ArrayList<>();
-        ToggleGroup[] groups = new ToggleGroup[ANSWERS.length];
-//creo botones A y B para cada opcion de respuesta y la label
-        for (int i = 0; i < ANSWERS.length; i++) {
-            Label answerLabel = new Label(ANSWERS[i]);
+        ArrayList<HBox> hboxes = new ArrayList<>();
+        ToggleGroup[] groups = new ToggleGroup[jugada.getPregunta().getRespuestasPosibles().size()];
+        //creo botones A y B para cada opcion de respuesta y la label
+        for (int i = 0; i < jugada.getPregunta().getRespuestasPosibles().size(); i++) {
+            Label answerLabel = new Label(jugada.getPregunta().getRespuestasPosibles().get(i));
             answerLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
             RadioButton groupAButton = new RadioButton("GRUPO A");
             RadioButton groupBButton = new RadioButton("GRUPO B");
@@ -68,11 +62,15 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
             hboxes.add(hbox);
         }
 
-        Button responder_b = new Button("Responder");
-        responder_b.setOnAction(e -> {
-            mostrarGrupos(groups);
-            stage.close();
-        });
+        Button responder_b = new Button("RESPONDER");
+        BotonResponder botonResponder = new BotonResponder(responder_b, this, jugada, controladorTurnos);
+        EventHandler<ActionEvent> settearRespuestasHandler = e -> settearRespuestas(groups);
+        EventHandlerCompuesto eventHandlerCompuesto = new EventHandlerCompuesto(settearRespuestasHandler, botonResponder);
+
+        //HAY QUE OBLIGAR A METER TODAS LAS RESPUESTAS
+
+
+        responder_b.setOnAction(eventHandlerCompuesto);
 
         VBox vbox = new VBox(20);
         vbox.setAlignment(Pos.CENTER);
@@ -141,7 +139,7 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
         stage.heightProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutY((root.getHeight() - vbox.getHeight()) / 2));
     }
 
-    private void mostrarGrupos(ToggleGroup[] groups) {
+    private void settearRespuestas(ToggleGroup[] groups) {
         for (int i = 0; i < groups.length; i++) {
             ToggleGroup group = groups[i];
             RadioButton selectedButton = (RadioButton) group.getSelectedToggle();
@@ -149,14 +147,16 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
                 String selectedGroup = selectedButton.getText();
                 //ACA AGREGO LA RESPUESTA SEGUN PERTENEZCA AL GRUPO A O B
                 if (selectedGroup.equals("GRUPO A")) {
-                    respuestasA.add(i + 1);
+                    respuestasA.add(String.valueOf(i + 1));
                 } else if (selectedGroup.equals("GRUPO B")) {
-                    respuestasB.add(i + 1);
+                    respuestasB.add(String.valueOf(i + 1));
                 }
             }
         }
 
-        System.out.println("GRUPO A: " + respuestasA);
-        System.out.println("GRUPO B: " + respuestasB);
+        this.respuestasJugador.add("A");
+        this.respuestasJugador.add(respuestasA);
+        this.respuestasJugador.add("B");
+        this.respuestasJugador.add(respuestasB);
     }
 }

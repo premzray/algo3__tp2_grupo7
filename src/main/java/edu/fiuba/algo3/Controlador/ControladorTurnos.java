@@ -19,7 +19,7 @@ public class ControladorTurnos {
     }
 
     public void jugarTurno(){
-        if(!juego.fin()){
+        if(juego.fin()){
             VistaFinDeJuego vistaFinDeJuego = new VistaFinDeJuego();
             vistaFinDeJuego.start(stage, juego.ordenDeJugadores());
         } else{
@@ -35,7 +35,7 @@ public class ControladorTurnos {
 
     public void elegirPowerUp(Jugada jugada){
         VistaPowerUp vistaPowerUp = new VistaPowerUp();
-        vistaPowerUp.start(stage, jugada);
+        vistaPowerUp.start(stage, jugada, this);
     }
 
     public void avanzarJugada(Jugada jugada) {

@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.Controlador.BotonFinDeRonda;
+import edu.fiuba.algo3.Controlador.ControladorTurnos;
+import edu.fiuba.algo3.modelo.juego.Jugada;
 import edu.fiuba.algo3.modelo.juego.Jugador;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import javafx.geometry.Insets;
@@ -14,36 +17,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
-public class FinDeRonda{
 
-    private List<Jugador> players; //RECIBO LISTA DE JUGADORES
+public class FinDeRonda extends Shapes{
 
-    public FinDeRonda() {
-        //constructor
-    }
-
-    public FinDeRonda(List<Jugador> players) {
-        this.players = players;
-    }
-
-    public void start(Stage primaryStage) {
-        //inicializo los jugadores para probar la vista
-        if (players == null) {
-            players = List.of(
-                    Jugador.conNombre("nombre1"),
-                    Jugador.conNombre("nombre2"),
-                    Jugador.conNombre("nombre3")
-            );
-        }
-
+    public void start(Stage primaryStage, ControladorTurnos controladorTurnos, ArrayList<Jugada> jugadas) {
         primaryStage.setTitle("Resultados de la Ronda");
 
         Label titulo = new Label("[  Resultados de la Ronda  ]");
@@ -57,7 +41,7 @@ public class FinDeRonda{
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(titulo);
 
-        for (Jugador player : players) {
+        for (Jugada jugada : jugadas) {
             HBox playerBox = new HBox();
             playerBox.setPadding(new Insets(10));
             playerBox.setSpacing(20);
@@ -65,16 +49,16 @@ public class FinDeRonda{
             playerBox.setBackground(new Background(new BackgroundFill(Color.web("#1a8a82"), new CornerRadii(5), Insets.EMPTY)));
             playerBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 10px;");
 
-            Label nameLabel = new Label(player.getName());
+            Label nameLabel = new Label(jugada.getJugador().getName());
             nameLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;");
-            Label pointsLabel = new Label(String.valueOf(player.getPuntaje()));
+            Label pointsLabel = new Label(String.valueOf(jugada.getPuntaje()));
             pointsLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;");
 
             // ACA construimos el string de PowerUps
             Map<String, Integer> powerUpCount = new HashMap<>();
-            for (PowerUp powerUp : player.getPowerUps()) {
-                powerUpCount.put(powerUp.getNombre(), powerUpCount.getOrDefault(powerUp.getNombre(), 0) + 1);
-            }
+            PowerUp powerUp = jugada.getPowerUp();
+            powerUpCount.put(powerUp.getNombre(), powerUpCount.getOrDefault(powerUp.getNombre(), 0) + 1);
+
 
             StringBuilder powerUpsStringBuilder = new StringBuilder();
             for (Map.Entry<String, Integer> entry : powerUpCount.entrySet()) {
@@ -91,16 +75,20 @@ public class FinDeRonda{
             labelsBox.setAlignment(Pos.CENTER_LEFT);
 
             labelsBox.getChildren().addAll(
-                    createStyledLabel("Jugador", player.getName()),
-                    createStyledLabel("Puntos", String.valueOf(player.getPuntaje())),
-                    createStyledLabel("Power-Ups", powerUpsStringBuilder.toString())
+                    createStyledLabel("Jugador", jugada.getJugador().getName()),
+                    createStyledLabel("Puntos", String.valueOf(jugada.getPuntaje())),
+                    createStyledLabel("Power-Up", powerUpsStringBuilder.toString())
             );
 
             playerBox.getChildren().add(labelsBox);
             vbox.getChildren().add(playerBox);
         }
-        //NO ESTA CODEADO EL SET ON ACTION, PASA A LA PROXIMA INSTANCIA DE RONDA
-        Button nextRoundButton = new Button("Pasar a la siguiente ronda");
+
+        Button nextRoundButton = new Button("SIGUIENTE RONDA");
+        BotonFinDeRonda botonFinDeRonda = new BotonFinDeRonda(nextRoundButton, controladorTurnos);
+
+        nextRoundButton.setOnAction(botonFinDeRonda);
+
         nextRoundButton.setStyle("-fx-font-family: 'Open Sans', sans-serif;" +
                 "-fx-font-size: 20px;" +
                 "-fx-letter-spacing: 2px;" +
@@ -149,32 +137,5 @@ public class FinDeRonda{
         Label label = new Label(title + ": " + value);
         label.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: black;");
         return label;
-    }
-
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle);
-        }
-
-        relocateShapes(pane);
-    }
-
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
     }
 }

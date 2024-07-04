@@ -17,11 +17,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 
-import java.util.Random;
-
-public class VistaInicioDeJuego {
+public class VistaInicioDeJuego extends Shapes{
 
     public void start(Stage stage, InicializadorControlador controlador) {
         stage.setTitle("ALGOKAHOOT");
@@ -151,33 +148,5 @@ public class VistaInicioDeJuego {
         // Asegurar que el VBox esté centrado al mostrarse la escena por primera vez
         stage.widthProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutX((root.getWidth() - vbox.getWidth()) / 2));
         stage.heightProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutY((root.getHeight() - vbox.getHeight()) / 2));
-    }
-
-    private void addRandomShapes(Pane pane, int numberOfShapes) {
-        Random random = new Random();
-        Color shapeColor = Color.web("#1a8a82");
-
-        for (int i = 0; i < numberOfShapes; i++) {
-            Circle circle = new Circle(random.nextInt(40) + 10);
-            circle.setFill(shapeColor);
-            pane.getChildren().add(0, circle); // Añadir los círculos al fondo
-        }
-
-        // Reubicar las formas una vez añadidas
-        relocateShapes(pane);
-    }
-
-    private void relocateShapes(Pane pane) {
-        Random random = new Random();
-        double width = pane.getWidth();
-        double height = pane.getHeight();
-
-        pane.getChildren().stream()
-                .filter(node -> node instanceof Circle)
-                .forEach(node -> {
-                    Circle circle = (Circle) node;
-                    circle.setLayoutX(random.nextDouble() * width);
-                    circle.setLayoutY(random.nextDouble() * height);
-                });
     }
 }

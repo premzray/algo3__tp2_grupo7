@@ -27,4 +27,6 @@ public interface Pregunta {
     public boolean powerUpValido(PowerUp powerUp);
 
     public abstract int puntuarRespuesta(Respuestas respuestaJugador);
+
+    public String getEnunciado();
 }

@@ -23,10 +23,7 @@ public class BotonPowerUp implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         jugada.registrarPowerUp(vista.getPowerUp());
-        try {
-            controlador.avanzarJugada(jugada);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        controlador.avanzarJugada(jugada);
+
     }
 }

@@ -19,6 +19,16 @@ public class JugadaTp implements Jugada{
     }
 
     @Override
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    @Override
+    public Pregunta getPregunta(){
+        return this.pregunta;
+    }
+
+    @Override
     public boolean yaSeJugo(){
         return seJugo;
     } //devuelve si la jugada ya se hizo o se debe hacer
