@@ -1,13 +1,15 @@
 package edu.fiuba.algo3.TestJugadaTp;
 
-import edu.fiuba.algo3.modelo.juego.Jugada;
-import edu.fiuba.algo3.modelo.juego.JugadaTp;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.JugadaTp;
+import edu.fiuba.algo3.modelo.juego.Jugada.exceptions.PowerUpInvalido;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.jugador.JugadorTp;
 import edu.fiuba.algo3.modelo.powerup.Base;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestJugadaTpMultipleChoice {
 
     @Test
-    public void test01JugadorNoJuegaPowerUpYRespondeCorrectoMultipleChoiceClasico(){
+    public void test01JugadorNoJuegaPowerUpYRespondeCorrectoMultipleChoiceClasico() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 1;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -58,7 +60,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test02JugadorNoJuegaPowerUpYRespondeCorrectoMultipleChoicePenalidad(){
+    public void test02JugadorNoJuegaPowerUpYRespondeCorrectoMultipleChoicePenalidad() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 2;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -101,7 +103,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test03JugadorNoJuegaPowerUpYRespondeCorrectoTotalMultipleChoiceParcial(){
+    public void test03JugadorNoJuegaPowerUpYRespondeCorrectoTotalMultipleChoiceParcial() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 3;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -145,7 +147,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test04JugadorNoJuegaPowerUpYRespondeCorrectoParcialMultipleChoiceParcial(){
+    public void test04JugadorNoJuegaPowerUpYRespondeCorrectoParcialMultipleChoiceParcial() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 2;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -188,7 +190,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test05JugadorNoJuegaPowerUpYRespondeIncorrectoMultipleChoiceClasico(){
+    public void test05JugadorNoJuegaPowerUpYRespondeIncorrectoMultipleChoiceClasico() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -229,7 +231,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test06JugadorNoJuegaPowerUpYRespondeIncorrectoMultipleChoicePenalidad(){
+    public void test06JugadorNoJuegaPowerUpYRespondeIncorrectoMultipleChoicePenalidad() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = -2;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -271,7 +273,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test07JugadorNoJuegaPowerUpYRespondeIncorrectoTotalMultipleChoiceParcial(){
+    public void test07JugadorNoJuegaPowerUpYRespondeIncorrectoTotalMultipleChoiceParcial() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();
@@ -315,7 +317,7 @@ public class TestJugadaTpMultipleChoice {
     }
 
     @Test
-    public void test08JugadorNoJuegaPowerUpYRespondeIncorrectoParcialMultipleChoiceParcial(){
+    public void test08JugadorNoJuegaPowerUpYRespondeIncorrectoParcialMultipleChoiceParcial() throws RespuestaInvalidaException, PowerUpInvalido {
         int puntajeEsperado = 2;
         Respuestas rJugador = new Respuestas();
         Respuestas rCorrectas = new Respuestas();

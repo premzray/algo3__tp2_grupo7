@@ -2,7 +2,9 @@ package edu.fiuba.algo3.TestJugabilidad;
 
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
 import edu.fiuba.algo3.modelo.juego.*;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.Turno;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
@@ -78,7 +80,11 @@ public class TestJugabilidad {
         when(jugador2Mock.puntajeEsMayor(20)).thenReturn(false);
 
         juego.prepararTurno();
-        juego.finDeTurno();
+        try {
+            juego.finDeTurno();
+        } catch (JugadorNoTienePowerUpABorrarException e) {
+            throw new RuntimeException(e);
+        }
 
         assertEquals(juego.ordenDeJugadores(),ordenDeVictoria );
     }
@@ -110,7 +116,11 @@ public class TestJugabilidad {
         when(jugador4Mock.getPuntaje()).thenReturn(11);
 
         juego.prepararTurno();
-        juego.finDeTurno();
+        try {
+            juego.finDeTurno();
+        } catch (JugadorNoTienePowerUpABorrarException e) {
+            throw new RuntimeException(e);
+        }
 
         assertEquals(juego.ordenDeJugadores(),ordenDeVictoria );
     }

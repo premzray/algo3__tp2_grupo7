@@ -20,13 +20,11 @@ public class BotonIniciarJugadores implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
         try {
             inicializadorControlador.setJugadores(vista.getJugadores());
+            inicializadorControlador.jugar();
         } catch (NoHayJugadoresException e) {
-            throw new RuntimeException(e);
+            inicializadorControlador.jugadores();
         }
-
-        inicializadorControlador.jugar();
     }
 }

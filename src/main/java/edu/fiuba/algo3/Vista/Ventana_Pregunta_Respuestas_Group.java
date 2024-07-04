@@ -3,7 +3,7 @@ package edu.fiuba.algo3.Vista;
 import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.Controlador.EventHandlerCompuesto;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;

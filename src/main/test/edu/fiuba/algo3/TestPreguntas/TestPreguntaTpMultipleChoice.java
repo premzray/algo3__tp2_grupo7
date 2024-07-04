@@ -2,6 +2,7 @@ package edu.fiuba.algo3.TestPreguntas;
 
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestPreguntaTpMultipleChoice {
 
     @Test
-    public void Test01ClasicoRespondeBien(){
+    public void Test01ClasicoRespondeBien() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 1;
         Respuestas rJugador = new Respuestas();
@@ -51,7 +52,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test02ClasicoRespondeMalSeleccionIncorrecta(){
+    public void Test02ClasicoRespondeMalSeleccionIncorrecta() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();
@@ -92,7 +93,7 @@ public class TestPreguntaTpMultipleChoice {
 
     }
     @Test
-    public void Test03ClasicoRespondeMalPorOmision(){
+    public void Test03ClasicoRespondeMalPorOmision() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();
@@ -132,7 +133,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test04PenalidadRespondeBien(){
+    public void Test04PenalidadRespondeBien() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 3;
         Respuestas rJugador = new Respuestas();
@@ -172,7 +173,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test05PenalidadRespondeMalTotal(){
+    public void Test05PenalidadRespondeMalTotal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = -1;
         Respuestas rJugador = new Respuestas();
@@ -210,7 +211,7 @@ public class TestPreguntaTpMultipleChoice {
         assertEquals(p.puntuarRespuesta(rJugador), puntajeEsperado);
     }
     @Test
-    public void Test06PenalidadRespondeMalParcial(){
+    public void Test06PenalidadRespondeMalParcial() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 2;
         Respuestas rJugador = new Respuestas();
@@ -252,7 +253,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test07ParcialRespondeBienTotal(){
+    public void Test07ParcialRespondeBienTotal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 3;
         Respuestas rJugador = new Respuestas();
@@ -292,7 +293,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test08ParcialRespondeBienParcial(){
+    public void Test08ParcialRespondeBienParcial() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 3;
         Respuestas rJugador = new Respuestas();
@@ -333,7 +334,7 @@ public class TestPreguntaTpMultipleChoice {
     }
 
     @Test
-    public void Test09ParcialRespondeMal(){
+    public void Test09ParcialRespondeMal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();

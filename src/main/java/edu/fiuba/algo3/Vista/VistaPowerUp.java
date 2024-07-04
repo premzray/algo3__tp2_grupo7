@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonPowerUp;
-import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
 import edu.fiuba.algo3.Controlador.EventHandlerCompuesto;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,12 +20,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class VistaPowerUp extends Shapes {
 
@@ -135,7 +130,11 @@ public class VistaPowerUp extends Shapes {
         if(tipoPowerUp.equals("NO USAR POWER UP")){
             this.powerUp = PowerUp.deTipo("BASE");
         } else {
-            this.powerUp = PowerUp.deTipo(tipoPowerUp);
+            for (PowerUp powerUpJugador: powerUps){
+                if(powerUpJugador.getNombre().equals(tipoPowerUp)){
+                    this.powerUp = powerUpJugador;
+                }
+            }
         }
     }
 

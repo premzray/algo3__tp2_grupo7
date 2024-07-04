@@ -14,4 +14,5 @@ module edu.fiuba.algo3 {requires javafx.controls;
     opens edu.fiuba.algo3.Vista to javafx.graphics;
     opens edu.fiuba.algo3.modelo.juego.turno;
     opens edu.fiuba.algo3.modelo.juego.jugador;
+    opens edu.fiuba.algo3.modelo.juego.Jugada;
 }

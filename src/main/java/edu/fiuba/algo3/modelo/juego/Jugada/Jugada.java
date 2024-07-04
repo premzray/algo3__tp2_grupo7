@@ -1,10 +1,12 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.Jugada;
 
+import edu.fiuba.algo3.modelo.juego.Jugada.exceptions.PowerUpInvalido;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 
 public interface Jugada  {
     public static Jugada deJugador(Jugador jugador){
@@ -23,9 +25,9 @@ public interface Jugada  {
 
     public void seUsoPowerUp() throws JugadorNoTienePowerUpABorrarException;
 
-    public void registrarRespuesta(Respuestas respuestaJugador);
+    public void registrarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException;
 
-    public void registrarPowerUp(PowerUp powerUp);
+    public void registrarPowerUp(PowerUp powerUp) throws PowerUpInvalido;
 
     public void seJugo();
 

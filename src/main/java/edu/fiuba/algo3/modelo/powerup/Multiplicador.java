@@ -6,7 +6,8 @@ public class Multiplicador extends PowerUpTp{
     int indiceMult;
 
     public Multiplicador(int indiceMult){
-        this.nombre = "MULTIPLICADOR";
+        String aux = String.valueOf(indiceMult);
+        this.nombre = "MULTIPLICADORX" + aux;
         this.indiceMult = indiceMult;
     }
 

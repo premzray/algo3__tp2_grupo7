@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.pregunta.*;
 import javafx.stage.Stage;
 

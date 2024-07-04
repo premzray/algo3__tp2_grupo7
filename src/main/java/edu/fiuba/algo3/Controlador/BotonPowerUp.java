@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.Controlador;
 
 import edu.fiuba.algo3.Vista.VistaPowerUp;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.exceptions.PowerUpInvalido;
 import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import javafx.event.ActionEvent;
@@ -24,13 +25,16 @@ public class BotonPowerUp implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        jugada.registrarPowerUp(vista.getPowerUp());
+
         try {
+            jugada.registrarPowerUp(vista.getPowerUp());
             controlador.avanzarJugada(jugada);
         } catch (FaltanRespuestasDeJugadoresException e) {
-            throw new RuntimeException(e);
+            controlador.responder(jugada);
         } catch (JugadorNoTienePowerUpABorrarException e) {
-            throw new RuntimeException(e);
+            controlador.elegirPowerUp(jugada);
+        } catch (PowerUpInvalido e) {
+            controlador.elegirPowerUp(jugada);
         }
 
     }

@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.TestTurno;
 
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.TurnoTp;
+import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import org.junit.Before;
@@ -33,7 +35,7 @@ public class TestTurno {
     }
 
     @Test
-    public void test01TurnoDondeNoSeJugoNingunPowerUpYAmbosSumanPuntos() {
+    public void test01TurnoDondeNoSeJugoNingunPowerUpYAmbosSumanPuntos() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
         turno.jugadas.add(jugada1);
         turno.jugadas.add(jugada2);
@@ -62,7 +64,7 @@ public class TestTurno {
     }
 
     @Test
-    public void test02TurnoDondeSeJuegaUnPowerUpYUnoSumaPuntos() {
+    public void test02TurnoDondeSeJuegaUnPowerUpYUnoSumaPuntos() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
         turno.jugadas.add(jugada1);
         turno.jugadas.add(jugada2);
@@ -90,7 +92,7 @@ public class TestTurno {
     }
 
     @Test
-    public void test03TurnoDondeSeJueganDosPowerUpsUnJugadorSumaYOtroResta() {
+    public void test03TurnoDondeSeJueganDosPowerUpsUnJugadorSumaYOtroResta() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         TurnoTp turno = new TurnoTp(new ArrayList<Jugador>());
         turno.jugadas.add(jugada1);
         turno.jugadas.add(jugada2);

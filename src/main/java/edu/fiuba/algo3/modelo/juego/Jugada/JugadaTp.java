@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.Jugada;
 
+import edu.fiuba.algo3.modelo.juego.Jugada.exceptions.PowerUpInvalido;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
@@ -7,7 +8,7 @@ import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 
-public class JugadaTp implements Jugada{
+public class JugadaTp implements Jugada {
     private final Jugador jugador;
     private PowerUp powerUp;
     private int puntaje;
@@ -55,20 +56,16 @@ public class JugadaTp implements Jugada{
     } //le comunica al jugador que ya uso ese powerUp para que lo elimine
 
     @Override
-    public void registrarRespuesta(Respuestas respuestaJugador){
-        try {
-            this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
-        } catch (RespuestaInvalidaException e) {
-            throw new RuntimeException(e); //Hay que decidir si se catchea aca o en el controlador
-        }
+    public void registrarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException {
+        this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
     } //settea lo elegido por el jugador
 
     @Override
-    public void registrarPowerUp(PowerUp powerUpJugador){
+    public void registrarPowerUp(PowerUp powerUpJugador) throws PowerUpInvalido {
         if(this.powerUpValido(powerUpJugador)) {
             this.powerUp = powerUpJugador;
         } else {
-            //excepcion
+            throw new PowerUpInvalido();
         }
     } //settea el powerup del jugador
 

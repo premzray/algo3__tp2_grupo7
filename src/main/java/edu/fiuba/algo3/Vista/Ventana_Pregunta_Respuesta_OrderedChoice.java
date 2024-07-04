@@ -2,7 +2,7 @@ package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,7 +16,6 @@ import javafx.geometry.Insets;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Ventana_Pregunta_Respuesta_OrderedChoice extends VistaPreguntaTp {
     @Override

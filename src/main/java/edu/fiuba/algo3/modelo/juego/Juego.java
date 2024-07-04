@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.juego.exceptions.NoHayJugadoresException;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.selectorPreguntas.ISelectorPreguntas;
-import edu.fiuba.algo3.modelo.juego.selectorPreguntas.SelectorPreguntas;
 import edu.fiuba.algo3.modelo.juego.turno.Turno;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
@@ -30,11 +30,12 @@ public class Juego{
     private void inicializarJugadores(ArrayList<String> nombres) throws NoHayJugadoresException {
         if(nombres.size()<=1){
             throw new NoHayJugadoresException();
-        }
-        Jugador jugadorNuevo;
-        for(String nombre: nombres){
-            jugadorNuevo = Jugador.conNombre(nombre);
-            jugadores.add(jugadorNuevo);
+        } else{
+            Jugador jugadorNuevo;
+            for(String nombre: nombres){
+                jugadorNuevo = Jugador.conNombre(nombre);
+                jugadores.add(jugadorNuevo);
+            }
         }
     } //PRIVADO inicializa los jugadores
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.TestPreguntas;
 
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestPreguntaTpVerdaderoFalso {
 
     @Test
-    public void Test01ClasicoRespondeBien(){
+    public void Test01ClasicoRespondeBien() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 1;
         Respuestas rCorrectas = new Respuestas();
@@ -43,7 +44,7 @@ public class TestPreguntaTpVerdaderoFalso {
     }
 
     @Test
-    public void Test02ClasicoRespondeMal(){
+    public void Test02ClasicoRespondeMal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 0;
         Respuestas rCorrectas = new Respuestas();
@@ -75,7 +76,7 @@ public class TestPreguntaTpVerdaderoFalso {
     }
 
     @Test
-    public void Test03PenalidadRespondeBien(){
+    public void Test03PenalidadRespondeBien() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 1;
         Respuestas rCorrectas = new Respuestas();
@@ -106,7 +107,7 @@ public class TestPreguntaTpVerdaderoFalso {
     }
 
     @Test
-    public void Test04PenalidadRespondeMal(){
+    public void Test04PenalidadRespondeMal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = -1;
         Respuestas rCorrectas = new Respuestas();

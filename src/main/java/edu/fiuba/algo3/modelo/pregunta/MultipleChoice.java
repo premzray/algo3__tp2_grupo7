@@ -11,7 +11,7 @@ public class MultipleChoice extends PreguntaTp {
 
     @Override
     public int puntuarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException {
-        if(respuestaJugador.esMayorQue(respuestasPosibles)){
+        if(respuestaJugador.esMayorQue(respuestasPosibles) || respuestaJugador.size()==0){
            throw new RespuestaInvalidaException();
         }
 

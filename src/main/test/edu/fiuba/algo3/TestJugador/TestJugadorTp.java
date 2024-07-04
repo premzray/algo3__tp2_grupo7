@@ -2,6 +2,7 @@ package edu.fiuba.algo3.TestJugador;
 
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.jugador.JugadorTp;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.powerup.*;
 import org.junit.jupiter.api.Test;
 
@@ -126,7 +127,7 @@ public class TestJugadorTp {
     }
 
     @Test
-    public void test10JugadorUsaMultiplicadorX2(){
+    public void test10JugadorUsaMultiplicadorX2() throws JugadorNoTienePowerUpABorrarException {
         boolean resultadoEsperado = true;
         boolean resultadoDado = true;
         ArrayList<PowerUp> powerUpsEsperados = new ArrayList<PowerUp>();
@@ -140,6 +141,7 @@ public class TestJugadorTp {
 
         jugador.usastePowerUp(powerUpUsado);
 
+
         for(int i=0; i<=powerUpsEsperados.size()-1; i++){
             if(!powerUpsEsperados.get(i).equals(jugador.getPowerUps().get(i))){
                 resultadoDado  = false;
@@ -151,7 +153,7 @@ public class TestJugadorTp {
     }
 
     @Test
-    public void test11JugadorUsaMultiplicadorX3(){
+    public void test11JugadorUsaMultiplicadorX3() throws JugadorNoTienePowerUpABorrarException {
         boolean resultadoEsperado = true;
         boolean resultadoDado = true;
         ArrayList<PowerUp> powerUpsEsperados = new ArrayList<PowerUp>();
@@ -175,7 +177,7 @@ public class TestJugadorTp {
     }
 
     @Test
-    public void test12JugadorUsaExclusividad(){
+    public void test12JugadorUsaExclusividad() throws JugadorNoTienePowerUpABorrarException {
         boolean resultadoEsperado = true;
         boolean resultadoDado = true;
         ArrayList<PowerUp> powerUpsEsperados = new ArrayList<PowerUp>();
@@ -199,7 +201,7 @@ public class TestJugadorTp {
     }
 
     @Test
-    public void test13JugadorUsaAnulador(){
+    public void test13JugadorUsaAnulador() throws JugadorNoTienePowerUpABorrarException {
         boolean resultadoEsperado = true;
         boolean resultadoDado = true;
         ArrayList<PowerUp> powerUpsEsperados = new ArrayList<PowerUp>();

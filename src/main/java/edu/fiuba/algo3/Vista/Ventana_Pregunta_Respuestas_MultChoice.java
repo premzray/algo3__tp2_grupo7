@@ -2,7 +2,7 @@ package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonResponder;
 import edu.fiuba.algo3.Controlador.ControladorTurnos;
-import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.Jugada.Jugada;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.TestPreguntas;
 
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 import edu.fiuba.algo3.modelo.pregunta.puntaje.TipoPuntaje;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPreguntaTpOrderedChoice {
     @Test
-    public void test01ClasicoRespondeBien(){
+    public void test01ClasicoRespondeBien() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 1;
         Respuestas rJugador = new Respuestas();
@@ -54,7 +55,7 @@ public class TestPreguntaTpOrderedChoice {
     }
 
     @Test
-    public void test02ClasicoRespondeMal(){
+    public void test02ClasicoRespondeMal() throws RespuestaInvalidaException {
 
         int puntajeEsperado = 0;
         Respuestas rJugador = new Respuestas();
