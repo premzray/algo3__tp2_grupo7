@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.juego.turno;
 
 import edu.fiuba.algo3.modelo.juego.Jugada;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
@@ -73,7 +74,7 @@ public class TurnoTp implements Turno{
         return puntosActualizados;
     }// efectua los power ups y devuelve una lista de los puntos actualizados
 
-    private void efectuarJugadas(){
+    private void efectuarJugadas() throws JugadorNoTienePowerUpABorrarException {
         ArrayList<Integer> puntos = efectuarPowerUps();
         int i = 0;
         for (Jugada jugada : jugadas){
@@ -85,7 +86,7 @@ public class TurnoTp implements Turno{
     }//elimina el powerUp de sus jugadores para que no puedan volver a usarlos y se encarga de otorgar los puntos finales a cada jugador
 
     @Override
-    public void jugarTurno() throws FaltanRespuestasDeJugadoresException {
+    public void jugarTurno() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         if(hayProximaJugada()){
             throw new FaltanRespuestasDeJugadoresException();
         }

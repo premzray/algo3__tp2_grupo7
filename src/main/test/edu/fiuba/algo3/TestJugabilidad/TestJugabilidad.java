@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
 import edu.fiuba.algo3.modelo.juego.*;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.turno.Turno;
+import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import org.junit.Test;
@@ -57,7 +58,7 @@ public class TestJugabilidad {
    }
 
     @Test
-    public void test01JuegoRapidoDuraTresTurnosYGanaJugador1(){
+    public void test01JuegoRapidoDuraTresTurnosYGanaJugador1() throws FaltanRespuestasDeJugadoresException {
         Juego juego = new Juego();
         ArrayList<Jugador> ordenDeVictoria = new ArrayList<Jugador>();
         ordenDeVictoria.add(jugador1Mock);
@@ -83,7 +84,7 @@ public class TestJugabilidad {
     }
 
     @Test
-    public void test02JuegoRapidoDura7TurnosYGanaJugador3(){
+    public void test02JuegoRapidoDura7TurnosYGanaJugador3() throws FaltanRespuestasDeJugadoresException {
         Juego juego = new Juego();
         jugadores.add(jugador3Mock);
         jugadores.add(jugador4Mock);

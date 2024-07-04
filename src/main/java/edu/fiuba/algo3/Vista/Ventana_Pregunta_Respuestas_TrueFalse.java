@@ -94,7 +94,9 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
         hboxBotones.setAlignment(Pos.CENTER);
 
         VBox vbox = new VBox(20);
-        vbox.getChildren().addAll(titulo_l, hboxBotones, responder_b);
+        VBox vBoxTitulo = new VBox(10);
+        vBoxTitulo.getChildren().add(titulo_l);
+        vbox.getChildren().addAll(vBoxTitulo, hboxBotones, responder_b);
 
         // Fondo de color
         Pane root = new Pane();

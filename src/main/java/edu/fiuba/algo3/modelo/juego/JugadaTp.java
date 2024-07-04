@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
@@ -49,7 +50,7 @@ public class JugadaTp implements Jugada{
     } //valida que el jugador tenga el powerUp y que la pregunta lo admita
 
     @Override
-    public void seUsoPowerUp(){
+    public void seUsoPowerUp() throws JugadorNoTienePowerUpABorrarException {
         this.jugador.usastePowerUp(this.powerUp);
     } //le comunica al jugador que ya uso ese powerUp para que lo elimine
 

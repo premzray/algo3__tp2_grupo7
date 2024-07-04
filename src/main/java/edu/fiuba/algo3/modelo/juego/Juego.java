@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.juego;
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
 import edu.fiuba.algo3.modelo.juego.exceptions.NoHayJugadoresException;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
+import edu.fiuba.algo3.modelo.juego.selectorPreguntas.ISelectorPreguntas;
 import edu.fiuba.algo3.modelo.juego.selectorPreguntas.SelectorPreguntas;
 import edu.fiuba.algo3.modelo.juego.turno.Turno;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
@@ -18,7 +20,7 @@ public class Juego{
     int limitePreguntas;
     int limitePuntos;
     public GeneradorPreguntas generadorPreguntas;
-    public SelectorPreguntas selectorPreguntas;
+    public ISelectorPreguntas selectorPreguntas;
 
     private void configurarLimites(int limitePreguntas, int limitePuntos){
         this.limitePreguntas = limitePreguntas;
@@ -44,6 +46,7 @@ public class Juego{
     private void ordenarPreguntas(){
         this.preguntas = selectorPreguntas.OrdenarPreguntas(this.preguntas);
     }
+
     private boolean pasarsePuntos(){
         for(Jugador jugador : jugadores){
             if(jugador.puntajeEsMayor(limitePuntos)){
@@ -63,7 +66,7 @@ public class Juego{
 
     public void inicializarPreguntas(){
         this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/generadorPregunta/preguntas.json");
-
+        this.preguntas = this.selectorPreguntas.OrdenarPreguntas(this.preguntas);
     } //inicializa las preguntas con el generador
 
     public boolean fin(){
@@ -90,9 +93,11 @@ public class Juego{
 
     public void setTurnoConvencional(ArrayList<String> nombres) throws NoHayJugadoresException {
         setGeneradorPreguntas(GeneradorPreguntas.crear());
+        this.selectorPreguntas = ISelectorPreguntas.crear();
         this.inicializarJugadores(nombres);
         this.turno = Turno.conJugadores(jugadores);
         this.inicializarPreguntas();
+        this.cantidadTurnos = 0;
     } //settea lo convencional y crea las jugadas
 
     public void prepararTurno(){
@@ -104,8 +109,9 @@ public class Juego{
         return turno.jugadas();
     } //devuelve la lista de jugadas
 
-    public void finDeTurno() throws FaltanRespuestasDeJugadoresException {
+    public void finDeTurno() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         turno.jugarTurno();
         this.preguntas.remove(0);
+        this.cantidadTurnos++;
     }
 }

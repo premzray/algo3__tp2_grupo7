@@ -46,6 +46,7 @@ public class VistaSettingJugadores {
         TextField textField = new TextField();
         textField.setStyle("-fx-background-color: #EDD3C4; -fx-text-fill: black;");
         listViewJugadores.setStyle("-fx-background-color: #EDD3C4; -fx-text-fill: black;");
+        listViewJugadores.setMaxSize(500, 300);
         Button btnIngresar = new Button("Ingresar");
         Button btnComenzar = new Button("Comenzar");
 
@@ -87,7 +88,7 @@ public class VistaSettingJugadores {
         // Crear un contenedor con un fondo más claro que el fondo principal
         VBox container = new VBox();
         container.setPadding(new Insets(20));
-        container.setMinWidth(700);
+        container.setMaxSize(700, 800);
         container.setBackground(new Background(new BackgroundFill(Color.web("#40b3ab"), new CornerRadii(10), Insets.EMPTY)));
         container.setBorder(new Border(new BorderStroke(Color.web("#42a8a1"), BorderStrokeStyle.SOLID, new CornerRadii(10), new BorderWidths(2))));
         container.setAlignment(Pos.CENTER);
@@ -104,11 +105,11 @@ public class VistaSettingJugadores {
             container.setLayoutY((mainRoot.getHeight() - newBounds.getHeight()) / 2);
         });
 
-        Scene scene = new Scene(mainRoot, 1000, 1000);
+        Scene scene = new Scene(mainRoot, 600, 600);
 
         // Establecer tamaño mínimo del Stage
-        stage.setMinWidth(1000);
-        stage.setMinHeight(1000);
+        stage.setMinWidth(400);
+        stage.setMinHeight(400);
         stage.setTitle("Configuración de Jugadores");
         stage.setScene(scene);
         stage.show();

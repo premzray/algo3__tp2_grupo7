@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.List;
 
-public class SelectorPreguntas implements ISelectorPreguntos{
+public class SelectorPreguntas implements ISelectorPreguntas {
     @Override
     public List<Pregunta> OrdenarPreguntas(List<Pregunta> preguntas) {
         Collections.shuffle(preguntas);

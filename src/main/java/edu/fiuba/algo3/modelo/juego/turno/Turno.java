@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.juego.turno;
 
 import edu.fiuba.algo3.modelo.juego.Jugada;
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
@@ -15,7 +16,7 @@ public interface Turno {
 
     public void actualizarTurno(Pregunta pregunta);
 
-    public void jugarTurno() throws FaltanRespuestasDeJugadoresException;
+    public void jugarTurno() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException;
 
     public ArrayList<Jugada> jugadas();
 

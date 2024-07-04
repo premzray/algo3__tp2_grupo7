@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
@@ -20,7 +21,7 @@ public interface Jugada  {
 
     public PowerUp getPowerUp();
 
-    public void seUsoPowerUp();
+    public void seUsoPowerUp() throws JugadorNoTienePowerUpABorrarException;
 
     public void registrarRespuesta(Respuestas respuestaJugador);
 

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.Vista.VistaPowerUp;
 import edu.fiuba.algo3.Vista.VistaPregunta;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import javafx.stage.Stage;
 
@@ -53,8 +54,10 @@ public class ControladorTurnos {
     public void finalizarTurno(){
         try {
             juego.finDeTurno();
+        } catch (JugadorNoTienePowerUpABorrarException e) {
+            throw new RuntimeException(e);
         } catch (FaltanRespuestasDeJugadoresException e) {
-            //Hay que poner algo aca
+            throw new RuntimeException(e);
         }
     }
 }

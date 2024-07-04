@@ -37,7 +37,9 @@ public class VistaPowerUp extends Shapes {
         ArrayList<String> powerUpDisponibles = new ArrayList<String>();
 
         for (PowerUp powerUp: powerUpsJugador){
-            powerUpDisponibles.add(powerUp.getNombre());
+            if (jugada.getPregunta().powerUpValido(powerUp)){
+                powerUpDisponibles.add(powerUp.getNombre());
+            }
         }
         powerUpDisponibles.add("NO USAR POWER UP");
 
@@ -74,7 +76,7 @@ public class VistaPowerUp extends Shapes {
         for (int i = 0; i < powerUpDisponibles.size(); i++) {
             Button button = new Button(powerUpDisponibles.get(i));
             BotonPowerUp botonPowerUp = new BotonPowerUp(button, this, jugada, controladorTurnos);
-            EventHandler<ActionEvent> settearPowerUp = e -> settearPowerUp(powerUpDisponibles.indexOf(button.getText()), powerUpsJugador);
+            EventHandler<ActionEvent> settearPowerUp = e -> settearPowerUp(button.getText(), powerUpsJugador);
             EventHandlerCompuesto eventHandlerCompuesto = new EventHandlerCompuesto(settearPowerUp, botonPowerUp);
 
             button.setOnAction(eventHandlerCompuesto);
@@ -129,11 +131,11 @@ public class VistaPowerUp extends Shapes {
         stage.heightProperty().addListener((obs, oldVal, newVal) -> vbox.setLayoutY((root.getHeight() - vbox.getHeight()) / 2));
     }
 
-    private void settearPowerUp(int i, ArrayList<PowerUp> powerUps) {
-        if(i>powerUps.size()){
+    private void settearPowerUp(String tipoPowerUp, ArrayList<PowerUp> powerUps) {
+        if(tipoPowerUp.equals("NO USAR POWER UP")){
             this.powerUp = PowerUp.deTipo("BASE");
         } else {
-            this.powerUp = powerUps.get(i);
+            this.powerUp = PowerUp.deTipo(tipoPowerUp);
         }
     }
 
