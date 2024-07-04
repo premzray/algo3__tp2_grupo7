@@ -9,12 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -28,7 +23,7 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
         Label titulo_l = new Label(jugada.getPregunta().getEnunciado());
 
         // Cargar fuente desde archivo .ttf
-        Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
+        Font neonFont = Font.loadFont(getClass().getResourceAsStream("src/main/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
 
         // Título con efecto neón rosa
         titulo_l.setStyle("-fx-text-fill: black;-fx-font-weight: bold;");
@@ -75,6 +70,10 @@ public class Ventana_Pregunta_Respuestas_MultChoice extends VistaPreguntaTp{
         HboxD.setAlignment(Pos.CENTER);
         vboxC.setAlignment(Pos.CENTER);
         vbox.setAlignment(Pos.CENTER);
+
+        titulo_l.setMaxWidth(1000);
+        titulo_l.setWrapText(true);
+
         vbox.getChildren().addAll(titulo_l, vboxC, responder_b);
 
         // Estilo para los botones

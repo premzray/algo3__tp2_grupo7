@@ -22,6 +22,14 @@ public class Respuestas {
         this.respuestas.addAll(r);
     }
 
+    public void set(String r, int i){
+        this.respuestas.set(i, r);
+    }
+
+    public void add(String r, int i){
+        this.respuestas.add(i, r);
+    }
+
     public int size(){ return this.respuestas.size();}
 
     public boolean equalSize(Respuestas r) { return (this.size() == r.size());}

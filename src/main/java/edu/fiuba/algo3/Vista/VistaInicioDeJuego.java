@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controlador.BotonModo;
+import edu.fiuba.algo3.Controlador.EventHandlerCompuesto;
 import edu.fiuba.algo3.Controlador.InicializadorControlador;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -19,6 +22,16 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 
 public class VistaInicioDeJuego extends Shapes{
+
+    public String modo;
+
+    public String getModo() {
+        return modo;
+    }
+
+    public void setModo(String modo) {
+        this.modo = modo;
+    }
 
     public void start(Stage stage, InicializadorControlador controlador) {
         stage.setTitle("ALGOKAHOOT");
@@ -63,11 +76,16 @@ public class VistaInicioDeJuego extends Shapes{
 
         cerrar_b.setOnAction(e -> stage.close());
 
-        BotonModo botonModoIntensivo = new BotonModo(PartidaIntensiva, controlador);
-        BotonModo botonModoRapido = new BotonModo(PartidaRapida, controlador);
+        BotonModo botonModoIntensivo = new BotonModo(PartidaIntensiva, controlador, this);
+        BotonModo botonModoRapido = new BotonModo(PartidaRapida, controlador, this);
+        EventHandler<ActionEvent> settearModoRapido = e -> setModo("RAPIDO");
+        EventHandler<ActionEvent> settearModoIntensivo = e -> setModo("INTENSIVO");
 
-        PartidaIntensiva.setOnAction(botonModoIntensivo);
-        PartidaRapida.setOnAction(botonModoRapido);
+        EventHandlerCompuesto eventHandlerCompuestoIntensivo = new EventHandlerCompuesto(settearModoIntensivo, botonModoIntensivo);
+        EventHandlerCompuesto eventHandlerCompuestoRapido = new EventHandlerCompuesto(settearModoRapido, botonModoRapido);
+
+        PartidaIntensiva.setOnAction(eventHandlerCompuestoIntensivo);
+        PartidaRapida.setOnAction(eventHandlerCompuestoRapido);
 
         // Estilo para los botones según .button-54 con el nuevo color de relleno
         String buttonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +

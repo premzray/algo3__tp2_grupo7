@@ -44,10 +44,19 @@ public class JugadorTp implements Jugador {
 
     @Override
     public void usastePowerUp(PowerUp powerUpUsado) throws JugadorNoTienePowerUpABorrarException {
-       if(!powerUps.contains(powerUpUsado)){
-           throw new JugadorNoTienePowerUpABorrarException();
-       }
-       powerUps.remove(powerUpUsado);
+        boolean borro = false;
+        int i = 0;
+        if(!powerUpUsado.esBase()) {
+            while (!borro){
+                if (i>powerUps.size()) throw new JugadorNoTienePowerUpABorrarException();
+
+                if (powerUps.get(i).equals(powerUpUsado)){
+                    powerUps.remove(powerUps.get(i));
+                    borro = true;
+                }
+                i++;
+            }
+        }
     } //elimina un powerUp por usarlo
 
     @Override

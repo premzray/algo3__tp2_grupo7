@@ -21,7 +21,7 @@ public class ControladorTurnos {
     }
 
     public void jugarTurno(){
-        if(juego.fin()){
+        if(!juego.fin()){
             VistaFinDeJuego vistaFinDeJuego = new VistaFinDeJuego();
             vistaFinDeJuego.start(stage, juego.ordenDeJugadores());
         } else{
@@ -40,24 +40,15 @@ public class ControladorTurnos {
         vistaPowerUp.start(stage, jugada, this);
     }
 
-    public void avanzarJugada(Jugada jugada) {
+    public void avanzarJugada(Jugada jugada) throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         jugada.seJugo();
         if(juego.hayProximaJugada()) {
             Jugada jugadaNueva = juego.getSiguienteJugada();
             responder(jugadaNueva);
         } else{
+            juego.finDeTurno();
             FinDeRonda finDeRonda = new FinDeRonda();
             finDeRonda.start(stage, this, juego.jugadas());
-        }
-    }
-
-    public void finalizarTurno(){
-        try {
-            juego.finDeTurno();
-        } catch (JugadorNoTienePowerUpABorrarException e) {
-            throw new RuntimeException(e);
-        } catch (FaltanRespuestasDeJugadoresException e) {
-            throw new RuntimeException(e);
         }
     }
 }

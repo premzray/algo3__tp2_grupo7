@@ -27,7 +27,8 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
 
         // Cargar fuente desde archivo .ttf
         Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
-
+        titulo_l.setMaxWidth(1000);
+        titulo_l.setWrapText(true);
         // Título con efecto neón rosa
         titulo_l.setStyle("-fx-text-fill: black;-fx-font-weight: bold;");
         if (neonFont != null) {
@@ -94,9 +95,7 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp{
         hboxBotones.setAlignment(Pos.CENTER);
 
         VBox vbox = new VBox(20);
-        VBox vBoxTitulo = new VBox(10);
-        vBoxTitulo.getChildren().add(titulo_l);
-        vbox.getChildren().addAll(vBoxTitulo, hboxBotones, responder_b);
+        vbox.getChildren().addAll(titulo_l, hboxBotones, responder_b);
 
         // Fondo de color
         Pane root = new Pane();

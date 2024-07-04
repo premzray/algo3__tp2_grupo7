@@ -35,7 +35,8 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
         //esto no esta funcionndo
         // Cargar fuente desde archivo .ttf
         Font neonFont = Font.loadFont(getClass().getResourceAsStream("/fonts/lasenter/LasEnter_PersonalUseOnly.ttf"), 32);
-
+        titulo_l.setMaxWidth(1000);
+        titulo_l.setWrapText(true);
         // Título con efecto neón rosa
         titulo_l.setStyle("-fx-text-fill: black;-fx-font-weight: bold;");
         if (neonFont != null) {

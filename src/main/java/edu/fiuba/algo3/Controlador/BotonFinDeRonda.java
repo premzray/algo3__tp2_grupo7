@@ -16,7 +16,6 @@ public class BotonFinDeRonda implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        controlador.finalizarTurno();
         controlador.jugarTurno();
     }
 }

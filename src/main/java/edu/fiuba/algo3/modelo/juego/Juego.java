@@ -66,11 +66,11 @@ public class Juego{
 
     public void inicializarPreguntas(){
         this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/generadorPregunta/preguntas.json");
-        this.preguntas = this.selectorPreguntas.OrdenarPreguntas(this.preguntas);
+        //this.preguntas = this.selectorPreguntas.OrdenarPreguntas(this.preguntas);
     } //inicializa las preguntas con el generador
 
     public boolean fin(){
-        return (!preguntas.isEmpty() && cantidadTurnos <= this.limitePreguntas && this.pasarsePuntos());
+        return (!preguntas.isEmpty() && cantidadTurnos <= this.limitePreguntas && !this.pasarsePuntos());
     } //evalua si el juego puede continuar otro turno
 
     public Pregunta preguntaActual(){
