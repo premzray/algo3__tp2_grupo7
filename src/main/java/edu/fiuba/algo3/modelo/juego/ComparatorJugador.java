@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+
 import java.util.Comparator;
 
 public class ComparatorJugador implements Comparator<Jugador> {

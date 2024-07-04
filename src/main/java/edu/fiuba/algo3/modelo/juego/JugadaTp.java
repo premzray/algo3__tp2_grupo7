@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.pregunta.Respuestas;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
 
 public class JugadaTp implements Jugada{
     private final Jugador jugador;
@@ -53,7 +55,11 @@ public class JugadaTp implements Jugada{
 
     @Override
     public void registrarRespuesta(Respuestas respuestaJugador){
-        this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
+        try {
+            this.puntaje = this.pregunta.puntuarRespuesta(respuestaJugador);
+        } catch (RespuestaInvalidaException e) {
+            throw new RuntimeException(e); //Hay que decidir si se catchea aca o en el controlador
+        }
     } //settea lo elegido por el jugador
 
     @Override

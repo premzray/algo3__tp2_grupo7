@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.juego.turno;
 
 import edu.fiuba.algo3.modelo.juego.Jugada;
-import edu.fiuba.algo3.modelo.juego.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
