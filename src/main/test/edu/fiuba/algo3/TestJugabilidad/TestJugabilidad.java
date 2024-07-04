@@ -81,7 +81,7 @@ public class TestJugabilidad {
 
         juego.prepararTurno();
         try {
-            juego.finDeTurno();
+            juego.finDeTurno(pregunta1);
         } catch (JugadorNoTienePowerUpABorrarException e) {
             throw new RuntimeException(e);
         }
@@ -117,7 +117,7 @@ public class TestJugabilidad {
 
         juego.prepararTurno();
         try {
-            juego.finDeTurno();
+            juego.finDeTurno(pregunta1);
         } catch (JugadorNoTienePowerUpABorrarException e) {
             throw new RuntimeException(e);
         }

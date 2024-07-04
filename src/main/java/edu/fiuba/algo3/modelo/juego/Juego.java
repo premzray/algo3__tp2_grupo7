@@ -44,8 +44,8 @@ public class Juego{
     } //PRIVADO configura el generadordepreg
 
 
-    private void ordenarPreguntas(){
-        this.preguntas = selectorPreguntas.OrdenarPreguntas(this.preguntas);
+    private Pregunta elegirPregunta(){
+        return selectorPreguntas.obtenerPregunta(this.preguntas);
     }
 
     private boolean pasarsePuntos(){
@@ -67,7 +67,7 @@ public class Juego{
 
     public void inicializarPreguntas(){
         this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/generadorPregunta/preguntas.json");
-        //this.preguntas = this.selectorPreguntas.OrdenarPreguntas(this.preguntas);
+        Collections.shuffle(preguntas);
     } //inicializa las preguntas con el generador
 
     public boolean fin(){
@@ -102,7 +102,7 @@ public class Juego{
     } //settea lo convencional y crea las jugadas
 
     public void prepararTurno(){
-        Pregunta pregunta = preguntas.get(0);
+        Pregunta pregunta = this.elegirPregunta();
         turno.actualizarTurno(pregunta);
     } //actualiza la pregunta y las jugadas
 
@@ -110,9 +110,9 @@ public class Juego{
         return turno.jugadas();
     } //devuelve la lista de jugadas
 
-    public void finDeTurno() throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
+    public void finDeTurno(Pregunta preguntaActual) throws FaltanRespuestasDeJugadoresException, JugadorNoTienePowerUpABorrarException {
         turno.jugarTurno();
-        this.preguntas.remove(0);
+        this.preguntas.remove(preguntaActual);
         this.cantidadTurnos++;
     }
 }

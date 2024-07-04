@@ -10,5 +10,5 @@ public interface ISelectorPreguntas {
         return new SelectorPreguntas();
     }
 
-    List<Pregunta> OrdenarPreguntas(List<Pregunta> preguntas);
+    public Pregunta obtenerPregunta(List<Pregunta> preguntas);
 }

@@ -8,25 +8,30 @@ import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 import java.util.List;
 
 public class SelectorPreguntas implements ISelectorPreguntas {
-    @Override
-    public List<Pregunta> OrdenarPreguntas(List<Pregunta> preguntas) {
-        Collections.shuffle(preguntas);
-        Pregunta pregunta;
-        Pregunta preguntaAnterior;
-        for (int i = 1; i < preguntas.size(); i++) {
-            pregunta = preguntas.get(i);
-            preguntaAnterior = preguntas.get(i - 1);
-            if(pregunta.tematica().equals(preguntaAnterior.tematica())){
-                int j = i + 1;
-                boolean corte = false;
-                while(j < preguntas.size()|| corte ){
-                    if (!preguntas.get(j).tematica().equals(pregunta.tematica())){
-                        corte = true;
-                        Collections.swap(preguntas, i, j);
-                    }
-                }
+    private String ultimaTematicaLanzada;
+
+    public SelectorPreguntas(){
+        ultimaTematicaLanzada = null;
+    }
+
+    public Pregunta obtenerPregunta(List<Pregunta> preguntas) {
+        if(ultimaTematicaLanzada == null){
+            Pregunta primerPregunta = preguntas.get(0);
+            ultimaTematicaLanzada = primerPregunta.tematica();
+            return primerPregunta;
+        }
+
+        int i = 0;
+        Pregunta iterador = preguntas.get(0);
+        while (ultimaTematicaLanzada.equals(iterador.tematica())) {
+            i++;
+            iterador = preguntas.get(i);
+            if(i>preguntas.size()){
+                return preguntas.get(0);
             }
         }
-        return preguntas;
+
+        ultimaTematicaLanzada = iterador.tematica();
+        return iterador;
     }
 }

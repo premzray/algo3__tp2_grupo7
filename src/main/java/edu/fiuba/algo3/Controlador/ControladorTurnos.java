@@ -46,7 +46,7 @@ public class ControladorTurnos {
             Jugada jugadaNueva = juego.getSiguienteJugada();
             responder(jugadaNueva);
         } else{
-            juego.finDeTurno();
+            juego.finDeTurno(jugada.getPregunta());
             FinDeRonda finDeRonda = new FinDeRonda();
             finDeRonda.start(stage, this, juego.jugadas());
         }
