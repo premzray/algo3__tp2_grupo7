@@ -1,6 +1,11 @@
 package edu.fiuba.algo3.modelo.juego;
 
 import edu.fiuba.algo3.modelo.generadorPregunta.GeneradorPreguntas;
+import edu.fiuba.algo3.modelo.juego.exceptions.NoHayJugadoresException;
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.selectorPreguntas.SelectorPreguntas;
+import edu.fiuba.algo3.modelo.juego.turno.Turno;
+import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.*;
@@ -13,15 +18,16 @@ public class Juego{
     int limitePreguntas;
     int limitePuntos;
     public GeneradorPreguntas generadorPreguntas;
+    public SelectorPreguntas selectorPreguntas;
 
     private void configurarLimites(int limitePreguntas, int limitePuntos){
         this.limitePreguntas = limitePreguntas;
         this.limitePuntos = limitePuntos;
     } //PRIVADO configura los limites del juego
 
-    private void inicializarJugadores(ArrayList<String> nombres){
+    private void inicializarJugadores(ArrayList<String> nombres) throws NoHayJugadoresException {
         if(nombres.size()<=1){
-            //excepcion
+            throw new NoHayJugadoresException();
         }
         Jugador jugadorNuevo;
         for(String nombre: nombres){
@@ -34,6 +40,10 @@ public class Juego{
         this.generadorPreguntas = generadorPreguntas;
     } //PRIVADO configura el generadordepreg
 
+
+    private void ordenarPreguntas(){
+        this.preguntas = selectorPreguntas.OrdenarPreguntas(this.preguntas);
+    }
     private boolean pasarsePuntos(){
         for(Jugador jugador : jugadores){
             if(jugador.puntajeEsMayor(limitePuntos)){
@@ -53,6 +63,7 @@ public class Juego{
 
     public void inicializarPreguntas(){
         this.preguntas = generadorPreguntas.generarPreguntas("src/main/java/edu/fiuba/algo3/modelo/generadorPregunta/preguntas.json");
+
     } //inicializa las preguntas con el generador
 
     public boolean fin(){
@@ -77,7 +88,7 @@ public class Juego{
         return turno.getSiguienteJugada();
     } //obtiene la siguiente jugada que no se haya hecho
 
-    public void setTurnoConvencional(ArrayList<String> nombres){
+    public void setTurnoConvencional(ArrayList<String> nombres) throws NoHayJugadoresException {
         setGeneradorPreguntas(GeneradorPreguntas.crear());
         this.inicializarJugadores(nombres);
         this.turno = Turno.conJugadores(jugadores);
@@ -93,7 +104,7 @@ public class Juego{
         return turno.jugadas();
     } //devuelve la lista de jugadas
 
-    public void finDeTurno(){
+    public void finDeTurno() throws FaltanRespuestasDeJugadoresException {
         turno.jugarTurno();
         this.preguntas.remove(0);
     }

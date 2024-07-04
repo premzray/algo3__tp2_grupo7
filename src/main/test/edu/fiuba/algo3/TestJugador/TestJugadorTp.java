@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.TestJugador;
 
-import edu.fiuba.algo3.modelo.juego.Jugador;
-import edu.fiuba.algo3.modelo.juego.JugadorTp;
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.jugador.JugadorTp;
 import edu.fiuba.algo3.modelo.powerup.*;
 import org.junit.jupiter.api.Test;
 

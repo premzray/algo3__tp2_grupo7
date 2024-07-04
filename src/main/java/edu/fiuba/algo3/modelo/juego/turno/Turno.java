@@ -1,5 +1,8 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.turno;
 
+import edu.fiuba.algo3.modelo.juego.Jugada;
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
+import edu.fiuba.algo3.modelo.juego.turno.exceptions.FaltanRespuestasDeJugadoresException;
 import edu.fiuba.algo3.modelo.pregunta.Pregunta;
 
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public interface Turno {
 
     public void actualizarTurno(Pregunta pregunta);
 
-    public void jugarTurno();
+    public void jugarTurno() throws FaltanRespuestasDeJugadoresException;
 
     public ArrayList<Jugada> jugadas();
 

@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.jugador;
 
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 
 import java.util.ArrayList;
@@ -42,18 +43,11 @@ public class JugadorTp implements Jugador {
     }
 
     @Override
-    public void usastePowerUp(PowerUp powerUpUsado){
-        boolean Borro = true;
-        int i=0;
-        if(!powerUpUsado.esBase()){
-            while (Borro) {
-                if (powerUps.get(i).equals(powerUpUsado)) {
-                    powerUps.remove(powerUps.get(i));
-                    Borro = false;
-                }
-                i++;
-            }
-        }
+    public void usastePowerUp(PowerUp powerUpUsado) throws JugadorNoTienePowerUpABorrarException {
+       if(!powerUps.contains(powerUpUsado)){
+           throw new JugadorNoTienePowerUpABorrarException();
+       }
+       powerUps.remove(powerUpUsado);
     } //elimina un powerUp por usarlo
 
     @Override

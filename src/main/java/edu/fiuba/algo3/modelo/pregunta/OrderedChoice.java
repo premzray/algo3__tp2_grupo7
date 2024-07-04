@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.pregunta;
 
+import edu.fiuba.algo3.modelo.pregunta.exception.RespuestaInvalidaException;
+
 public class OrderedChoice extends PreguntaTp {
 
 
@@ -9,9 +11,9 @@ public class OrderedChoice extends PreguntaTp {
     }
 
     @Override
-    public int puntuarRespuesta(Respuestas respuestaJugador) {
+    public int puntuarRespuesta(Respuestas respuestaJugador) throws RespuestaInvalidaException {
         if(!respuestaJugador.equalSize(respuestaCorrecta)){
-            //exepcion
+            throw new RespuestaInvalidaException();
         }
 
         return tipoPuntaje.puntuar(respuestaJugador.cuantasIguales(respuestaCorrecta), respuestaJugador.cuantasDiferentes(respuestaCorrecta), respuestaCorrecta.size());

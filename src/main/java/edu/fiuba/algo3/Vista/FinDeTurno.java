@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.Vista;
 
-import edu.fiuba.algo3.modelo.juego.Jugador;
-import javafx.application.Application;
+import edu.fiuba.algo3.modelo.juego.jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;

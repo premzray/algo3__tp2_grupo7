@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.juego;
+package edu.fiuba.algo3.modelo.juego.jugador;
 
+import edu.fiuba.algo3.modelo.juego.jugador.exceptions.JugadorNoTienePowerUpABorrarException;
 import edu.fiuba.algo3.modelo.powerup.PowerUp;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public interface Jugador {
 
     public String getName();
 
-    public void usastePowerUp(PowerUp powerUpUsado);
+    public void usastePowerUp(PowerUp powerUpUsado) throws JugadorNoTienePowerUpABorrarException;
 
     public boolean tenesPowerUp(PowerUp powerUpAValidar);
 
