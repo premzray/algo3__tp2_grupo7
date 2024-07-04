@@ -129,7 +129,7 @@ public class Ventana_Pregunta_Respuestas_Group extends VistaPreguntaTp{
         stage.setScene(escena);
         stage.setMinWidth(1350);
         stage.setMinHeight(700);
-        stage.setTitle("Respuesta Jugador");
+        stage.setTitle("Respuesta " + jugada.getJugador().getName());
         stage.show();
 
         // Añadir formas aleatorias al fondo

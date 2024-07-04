@@ -117,7 +117,7 @@ public class Ventana_Pregunta_Respuestas_TrueFalse extends VistaPreguntaTp {
         stage.setMinHeight(700);
         vbox.setAlignment(Pos.CENTER);
         stage.setScene(escena);
-        stage.setTitle("Respuesta Jugador");
+        stage.setTitle("Respuesta " + jugada.getJugador().getName());
         stage.show();
 
         // Añadir formas aleatorias al fondo

@@ -74,6 +74,7 @@ public class Ventana_Pregunta_Respuesta_OrderedChoice extends VistaPreguntaTp {
         // Botón para enviar respuestas
         Button enviarButton = new Button("RESPONDER");
         enviarButton.setOnAction(new BotonResponder(enviarButton, this, jugada, controladorTurnos));
+        stage.setTitle("Respuesta " + jugada.getJugador().getName());
 
         // Estilo para los botones según el estilo de VistaInicioDeJuego
         String buttonStyle = "-fx-font-family: 'Open Sans', sans-serif;" +
